@@ -22,7 +22,7 @@
 		9A9132747BD065106FD09FA9 /* Pods-MSS-SDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSS-SDK.debug.xcconfig"; path = "Target Support Files/Pods-MSS-SDK/Pods-MSS-SDK.debug.xcconfig"; sourceTree = "<group>"; };
 		A86B07BC2527630F00386A84 /* MSS_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSS_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86B07BF2527630F00386A84 /* MSS_SDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSS_SDK.h; sourceTree = "<group>"; };
-		A86B07C02527630F00386A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A86B07C02527630F00386A84 /* MssInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MssInfo.plist; sourceTree = "<group>"; };
 		A8861F422527860F00590D12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8861F452527863B00590D12 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		A8861F472527865100590D12 /* MSSMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MSSMain.storyboard; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		A81EE4782527AD8C008E79C9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A86B07C02527630F00386A84 /* Info.plist */,
+				A86B07C02527630F00386A84 /* MssInfo.plist */,
 				A8861F472527865100590D12 /* MSSMain.storyboard */,
 				A8861F422527860F00590D12 /* Assets.xcassets */,
 			);

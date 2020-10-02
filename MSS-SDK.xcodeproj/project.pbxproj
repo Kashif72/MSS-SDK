@@ -93,7 +93,6 @@
 				A8861F7F2527A31E00590D12 /* Classes */,
 				A86B07BF2527630F00386A84 /* MSS_SDK.h */,
 				A86B07C02527630F00386A84 /* Info.plist */,
-				A8861F492527869400590D12 /* MainFile.swift */,
 			);
 			path = "MSS-SDK";
 			sourceTree = "<group>";
@@ -117,6 +116,7 @@
 		A8861F7F2527A31E00590D12 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A8861F492527869400590D12 /* MainFile.swift */,
 				A8861F4B252786F400590D12 /* Util */,
 				A8861F442527862600590D12 /* ViewController */,
 			);

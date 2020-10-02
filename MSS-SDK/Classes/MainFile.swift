@@ -22,7 +22,7 @@ public class MainFile{
     
     
     public func open() {
-        let storyboard = UIStoryboard(name: "Features", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
         controller.modalPresentationStyle = .fullScreen
         parentViewController.present(controller, animated: false)

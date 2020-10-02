@@ -23,8 +23,7 @@ public class MainFile{
     
     public func open() {
         print("OPEN CLICKED")
-        
-        let storyboard = UIStoryboard(name: "MSSMain", bundle: nil)
+        let storyboard = UIStoryboard(name: "MSSMain", bundle: Bundle(for: self))
         let controller = storyboard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
         controller.modalPresentationStyle = .fullScreen
         parentViewController.present(controller, animated: false)

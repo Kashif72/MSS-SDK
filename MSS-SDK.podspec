@@ -13,7 +13,7 @@ Pod::Spec.new do |spec|
   spec.description  = 'This can be used by MSSP client who want to conusme its services.'
 
   spec.homepage     = "https://github.com/Kashif72/MSS-SDK"
-  spec.license      = { :type => 'MIT', :file => 'LICENSE' }
+  spec.license      = 'MIT'
   spec.author             = { 'Kashif Imam' => 'kashifimam72@gmail.com' }
   
   # spec.platform     = :ios
@@ -21,11 +21,11 @@ Pod::Spec.new do |spec|
 
   spec.source       = { :git => 'https://github.com/Kashif72/MSS-SDK.git', :tag => '1.0.1' }
   spec.ios.deployment_target = '12.2'
-  spec.source_files  = 'MSS-SDK'
+  spec.source_files  = 'MSS-SDK/Classes/**/*'
   spec.swift_version = '4.0'
   
   spec.resource_bundles = {
-      'MSS-SDK' => ['Assets.xcassets', 'Main.storyboard']
+      'MSS-SDK' => ['MSS-SDK/Resources/Assets.xcassets', 'MSS-SDK/Resources/Main.storyboard']
     }
   
   # spec.resource  = "icon.png"

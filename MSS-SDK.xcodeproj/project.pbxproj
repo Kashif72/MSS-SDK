@@ -59,6 +59,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A81EE4782527AD8C008E79C9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A8861F472527865100590D12 /* Main.storyboard */,
+				A8861F422527860F00590D12 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A86B07B22527630F00386A84 = {
 			isa = PBXGroup;
 			children = (
@@ -80,12 +89,10 @@
 		A86B07BE2527630F00386A84 /* MSS-SDK */ = {
 			isa = PBXGroup;
 			children = (
+				A81EE4782527AD8C008E79C9 /* Resources */,
 				A8861F7F2527A31E00590D12 /* Classes */,
-				A8861F4B252786F400590D12 /* Util */,
 				A86B07BF2527630F00386A84 /* MSS_SDK.h */,
 				A86B07C02527630F00386A84 /* Info.plist */,
-				A8861F422527860F00590D12 /* Assets.xcassets */,
-				A8861F472527865100590D12 /* Main.storyboard */,
 				A8861F492527869400590D12 /* MainFile.swift */,
 			);
 			path = "MSS-SDK";
@@ -110,6 +117,7 @@
 		A8861F7F2527A31E00590D12 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A8861F4B252786F400590D12 /* Util */,
 				A8861F442527862600590D12 /* ViewController */,
 			);
 			path = Classes;

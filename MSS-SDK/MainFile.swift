@@ -25,7 +25,8 @@ public class MainFile{
         let storyboard = UIStoryboard(name: "Features", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
         controller.modalPresentationStyle = .fullScreen
-        parentViewController.presentLTRVC(controller)
+        parentViewController.present(controller, animated: false)
+        
         
     }
 }

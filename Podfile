@@ -8,5 +8,9 @@ target 'MSS-SDK' do
   # Pods for MSS-SDK
   
   pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'IQKeyboardManagerSwift'
+  pod 'MBProgressHUD', '~> 1.1.0'
+  pod 'Toast-Swift'
 
 end

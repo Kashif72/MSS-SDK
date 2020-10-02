@@ -15,13 +15,13 @@ public class MainFile{
       
     var parentViewController:UIViewController!
     
-    init() {
+    public init() {
         
     }
     
     
     
-    func open() {
+    public func open() {
         let storyboard = UIStoryboard(name: "Features", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
         controller.modalPresentationStyle = .fullScreen

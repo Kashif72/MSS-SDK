@@ -19,7 +19,7 @@ Pod::Spec.new do |spec|
   # spec.platform     = :ios
   # spec.platform     = :ios, "12.0"
 
-#  spec.source       = { :git => 'https://github.com/Kashif72/MSS-SDK.git', :tag => '1.0.0' }
+  spec.source       = { :git => 'https://github.com/Kashif72/MSS-SDK.git', :tag => '1.0.0' }
   spec.ios.deployment_target = '12.2'
   spec.source_files  = 'MSS-SDK'
   spec.swift_version = '4.0'

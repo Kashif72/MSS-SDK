@@ -11,7 +11,7 @@
 		A86B07C12527630F00386A84 /* MSS_SDK.h in Headers */ = {isa = PBXBuildFile; fileRef = A86B07BF2527630F00386A84 /* MSS_SDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8861F432527860F00590D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8861F422527860F00590D12 /* Assets.xcassets */; };
 		A8861F462527863B00590D12 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8861F452527863B00590D12 /* DashboardVC.swift */; };
-		A8861F482527865100590D12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8861F472527865100590D12 /* Main.storyboard */; };
+		A8861F482527865100590D12 /* MSSMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8861F472527865100590D12 /* MSSMain.storyboard */; };
 		A8861F4A2527869400590D12 /* MainFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8861F492527869400590D12 /* MainFile.swift */; };
 		A8861F4D2527870300590D12 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8861F4C2527870300590D12 /* Extension.swift */; };
 /* End PBXBuildFile section */
@@ -25,7 +25,7 @@
 		A86B07C02527630F00386A84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8861F422527860F00590D12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8861F452527863B00590D12 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
-		A8861F472527865100590D12 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A8861F472527865100590D12 /* MSSMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MSSMain.storyboard; sourceTree = "<group>"; };
 		A8861F492527869400590D12 /* MainFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFile.swift; sourceTree = "<group>"; };
 		A8861F4C2527870300590D12 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,7 +62,7 @@
 		A81EE4782527AD8C008E79C9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A8861F472527865100590D12 /* Main.storyboard */,
+				A8861F472527865100590D12 /* MSSMain.storyboard */,
 				A8861F422527860F00590D12 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -195,7 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8861F432527860F00590D12 /* Assets.xcassets in Resources */,
-				A8861F482527865100590D12 /* Main.storyboard in Resources */,
+				A8861F482527865100590D12 /* MSSMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

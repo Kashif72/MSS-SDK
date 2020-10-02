@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   spec.swift_version = '4.0'
   
   spec.resource_bundles = {
-      'MSS-SDK' => ['MSS-SDK/Resources/Assets.xcassets', 'MSS-SDK/Resources/Main.storyboard']
+      'MSS-SDK' => ['MSS-SDK/Resources/Assets.xcassets', 'MSS-SDK/Resources/MSSMain.storyboard']
     }
   
   # spec.resource  = "icon.png"

@@ -32,7 +32,12 @@ Pod::Spec.new do |spec|
   # spec.resources = "Resources/*.png"
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # spec.dependency 'Alamofire'
+    
+  spec.dependency 'Alamofire'
+  spec.dependency 'SwiftyJSON'
+  spec.dependency 'IQKeyboardManagerSwift'
+  spec.dependency 'MBProgressHUD', '~> 1.1.0'
+  spec.dependency 'Toast-Swift'
 
 end
 
@@ -58,5 +63,5 @@ end
 
   
 #  s.resources = ['MSSiOSSDK/View/{Main.storyboard}','MSSiOSSDK/**/Assets.{xcassets}']
- # s.dependency 'Alamofire'
+
 #end

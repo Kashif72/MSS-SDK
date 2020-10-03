@@ -24,14 +24,16 @@ public class MainFile{
     public func open(caller: UIViewController) {
         print("OPEN CLICKED")
         
-        let podBundle = Bundle(forClass: DashboardVC.self)
-        let bundleURL = podBundle.URLForResource("MSS-SDK", withExtension: "bundle")
+        let podBundle = Bundle(for: DashboardVC.self)
+        let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
 
-        let storyboard = UIStoryboard(name: "MSSMain", bundle: podBundle)
+        let bundle = Bundle(url: bundleURL!)!
+        
+        let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
         
         let controller = storyboard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
         controller.modalPresentationStyle = .fullScreen
-        caller.presentViewController(vc, animated: true, completion: nil)
+        caller.present(controller, animated: true, completion: nil)
         
     }
 }

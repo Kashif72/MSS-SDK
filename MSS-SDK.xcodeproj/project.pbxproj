@@ -3,19 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		94939CC338DA52ADF613A8DA /* Pods_MSS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA8AAF2CBE4D4B189213D18 /* Pods_MSS_SDK.framework */; };
-		A81EE4992527BEB9008E79C9 /* MSSMain.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = A8861F472527865100590D12 /* MSSMain.storyboard */; };
-		A81EE49A2527BEBE008E79C9 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = A8861F422527860F00590D12 /* Assets.xcassets */; };
 		A86B07C12527630F00386A84 /* MSS_SDK.h in Headers */ = {isa = PBXBuildFile; fileRef = A86B07BF2527630F00386A84 /* MSS_SDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8861F432527860F00590D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8861F422527860F00590D12 /* Assets.xcassets */; };
-		A8861F462527863B00590D12 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8861F452527863B00590D12 /* DashboardVC.swift */; };
+		A8861F462527863B00590D12 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8861F452527863B00590D12 /* DashboardVC.swift */; platformFilter = ios; };
 		A8861F482527865100590D12 /* MSSMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8861F472527865100590D12 /* MSSMain.storyboard */; };
-		A8861F4A2527869400590D12 /* MainFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8861F492527869400590D12 /* MainFile.swift */; };
-		A8861F4D2527870300590D12 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8861F4C2527870300590D12 /* Extension.swift */; };
+		A8861F4A2527869400590D12 /* MainFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8861F492527869400590D12 /* MainFile.swift */; platformFilter = ios; };
+		A8861F4D2527870300590D12 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8861F4C2527870300590D12 /* Extension.swift */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -233,8 +231,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A81EE49A2527BEBE008E79C9 /* Assets.xcassets in Sources */,
-				A81EE4992527BEB9008E79C9 /* MSSMain.storyboard in Sources */,
 				A8861F4D2527870300590D12 /* Extension.swift in Sources */,
 				A8861F4A2527869400590D12 /* MainFile.swift in Sources */,
 				A8861F462527863B00590D12 /* DashboardVC.swift in Sources */,

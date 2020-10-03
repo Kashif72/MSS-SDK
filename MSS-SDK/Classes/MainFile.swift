@@ -13,7 +13,7 @@ import UIKit
 public class MainFile{
     
       
-    var parentViewController:UIViewController!
+//    var parentViewController: UIViewController!
     
     public init() {
         
@@ -21,14 +21,17 @@ public class MainFile{
     
     
     
-    public func open() {
+    public func open(caller: UIViewController) {
         print("OPEN CLICKED")
         
-        let storyboard = UIStoryboard(name: "MSSMain", bundle: nil)
+        let podBundle = Bundle(forClass: DashboardVC.self)
+        let bundleURL = podBundle.URLForResource("MSS-SDK", withExtension: "bundle")
+
+        let storyboard = UIStoryboard(name: "MSSMain", bundle: podBundle)
+        
         let controller = storyboard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
         controller.modalPresentationStyle = .fullScreen
-        parentViewController.present(controller, animated: false)
-        
+        caller.presentViewController(vc, animated: true, completion: nil)
         
     }
 }

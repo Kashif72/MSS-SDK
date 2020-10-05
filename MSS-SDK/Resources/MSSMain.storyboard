@@ -3,11 +3,12 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--DashboardVC-->
+        <!--Recharges and payments-->
         <scene sceneID="fVh-Mk-tv7">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ryd-Xv-s6U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -31,7 +32,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ra3-RT-aTZ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="EWR-uR-XnH"/>
+                    <navigationItem key="navigationItem" title="Recharges and payments" id="EWR-uR-XnH">
+                        <barButtonItem key="leftBarButtonItem" image="bac_btn" id="Wuq-og-nDm">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onBack:" destination="8LF-EO-FJI" id="yQw-os-Eda"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-22" y="-230"/>
@@ -43,6 +51,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jmB-Mr-bdv">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="color_primary"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="8LF-EO-FJI" kind="relationship" relationship="rootViewController" id="0Ne-ra-8of"/>
@@ -55,5 +70,9 @@
     </scenes>
     <resources>
         <image name="Image" width="720" height="201"/>
+        <image name="bac_btn" width="16" height="16"/>
+        <namedColor name="color_primary">
+            <color red="0.0" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

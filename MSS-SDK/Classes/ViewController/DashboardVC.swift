@@ -17,5 +17,10 @@ class DashboardVC: UIViewController {
         super.viewDidLoad()
     }
     
-
+    
+    @IBAction func onBack(_ sender: Any) {
+        dismiss(animated: false)
+    
+    }
+    
 }

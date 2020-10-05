@@ -11,15 +11,11 @@ import UIKit
 
 
 public class MainFile{
-    
-      
-//    var parentViewController: UIViewController!
-    
+
     public init() {
         
     }
-    
-    
+
     
     public func open(caller: UIViewController) {
         print("OPEN CLICKED")
@@ -31,7 +27,7 @@ public class MainFile{
         
         let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
         
-        let controller = storyboard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
+        let controller = storyboard.instantiateViewController(withIdentifier: "DashboardNavigation")
         controller.modalPresentationStyle = .fullScreen
         caller.present(controller, animated: true, completion: nil)
         

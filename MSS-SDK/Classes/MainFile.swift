@@ -27,7 +27,7 @@ public class MainFile{
         
         let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
         
-        let controller = storyboard.instantiateViewController(withIdentifier: "DashboardNavigation")
+        let controller = storyboard.instantiateViewController(withIdentifier: "DashboardVC") as! DashboardVC
         controller.modalPresentationStyle = .fullScreen
         caller.present(controller, animated: true, completion: nil)
         

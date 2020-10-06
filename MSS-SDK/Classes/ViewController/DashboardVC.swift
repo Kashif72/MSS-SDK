@@ -45,16 +45,20 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
         }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 1:
             
-    //        //Open event detail here
-    //        let userInfo = [ "NavPosition" : 5, "obtId": HomeDetails.sharedInstance.eventHomeBanner[indexPath.row].id] as [String : Any]
-    //        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTI_HOME_SELECTED), object: nil, userInfo: userInfo)
+            
+            break
+        default:
+            break
+        }
             
             
         }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-           return CGSize(width: (collectionView.frame.width/2)-5, height: (collectionView.frame.width/2.2))
+           return CGSize(width: (collectionView.frame.width/3), height: (collectionView.frame.width/3))
        }
     
 }

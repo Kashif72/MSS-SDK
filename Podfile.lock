@@ -1,32 +1,45 @@
 PODS:
   - Alamofire (5.2.2)
+  - AlamofireImage (4.1.0):
+    - Alamofire (~> 5.1)
   - IQKeyboardManagerSwift (6.5.6)
   - MBProgressHUD (1.1.0)
+  - ReachabilitySwift (5.0.0)
   - SwiftyJSON (5.0.0)
   - Toast-Swift (5.0.1)
+  - TTGSnackbar (1.10.3)
 
 DEPENDENCIES:
   - Alamofire
+  - AlamofireImage
   - IQKeyboardManagerSwift
   - MBProgressHUD (~> 1.1.0)
+  - ReachabilitySwift
   - SwiftyJSON
   - Toast-Swift
+  - TTGSnackbar
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AlamofireImage
     - IQKeyboardManagerSwift
     - MBProgressHUD
+    - ReachabilitySwift
     - SwiftyJSON
     - Toast-Swift
+    - TTGSnackbar
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  AlamofireImage: c4a2ba349885fb3064feb74d2e547bd42ce9be10
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  TTGSnackbar: 97c033600de8a9c8f4a093f25a08543a03946bcc
 
-PODFILE CHECKSUM: 80967bf619acfe582d7c38da5dbc9ed67ec1a5d3
+PODFILE CHECKSUM: aff05689b6775f678065202cd4681ae7f3981159
 
 COCOAPODS: 1.9.3

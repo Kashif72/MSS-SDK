@@ -29,18 +29,10 @@ class CardView: UIView {
         layer.shadowOpacity = shadowOpacity
         layer.shadowPath = shadowPath.cgPath
         
+        layer.borderColor = (ColorConverter.hexStringToUIColor(hex: ColorCode.accentColor)).cgColor
+        
     }
     
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        let img = UIImage(named: "bg_on_click_view")
-//        self.backgroundColor = UIColor(patternImage: img!)
-//
-//
-//    }
-//
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.backgroundColor = .white
-//    }
 }
 

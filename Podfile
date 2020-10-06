@@ -12,5 +12,22 @@ target 'MSS-SDK' do
   pod 'IQKeyboardManagerSwift'
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'Toast-Swift'
-
+  
+  
+  pod 'TTGSnackbar'
+  pod 'AlamofireImage'
+  pod 'ReachabilitySwift'
+  
+  
+  
+  post_install do |installer|
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings.delete('CODE_SIGNING_ALLOWED')
+      config.build_settings.delete('CODE_SIGNING_REQUIRED')
+    end
+  end
+  
+  
 end
+
+

@@ -23,11 +23,30 @@ struct GiftCardModel : Codable{
     public var min_price : String!
     public var max_price : String!
     
-
-
-    
     static var giftCardListInstance = Array<GiftCardModel>()
 }
+
+
+struct GiftCardListRequest : Codable{
+    public var voucher_id : String!
+}
+
+
+struct GiftCardListResponse : Codable{
+    public var code : String!
+    public var message : String!
+    public var details : GiftCardListDetails!
+    
+}
+
+struct GiftCardListDetails : Codable{
+    public var vouchers : Array<GiftCardModel>!
+    
+}
+
+
+
+
 
 
 struct GiftCardCatModel : Codable{

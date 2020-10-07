@@ -14,11 +14,18 @@
 		A8051A06252CD69A004BE7B9 /* MobileRechargeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051A05252CD69A004BE7B9 /* MobileRechargeVC.swift */; };
 		A8051A08252CD9C8004BE7B9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051A07252CD9C8004BE7B9 /* Constant.swift */; };
 		A836E41D252AAC3D00223811 /* MSSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836E41C252AAC3D00223811 /* MSSTest.swift */; };
-		A841CB65252CE90200DC65FF /* GiftCardListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB64252CE90200DC65FF /* GiftCardListVC.swift */; };
+		A841CB65252CE90200DC65FF /* GiftCardCatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB64252CE90200DC65FF /* GiftCardCatListVC.swift */; };
 		A841CB67252CE9BE00DC65FF /* GiftCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB66252CE9BE00DC65FF /* GiftCardModel.swift */; };
 		A841CB69252CF11D00DC65FF /* ApiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB68252CF11D00DC65FF /* ApiHandler.swift */; };
 		A841CB6B252CF19D00DC65FF /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB6A252CF19D00DC65FF /* NetworkManager.swift */; };
 		A841CB6D252CF3E100DC65FF /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB6C252CF3E100DC65FF /* Util.swift */; };
+		A841CB70252DE54000DC65FF /* GiftCardListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB6F252DE54000DC65FF /* GiftCardListVC.swift */; };
+		A841CB72252DEAD800DC65FF /* GiftCardDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB71252DEAD800DC65FF /* GiftCardDetailVC.swift */; };
+		A841CB75252DEC6500DC65FF /* MobilePlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB74252DEC6500DC65FF /* MobilePlanVC.swift */; };
+		A841CB78252E254400DC65FF /* SlidingContainerSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB77252E254400DC65FF /* SlidingContainerSliderView.swift */; };
+		A841CB7A252E256700DC65FF /* SlidingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB79252E256700DC65FF /* SlidingContainerViewController.swift */; };
+		A841CB7C252E280B00DC65FF /* BrowsePlanInnerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB7B252E280B00DC65FF /* BrowsePlanInnerVC.swift */; };
+		A841CB7E252E283E00DC65FF /* MobileRecharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB7D252E283E00DC65FF /* MobileRecharge.swift */; };
 		A8523E8F252CDD56005F1FC3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8523E8E252CDD56005F1FC3 /* CustomButton.swift */; };
 		A86B07C12527630F00386A84 /* MSS_SDK.h in Headers */ = {isa = PBXBuildFile; fileRef = A86B07BF2527630F00386A84 /* MSS_SDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8861F432527860F00590D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8861F422527860F00590D12 /* Assets.xcassets */; };
@@ -50,11 +57,18 @@
 		A836E41A252AAC3D00223811 /* MSSTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MSSTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A836E41C252AAC3D00223811 /* MSSTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSSTest.swift; sourceTree = "<group>"; };
 		A836E41E252AAC3D00223811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A841CB64252CE90200DC65FF /* GiftCardListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardListVC.swift; sourceTree = "<group>"; };
+		A841CB64252CE90200DC65FF /* GiftCardCatListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardCatListVC.swift; sourceTree = "<group>"; };
 		A841CB66252CE9BE00DC65FF /* GiftCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardModel.swift; sourceTree = "<group>"; };
 		A841CB68252CF11D00DC65FF /* ApiHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHandler.swift; sourceTree = "<group>"; };
 		A841CB6A252CF19D00DC65FF /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A841CB6C252CF3E100DC65FF /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		A841CB6F252DE54000DC65FF /* GiftCardListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardListVC.swift; sourceTree = "<group>"; };
+		A841CB71252DEAD800DC65FF /* GiftCardDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardDetailVC.swift; sourceTree = "<group>"; };
+		A841CB74252DEC6500DC65FF /* MobilePlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePlanVC.swift; sourceTree = "<group>"; };
+		A841CB77252E254400DC65FF /* SlidingContainerSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingContainerSliderView.swift; sourceTree = "<group>"; };
+		A841CB79252E256700DC65FF /* SlidingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingContainerViewController.swift; sourceTree = "<group>"; };
+		A841CB7B252E280B00DC65FF /* BrowsePlanInnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsePlanInnerVC.swift; sourceTree = "<group>"; };
+		A841CB7D252E283E00DC65FF /* MobileRecharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileRecharge.swift; sourceTree = "<group>"; };
 		A8523E8E252CDD56005F1FC3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A86B07BC2527630F00386A84 /* MSS_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSS_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86B07BF2527630F00386A84 /* MSS_SDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSS_SDK.h; sourceTree = "<group>"; };
@@ -133,6 +147,35 @@
 			path = MSSTest;
 			sourceTree = "<group>";
 		};
+		A841CB6E252DE52700DC65FF /* GiftCards */ = {
+			isa = PBXGroup;
+			children = (
+				A841CB64252CE90200DC65FF /* GiftCardCatListVC.swift */,
+				A841CB6F252DE54000DC65FF /* GiftCardListVC.swift */,
+				A841CB71252DEAD800DC65FF /* GiftCardDetailVC.swift */,
+			);
+			path = GiftCards;
+			sourceTree = "<group>";
+		};
+		A841CB73252DEC4C00DC65FF /* MobileRecharge */ = {
+			isa = PBXGroup;
+			children = (
+				A8051A05252CD69A004BE7B9 /* MobileRechargeVC.swift */,
+				A841CB74252DEC6500DC65FF /* MobilePlanVC.swift */,
+				A841CB7B252E280B00DC65FF /* BrowsePlanInnerVC.swift */,
+			);
+			path = MobileRecharge;
+			sourceTree = "<group>";
+		};
+		A841CB76252E252700DC65FF /* SlidingTabs */ = {
+			isa = PBXGroup;
+			children = (
+				A841CB77252E254400DC65FF /* SlidingContainerSliderView.swift */,
+				A841CB79252E256700DC65FF /* SlidingContainerViewController.swift */,
+			);
+			path = SlidingTabs;
+			sourceTree = "<group>";
+		};
 		A86B07B22527630F00386A84 = {
 			isa = PBXGroup;
 			children = (
@@ -166,9 +209,9 @@
 		A8861F442527862600590D12 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A841CB73252DEC4C00DC65FF /* MobileRecharge */,
+				A841CB6E252DE52700DC65FF /* GiftCards */,
 				A8861F452527863B00590D12 /* DashboardVC.swift */,
-				A8051A05252CD69A004BE7B9 /* MobileRechargeVC.swift */,
-				A841CB64252CE90200DC65FF /* GiftCardListVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -203,6 +246,7 @@
 			children = (
 				A8C8215A252C8A2200B4728A /* HomeMenuModel.swift */,
 				A841CB66252CE9BE00DC65FF /* GiftCardModel.swift */,
+				A841CB7D252E283E00DC65FF /* MobileRecharge.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,6 +264,7 @@
 		A8C8215F252C8EAF00B4728A /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				A841CB76252E252700DC65FF /* SlidingTabs */,
 				A8C82160252C8EBE00B4728A /* CardView.swift */,
 				A80519FF252CD2AD004BE7B9 /* CustomTF.swift */,
 				A8051A01252CD2EC004BE7B9 /* SkyFloatingLabelTextField.swift */,
@@ -375,22 +420,29 @@
 			files = (
 				A8523E8F252CDD56005F1FC3 /* CustomButton.swift in Sources */,
 				A841CB6D252CF3E100DC65FF /* Util.swift in Sources */,
+				A841CB78252E254400DC65FF /* SlidingContainerSliderView.swift in Sources */,
 				A8C8215E252C8A6500B4728A /* StaticData.swift in Sources */,
+				A841CB70252DE54000DC65FF /* GiftCardListVC.swift in Sources */,
 				A8861F4D2527870300590D12 /* Extension.swift in Sources */,
 				A841CB69252CF11D00DC65FF /* ApiHandler.swift in Sources */,
 				A8C8215B252C8A2200B4728A /* HomeMenuModel.swift in Sources */,
 				A8C82163252C8F0400B4728A /* ColorConverter.swift in Sources */,
+				A841CB7E252E283E00DC65FF /* MobileRecharge.swift in Sources */,
 				A8051A02252CD2EC004BE7B9 /* SkyFloatingLabelTextField.swift in Sources */,
-				A841CB65252CE90200DC65FF /* GiftCardListVC.swift in Sources */,
+				A841CB72252DEAD800DC65FF /* GiftCardDetailVC.swift in Sources */,
+				A841CB65252CE90200DC65FF /* GiftCardCatListVC.swift in Sources */,
 				A8C82165252C8F3600B4728A /* ColorCode.swift in Sources */,
 				A8861F4A2527869400590D12 /* MainFile.swift in Sources */,
+				A841CB75252DEC6500DC65FF /* MobilePlanVC.swift in Sources */,
 				A841CB6B252CF19D00DC65FF /* NetworkManager.swift in Sources */,
 				A841CB67252CE9BE00DC65FF /* GiftCardModel.swift in Sources */,
 				A8C82161252C8EBE00B4728A /* CardView.swift in Sources */,
 				A8861F462527863B00590D12 /* DashboardVC.swift in Sources */,
 				A8051A06252CD69A004BE7B9 /* MobileRechargeVC.swift in Sources */,
+				A841CB7C252E280B00DC65FF /* BrowsePlanInnerVC.swift in Sources */,
 				A8051A00252CD2AD004BE7B9 /* CustomTF.swift in Sources */,
 				A8051A08252CD9C8004BE7B9 /* Constant.swift in Sources */,
+				A841CB7A252E256700DC65FF /* SlidingContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

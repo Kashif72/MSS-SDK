@@ -69,6 +69,10 @@ class ColorCode {
 
     
     
+    //TAB COLOR
+    static let unselectedTabColor = "#e1e1e1"
+    static let selectedTabColor = "#000000"
+    static let tab_not_selcted = "#888888"
     
 }
 

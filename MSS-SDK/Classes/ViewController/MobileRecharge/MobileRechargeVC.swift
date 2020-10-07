@@ -48,6 +48,8 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate {
                 else {
                     // The error message will only disappear when we reset it to nil or empty string
                     tfMobile.errorMessage = ""
+                    
+                    //Call AutoFetch here
                 }
             case tfServiceProvider:
                 if(text.count == 0){

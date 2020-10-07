@@ -2,7 +2,7 @@
 //  GiftCardListVC.swift
 //  MSS-SDK
 //
-//  Created by Kashif Imam on 06/10/20.
+//  Created by Kashif Imam on 07/10/20.
 //  Copyright © 2020 Kashif Imam. All rights reserved.
 //
 
@@ -14,10 +14,10 @@ import AlamofireImage
 class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
     @IBOutlet weak var tvGiftCard: UITableView!
-    @IBOutlet weak var sbGiftCard: UISearchBar!
     
-    var giftCatArray = GiftCardCatModel.giftCardCatListInstance
+    var giftArray = GiftCardModel.giftCardListInstance
     
+    var voucherId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,19 +25,24 @@ class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         tvGiftCard.delegate = self
         tvGiftCard.dataSource = self
         
-        if(giftCatArray.count ==  0){
+        if(giftArray.count ==  0){
+            let gifCardListReq = GiftCardListRequest(voucher_id: voucherId)
+            
             self.showLoading(view: self.view, text: "Please wait")
             
-            APIHandler.sharedInstance.getGiftCatList(success: { (response) in
-                //Success
-                self.stopLoading(fromView: self.view)
-                self.giftCatArray = GiftCardCatModel.giftCardCatListInstance
-                self.tvGiftCard.reloadData()
-                
+           APIHandler.sharedInstance.getGiftCardList(loginReq: gifCardListReq, success: { (sessionId) in
+                      //Success
+                      
+            self.stopLoading(fromView: self.view)
+            self.giftArray = GiftCardModel.giftCardListInstance
+            self.tvGiftCard.reloadData()
+            
+            
             }, failure: { (message) in
-                self.stopLoading(fromView: self.view)
-                self.showError(message: message!)
+                      self.stopLoading(fromView: self.view)
+                      self.showError(message: message!)
             })
+           
         }
         
     }
@@ -48,16 +53,18 @@ class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
        }
        
        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return giftCatArray.count
+           return giftArray.count
        }
        
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           let cell = tableView.dequeueReusableCell(withIdentifier: "GiftCatCell", for: indexPath) as! GiftCatCell
-           cell.lblTitle?.text = giftCatArray[indexPath.row].serviceName
+           let cell = tableView.dequeueReusableCell(withIdentifier: "GiftListCell", for: indexPath) as! GiftListCell
+        
+           cell.lblTitle?.text = giftArray[indexPath.row].product_name
           
-           if giftCatArray[indexPath.row].serviceLogo.count > 0 {
-                   let finalImagePath =  giftCatArray[indexPath.row].serviceLogo!
+           if giftArray[indexPath.row].product_image.count > 0 {
+                   
+            let finalImagePath =  giftArray[indexPath.row].product_image!
                    
                    print("finalImagePathCat", finalImagePath)
                    let urlString = finalImagePath.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
@@ -91,7 +98,14 @@ class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
        
        
        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           
+           let podBundle = Bundle(for: GiftCardCatListVC.self)
+           let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+           let bundle = Bundle(url: bundleURL!)!
+           let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+           let controller = storyboard.instantiateViewController(withIdentifier: "GiftCardCatListVC") as! GiftCardCatListVC
+           controller.modalPresentationStyle = .fullScreen
+           self.present(controller, animated: true, completion: nil)
+        
        }
     
     
@@ -117,7 +131,7 @@ class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
 }
 
 
-class GiftCatCell: UITableViewCell{
+class GiftListCell: UITableViewCell{
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var ivImage: UIImageView!
     @IBOutlet weak var avCell: UIActivityIndicatorView!

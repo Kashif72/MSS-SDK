@@ -47,7 +47,13 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 1:
-            
+            let podBundle = Bundle(for: GiftCardCatListVC.self)
+            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+            let bundle = Bundle(url: bundleURL!)!
+            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+            let controller = storyboard.instantiateViewController(withIdentifier: "GiftCardCatListVC") as! GiftCardCatListVC
+            controller.modalPresentationStyle = .fullScreen
+            self.present(controller, animated: true, completion: nil)
             
             break
         default:
@@ -60,6 +66,9 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
            return CGSize(width: (collectionView.frame.width/3), height: (collectionView.frame.width/3))
        }
+    
+    
+   
     
 }
 

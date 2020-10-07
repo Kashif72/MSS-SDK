@@ -71,4 +71,225 @@ class APIHandler: NSObject {
         }
     }
     
+        
+    //Services and Offers
+    
+    func getGiftCardList(loginReq: GiftCardListRequest, success: @escaping (_ response: String?) -> Void, failure: @escaping (_ error: String?) -> Void){
+            
+            if Util.isNetworkAvailable() {
+                
+                let urlString = ""
+                let encoder = JSONEncoder()
+                let reqValue = try! encoder.encode(loginReq)
+                let url = URL(string: urlString)!
+                var request = URLRequest(url: url)
+                request.httpMethod = HTTPMethod.post.rawValue
+                request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+                request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+                
+                request.httpBody = reqValue
+                
+                print("Request",loginReq)
+                
+                AF.request(request).responseData(completionHandler: { (response) in
+                    
+                    print("Response", response)
+                        if let status = response.response?.statusCode {
+                            switch(status){
+                            case 200:
+                                let decoder = JSONDecoder()
+                                let responseValue = try! decoder.decode(GiftCardListResponse.self, from: response.data!)
+                                
+                                if(responseValue.code == SUCCESS){
+                                    GiftCardModel.giftCardListInstance = responseValue.details.vouchers
+                                    success(responseValue.message);
+                                }else{
+                                    failure(responseValue.message)
+                                }
+                                
+                                print("Regsiter Response", responseValue)
+                                
+                            default:
+                                  failure("Error! \(String(status))")
+                            }
+                        }
+                    
+                })
+            } else {
+                failure(NETWORK_FAIL_MSG)
+            }
+        }
+    
+   
+    
+    //Mobile Recharge
+    func getAutoFetchNumber(loginReq: AutoNumberRequest, success: @escaping (_ response: AutoNumberModel?) -> Void, failure: @escaping (_ error: String?) -> Void){
+            
+            if Util.isNetworkAvailable() {
+                
+                let urlString = ""
+                let encoder = JSONEncoder()
+                let reqValue = try! encoder.encode(loginReq)
+                let url = URL(string: urlString)!
+                var request = URLRequest(url: url)
+                request.httpMethod = HTTPMethod.post.rawValue
+                request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+                request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+                
+                request.httpBody = reqValue
+                
+                print("Request",loginReq)
+                
+                AF.request(request).responseData(completionHandler: { (response) in
+                    
+                    print("Response", response)
+                        if let status = response.response?.statusCode {
+                            switch(status){
+                            case 200:
+                                let decoder = JSONDecoder()
+                                let responseValue = try! decoder.decode(AutoNumberResponse.self, from: response.data!)
+                                
+                                if(responseValue.code == SUCCESS){
+                                    success(responseValue.details);
+                                }else{
+                                    failure(responseValue.message)
+                                }
+                                
+                                print("Regsiter Response", responseValue)
+                                
+                            default:
+                                  failure("Error! \(String(status))")
+                            }
+                        }
+                    
+                })
+            } else {
+                failure(NETWORK_FAIL_MSG)
+            }
+        }
+    
+    
+    
+    
+    func getMobilePlans(loginReq: PlanRequest, success: @escaping (_ response: String?) -> Void, failure: @escaping (_ error: String?) -> Void){
+        
+        if Util.isNetworkAvailable() {
+            
+            let urlString = ""
+            let encoder = JSONEncoder()
+            let reqValue = try! encoder.encode(loginReq)
+            let url = URL(string: urlString)!
+            var request = URLRequest(url: url)
+            request.httpMethod = HTTPMethod.post.rawValue
+            request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+            request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+            
+            request.httpBody = reqValue
+            
+            print("Request",loginReq)
+            
+            AF.request(request).responseData(completionHandler: { (response) in
+                
+                print("Response", response)
+                    if let status = response.response?.statusCode {
+                        switch(status){
+                        case 200:
+                            let decoder = JSONDecoder()
+                            let responseValue = try! decoder.decode(PlanResponse.self, from: response.data!)
+                            
+                            if(responseValue.code == SUCCESS){
+                                
+                                var talkTimePlans = [PlanModel]()
+                                var topUpPlans = [PlanModel]()
+                                var threeGPlans = [PlanModel]()
+                                var twoGPlans = [PlanModel]()
+                                var specialPlans = [PlanModel]()
+                                
+                                for items in responseValue.plans{
+                                    if(items.planName == "Full Talktime"){
+                                        talkTimePlans.append(items)
+                                    }else if(items.planName == "Special Recharge"){
+                                        specialPlans.append(items)
+                                    }else if(items.planName == "2G Data"){
+                                        twoGPlans.append(items)
+                                    }else if(items.planName == "3G Data"){
+                                        threeGPlans.append(items)
+                                    }else if(items.planName == "Top up"){
+                                        topUpPlans.append(items)
+                                    }
+                            }
+                                
+                                PlanModel.fTUniqueI = talkTimePlans
+                                PlanModel.specialUniqueI = specialPlans
+                                PlanModel.TwoGUniqueI = twoGPlans
+                                PlanModel.ThreeGUniqueI = threeGPlans
+                                PlanModel.TopUpGUniqueI = topUpPlans
+                                success(responseValue.message);
+                            }else{
+                                failure(responseValue.message)
+                            }
+                            
+                            print("Regsiter Response", responseValue)
+                            
+                        default:
+                              failure("Error! \(String(status))")
+                        }
+                    }
+                
+            })
+        } else {
+            failure(NETWORK_FAIL_MSG)
+        }
+    }
+    
+    
+    func getOptCircle(loginReq: MOptCircRequest, success: @escaping (_ response: String?) -> Void, failure: @escaping (_ error: String?) -> Void){
+               
+               if Util.isNetworkAvailable() {
+                   
+                   let urlString = ""
+                   let encoder = JSONEncoder()
+                   let reqValue = try! encoder.encode(loginReq)
+                   let url = URL(string: urlString)!
+                   var request = URLRequest(url: url)
+                   request.httpMethod = HTTPMethod.post.rawValue
+                   request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+                   request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+                   
+                   request.httpBody = reqValue
+                   
+                   print("Request",loginReq)
+                   
+                   AF.request(request).responseData(completionHandler: { (response) in
+                       
+                       print("Response", response)
+                           if let status = response.response?.statusCode {
+                               switch(status){
+                               case 200:
+                                   let decoder = JSONDecoder()
+                                   let responseValue = try! decoder.decode(MOptCircResponse.self, from: response.data!)
+                                   
+                                   if(responseValue.code == SUCCESS){
+                                    MOperatorModel.preOptModel = responseValue.details
+                                    MCircleModel.preCircleModel = responseValue.circles
+                                    
+                                    success(responseValue.message);
+                                   }else{
+                                       failure(responseValue.message)
+                                   }
+                                   
+                                   print("Regsiter Response", responseValue)
+                                   
+                               default:
+                                     failure("Error! \(String(status))")
+                               }
+                           }
+                       
+                   })
+               } else {
+                   failure(NETWORK_FAIL_MSG)
+               }
+           }
+        
+    
 }

@@ -10,21 +10,28 @@ import UIKit
 
 class GiftCardDetailVC: UIViewController {
 
+    
+    @IBOutlet weak var ivGift: UIImageView!
+    @IBOutlet weak var tvTitle: UILabel!
+    @IBOutlet weak var tvPRice: UILabel!
+    @IBOutlet weak var tvHowToUse: UILabel!
+    @IBOutlet weak var tvValidity: UILabel!
+    @IBOutlet weak var tvDescription: UILabel!
+    
+    
+    var obtModel : GiftCardModel?  = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
+    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func onBackPress(_ sender: Any) {
+        dismiss(animated: false)
+        
     }
-    */
+    
 
 }

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |spec|
   spec.name         = 'MSS-SDK'
-  spec.version      = '1.0.1'
+  spec.version      = '1.2.0'
   spec.summary      = 'This is MSS PAYMENT SDK'
   spec.description  = 'This can be used by MSSP client who want to conusme its services.'
 
@@ -19,7 +19,10 @@ Pod::Spec.new do |spec|
   # spec.platform     = :ios
   # spec.platform     = :ios, "12.0"
 
-  spec.source       = { :git => 'https://github.com/Kashif72/MSS-SDK.git', :tag => '1.0.1' }
+  spec.source       = { :git => 'https://github.com/Kashif72/MSS-SDK.git', :tag => '1.2.0' }
+  
+  #spec.source       = { :path => '/Users/FilesPrograms/Ios-Programs/Mss-iOS-SDK/MSS-SDK' }
+  
   spec.ios.deployment_target = '12.2'
   spec.source_files  = 'MSS-SDK/Classes/**/*'
   spec.swift_version = '4.0'
@@ -38,6 +41,10 @@ Pod::Spec.new do |spec|
   spec.dependency 'IQKeyboardManagerSwift'
   spec.dependency 'MBProgressHUD', '~> 1.1.0'
   spec.dependency 'Toast-Swift'
+  
+  spec.dependency 'AlamofireImage'
+  spec.dependency 'TTGSnackbar'
+  spec.dependency 'ReachabilitySwift'
 
 end
 

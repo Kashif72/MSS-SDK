@@ -102,7 +102,8 @@ class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
            let bundle = Bundle(url: bundleURL!)!
            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
-           let controller = storyboard.instantiateViewController(withIdentifier: "GiftCardCatListVC") as! GiftCardCatListVC
+           let controller = storyboard.instantiateViewController(withIdentifier: "GiftCardDetailVC") as! GiftCardDetailVC
+            controller.obtModel = giftArray[indexPath.row]
            controller.modalPresentationStyle = .fullScreen
            self.present(controller, animated: true, completion: nil)
         
@@ -127,6 +128,11 @@ class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
           MBProgressHUD.hide(for: fromView, animated: true)
       }
     
+    
+    @IBAction func onBack(_ sender: Any) {
+           dismiss(animated: false)
+       
+    }
 
 }
 
@@ -134,6 +140,10 @@ class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
 class GiftListCell: UITableViewCell{
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var ivImage: UIImageView!
+    
+    @IBOutlet weak var lblPrice: UILabel!
+    
+    @IBOutlet weak var lblValidaity: UILabel!
     @IBOutlet weak var avCell: UIActivityIndicatorView!
     
     

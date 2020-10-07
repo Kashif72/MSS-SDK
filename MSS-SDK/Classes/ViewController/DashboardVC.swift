@@ -46,7 +46,27 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
+        
+        case 0:
+            let podBundle = Bundle(for: GiftCardCatListVC.self)
+            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+            let bundle = Bundle(url: bundleURL!)!
+            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+            let controller = storyboard.instantiateViewController(withIdentifier: "MobileRechargeVC") as! MobileRechargeVC
+            controller.modalPresentationStyle = .fullScreen
+            self.present(controller, animated: true, completion: nil)
+            
+            
         case 1:
+//            let podBundle = Bundle(for: GiftCardCatListVC.self)
+//            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+//            let bundle = Bundle(url: bundleURL!)!
+//            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+//            let controller = storyboard.instantiateViewController(withIdentifier: "MobileRechargeVC") as! MobileRechargeVC
+//            controller.modalPresentationStyle = .fullScreen
+//            self.present(controller, animated: true, completion: nil)
+            
+        case 2:
             let podBundle = Bundle(for: GiftCardCatListVC.self)
             let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
             let bundle = Bundle(url: bundleURL!)!
@@ -55,7 +75,6 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
             controller.modalPresentationStyle = .fullScreen
             self.present(controller, animated: true, completion: nil)
             
-            break
         default:
             break
         }

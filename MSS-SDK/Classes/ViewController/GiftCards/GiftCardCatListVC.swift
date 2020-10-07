@@ -120,6 +120,11 @@ class GiftCardCatListVC: UIViewController, UITableViewDelegate, UITableViewDataS
           MBProgressHUD.hide(for: fromView, animated: true)
       }
     
+    @IBAction func onBack(_ sender: Any) {
+           dismiss(animated: false)
+       
+    }
+    
 
 }
 

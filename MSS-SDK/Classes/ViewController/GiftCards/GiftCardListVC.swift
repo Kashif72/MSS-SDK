@@ -62,7 +62,8 @@ class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
            cell.lblTitle?.text = giftArray[indexPath.row].product_name
           
-           if giftArray[indexPath.row].product_image.count > 0 {
+        
+           if (giftArray[indexPath.row].product_image != nil && giftArray[indexPath.row].product_image.count > 0) {
                    
             let finalImagePath =  giftArray[indexPath.row].product_image!
                    
@@ -79,21 +80,17 @@ class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
                }else{
                    cell.avCell.stopAnimating()
                    cell.avCell.isHidden = true
-                   cell.ivImage.image = #imageLiteral(resourceName: "image_error")
+                   cell.ivImage.image = #imageLiteral(resourceName: "img_not_found")
                    cell.ivImage.contentMode = .center
                    
                }
-           
-        
-        
-           
-           
            return cell
        }
-       
+  
+    
        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
        {
-           return 120
+           return 200
        }
        
        

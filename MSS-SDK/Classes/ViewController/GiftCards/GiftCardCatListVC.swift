@@ -32,6 +32,8 @@ class GiftCardCatListVC: UIViewController, UITableViewDelegate, UITableViewDataS
                 //Success
                 self.stopLoading(fromView: self.view)
                 self.giftCatArray = GiftCardCatModel.giftCardCatListInstance
+                print("SUccess",self.giftCatArray.count)
+                
                 self.tvGiftCard.reloadData()
                 
             }, failure: { (message) in
@@ -56,7 +58,7 @@ class GiftCardCatListVC: UIViewController, UITableViewDelegate, UITableViewDataS
            let cell = tableView.dequeueReusableCell(withIdentifier: "GiftCatCell", for: indexPath) as! GiftCatCell
            cell.lblTitle?.text = giftCatArray[indexPath.row].serviceName
           
-           if giftCatArray[indexPath.row].serviceLogo.count > 0 {
+           if (giftCatArray[indexPath.row].serviceLogo != nil && giftCatArray[indexPath.row].serviceLogo.count > 0) {
                    let finalImagePath =  giftCatArray[indexPath.row].serviceLogo!
                    
                    print("finalImagePathCat", finalImagePath)
@@ -72,8 +74,13 @@ class GiftCardCatListVC: UIViewController, UITableViewDelegate, UITableViewDataS
                }else{
                    cell.avCell.stopAnimating()
                    cell.avCell.isHidden = true
-                   cell.ivImage.image = #imageLiteral(resourceName: "image_error")
-                   cell.ivImage.contentMode = .center
+                   
+                    let podBundle = Bundle(for: GiftCardDetailVC.self)
+                    let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+                    let bundle = Bundle(url: bundleURL!)!
+                    let imageNotFound = UIImage(named: "img_not_found", in: bundle, compatibleWith: nil)
+                    cell.ivImage.image = imageNotFound
+                    cell.ivImage.contentMode = .center
                    
                }
            
@@ -95,7 +102,8 @@ class GiftCardCatListVC: UIViewController, UITableViewDelegate, UITableViewDataS
            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
            let bundle = Bundle(url: bundleURL!)!
            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
-           let controller = storyboard.instantiateViewController(withIdentifier: "GiftCardCatListVC") as! GiftCardCatListVC
+           let controller = storyboard.instantiateViewController(withIdentifier: "GiftCardListVC") as! GiftCardListVC
+            controller.voucherId = String(giftCatArray[indexPath.row].id)
            controller.modalPresentationStyle = .fullScreen
            self.present(controller, animated: true, completion: nil)
         

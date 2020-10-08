@@ -13,6 +13,7 @@
 		A8051A02252CD2EC004BE7B9 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051A01252CD2EC004BE7B9 /* SkyFloatingLabelTextField.swift */; };
 		A8051A06252CD69A004BE7B9 /* MobileRechargeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051A05252CD69A004BE7B9 /* MobileRechargeVC.swift */; };
 		A8051A08252CD9C8004BE7B9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051A07252CD9C8004BE7B9 /* Constant.swift */; };
+		A80EEA79252E4C8900619D1B /* Merchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EEA78252E4C8900619D1B /* Merchant.swift */; };
 		A836E41D252AAC3D00223811 /* MSSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836E41C252AAC3D00223811 /* MSSTest.swift */; };
 		A841CB65252CE90200DC65FF /* GiftCardCatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB64252CE90200DC65FF /* GiftCardCatListVC.swift */; };
 		A841CB67252CE9BE00DC65FF /* GiftCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB66252CE9BE00DC65FF /* GiftCardModel.swift */; };
@@ -48,6 +49,7 @@
 		A8051A01252CD2EC004BE7B9 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		A8051A05252CD69A004BE7B9 /* MobileRechargeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileRechargeVC.swift; sourceTree = "<group>"; };
 		A8051A07252CD9C8004BE7B9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		A80EEA78252E4C8900619D1B /* Merchant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merchant.swift; sourceTree = "<group>"; };
 		A836E404252AAB4700223811 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A836E405252AAB4700223811 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A836E406252AAB4700223811 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +249,7 @@
 				A8C8215A252C8A2200B4728A /* HomeMenuModel.swift */,
 				A841CB66252CE9BE00DC65FF /* GiftCardModel.swift */,
 				A841CB7D252E283E00DC65FF /* MobileRecharge.swift */,
+				A80EEA78252E4C8900619D1B /* Merchant.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				A841CB69252CF11D00DC65FF /* ApiHandler.swift in Sources */,
 				A8C8215B252C8A2200B4728A /* HomeMenuModel.swift in Sources */,
 				A8C82163252C8F0400B4728A /* ColorConverter.swift in Sources */,
+				A80EEA79252E4C8900619D1B /* Merchant.swift in Sources */,
 				A841CB7E252E283E00DC65FF /* MobileRecharge.swift in Sources */,
 				A8051A02252CD2EC004BE7B9 /* SkyFloatingLabelTextField.swift in Sources */,
 				A841CB72252DEAD800DC65FF /* GiftCardDetailVC.swift in Sources */,
@@ -538,13 +542,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -595,12 +600,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -630,8 +636,8 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -657,8 +663,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

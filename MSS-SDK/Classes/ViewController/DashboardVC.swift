@@ -57,7 +57,8 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
             self.present(controller, animated: true, completion: nil)
             
             
-        case 1:
+//        case 1:
+//            break
 //            let podBundle = Bundle(for: GiftCardCatListVC.self)
 //            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
 //            let bundle = Bundle(url: bundleURL!)!
@@ -82,13 +83,9 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
             
         }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-           return CGSize(width: (collectionView.frame.width/3), height: (collectionView.frame.width/3))
-       }
-    
-    
-   
-    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//           return CGSize(width: (collectionView.frame.width/3), height: (collectionView.frame.width/3))
+//       }
 }
 
 
@@ -98,9 +95,20 @@ class CellHomeMenu: UICollectionViewCell {
     @IBOutlet weak var ivMenu: UIImageView!
     @IBOutlet weak var tvMenu: UILabel!
     
+    @IBOutlet weak var consWidth: NSLayoutConstraint!
+    @IBOutlet weak var conHeight: NSLayoutConstraint!
+    
     
     func load(items: MenuModel) {
-        ivMenu.image = items.image
+        let screenWidth = UIScreen.main.bounds.size.width
+        consWidth.constant = (screenWidth/3) - 8
+        conHeight.constant = (screenWidth/3)
+        
+        let podBundle = Bundle(for: DashboardVC.self)
+        let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+        let bundle = Bundle(url: bundleURL!)!
+        let img = UIImage(named: items.image, in: bundle, compatibleWith: nil)
+        ivMenu.image = img
         tvMenu.text = items.title
         
     }

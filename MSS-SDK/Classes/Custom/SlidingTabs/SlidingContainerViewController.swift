@@ -36,9 +36,9 @@ class SlidingContainerViewController: UIViewController, UIScrollViewDelegate, Sl
         
         // Move to parent
         
-        willMove(toParent: parent)
-        parent.addChild(self)
-        didMove(toParent: parent)
+        willMove(toParentViewController: parent)
+        parent.addChildViewController(self)
+        didMove(toParentViewController: parent)
         
         
         // Setup Views
@@ -102,16 +102,16 @@ class SlidingContainerViewController: UIViewController, UIScrollViewDelegate, Sl
             
             if i == index {
                 
-                vc.willMove(toParent: self)
-                addChild(vc)
-                vc.didMove(toParent: self)
+                vc.willMove(toParentViewController: self)
+                addChildViewController(vc)
+                vc.didMove(toParentViewController: self)
                 
                 delegate?.slidingContainerViewControllerDidMoveToViewController? (self, viewController: vc, atIndex: index)
             } else {
                 
-                vc.willMove(toParent: self)
-                vc.removeFromParent()
-                vc.didMove(toParent: self)
+                vc.willMove(toParentViewController: self)
+                vc.removeFromParentViewController()
+                vc.didMove(toParentViewController: self)
             }
         }
         

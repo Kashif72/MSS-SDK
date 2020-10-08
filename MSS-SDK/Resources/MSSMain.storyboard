@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8LF-EO-FJI">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -19,7 +20,7 @@
             <objects>
                 <viewController storyboardIdentifier="DashboardVC" id="8LF-EO-FJI" customClass="DashboardVC" customModule="MSS_SDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fhl-Db-AoR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7f-WI-jrW">
@@ -66,9 +67,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="20J-HI-gRP">
-                                        <rect key="frame" x="16" y="203" width="382" height="467"/>
+                                        <rect key="frame" x="0.0" y="203" width="414" height="467"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bCK-2r-zUF">
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="bCK-2r-zUF">
                                             <size key="itemSize" width="194" height="175"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -76,37 +77,37 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellHomeMenu" id="sdx-Qy-HEX" customClass="CellHomeMenu" customModule="MSS_SDK" customModuleProvider="target">
-                                                <rect key="frame" x="94" y="0.0" width="194" height="175"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="194" height="175"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="92f-0Q-WLA">
                                                     <rect key="frame" x="0.0" y="0.0" width="194" height="175"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYb-GS-D6o" customClass="CardView" customModule="MSS_SDK" customModuleProvider="target">
-                                                            <rect key="frame" x="2" y="2" width="190" height="171"/>
+                                                            <rect key="frame" x="4" y="2" width="186" height="171"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ppe-b4-nC1">
-                                                                    <rect key="frame" x="6" y="8" width="178" height="105"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="105" id="LKC-cG-1ue"/>
-                                                                    </constraints>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_bus" translatesAutoresizingMaskIntoConstraints="NO" id="Ppe-b4-nC1">
+                                                                    <rect key="frame" x="6" y="8.0000000000000071" width="174" height="117.66666666666669"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBE-kH-1kk">
-                                                                    <rect key="frame" x="6" y="121" width="178" height="38"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                    <rect key="frame" x="6" y="133.66666666666666" width="174" height="29.333333333333343"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
+                                                                <constraint firstItem="Ppe-b4-nC1" firstAttribute="height" secondItem="fBE-kH-1kk" secondAttribute="height" multiplier="4:1" id="CYb-wb-IXE"/>
                                                                 <constraint firstItem="Ppe-b4-nC1" firstAttribute="top" secondItem="EYb-GS-D6o" secondAttribute="top" constant="8" id="Tlq-lm-wZQ"/>
+                                                                <constraint firstAttribute="height" constant="171" id="UgN-7i-HRw"/>
+                                                                <constraint firstAttribute="width" constant="190" id="ZuD-LO-Jav"/>
                                                                 <constraint firstItem="fBE-kH-1kk" firstAttribute="top" secondItem="Ppe-b4-nC1" secondAttribute="bottom" constant="8" id="a7q-fE-fLJ"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Ppe-b4-nC1" secondAttribute="trailing" constant="6" id="gz6-mu-EhZ"/>
                                                                 <constraint firstAttribute="trailing" secondItem="fBE-kH-1kk" secondAttribute="trailing" constant="6" id="ln5-3v-SVt"/>
                                                                 <constraint firstItem="fBE-kH-1kk" firstAttribute="leading" secondItem="EYb-GS-D6o" secondAttribute="leading" constant="6" id="rqe-97-Jrm"/>
                                                                 <constraint firstItem="Ppe-b4-nC1" firstAttribute="leading" secondItem="EYb-GS-D6o" secondAttribute="leading" constant="6" id="xu9-Z5-EuS"/>
-                                                                <constraint firstAttribute="bottom" secondItem="fBE-kH-1kk" secondAttribute="bottom" constant="12" id="zxz-K3-QfW"/>
+                                                                <constraint firstAttribute="bottom" secondItem="fBE-kH-1kk" secondAttribute="bottom" constant="8" id="zxz-K3-QfW"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -116,15 +117,17 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="EYb-GS-D6o" firstAttribute="leading" secondItem="92f-0Q-WLA" secondAttribute="leading" constant="2" id="5bK-J3-8eX"/>
+                                                        <constraint firstItem="EYb-GS-D6o" firstAttribute="leading" secondItem="92f-0Q-WLA" secondAttribute="leading" constant="4" id="5bK-J3-8eX"/>
                                                         <constraint firstItem="EYb-GS-D6o" firstAttribute="top" secondItem="92f-0Q-WLA" secondAttribute="top" constant="2" id="86h-df-f8s"/>
                                                         <constraint firstAttribute="bottom" secondItem="EYb-GS-D6o" secondAttribute="bottom" constant="2" id="Gqj-B8-nMH"/>
-                                                        <constraint firstAttribute="trailing" secondItem="EYb-GS-D6o" secondAttribute="trailing" constant="2" id="axN-9f-viM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="EYb-GS-D6o" secondAttribute="trailing" constant="4" id="axN-9f-viM"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <size key="customSize" width="194" height="175"/>
                                                 <connections>
+                                                    <outlet property="conHeight" destination="UgN-7i-HRw" id="dMH-sv-ojw"/>
+                                                    <outlet property="consWidth" destination="ZuD-LO-Jav" id="pcF-0w-RMf"/>
                                                     <outlet property="ivMenu" destination="Ppe-b4-nC1" id="w85-Gi-ues"/>
                                                     <outlet property="tvMenu" destination="fBE-kH-1kk" id="3gl-3c-6I6"/>
                                                 </connections>
@@ -141,8 +144,8 @@
                                     <constraint firstAttribute="trailing" secondItem="Sa1-Yd-UKS" secondAttribute="trailing" constant="16" id="OmI-j9-wHS"/>
                                     <constraint firstAttribute="trailing" secondItem="OBP-Yk-m1G" secondAttribute="trailing" constant="16" id="Ymd-tv-kqw"/>
                                     <constraint firstItem="20J-HI-gRP" firstAttribute="top" secondItem="Sa1-Yd-UKS" secondAttribute="bottom" constant="8" id="kjD-7h-IbS"/>
-                                    <constraint firstItem="20J-HI-gRP" firstAttribute="leading" secondItem="fFG-YX-2wi" secondAttribute="leading" constant="16" id="mda-UR-C9B"/>
-                                    <constraint firstAttribute="trailing" secondItem="20J-HI-gRP" secondAttribute="trailing" constant="16" id="w7G-0Z-6IW"/>
+                                    <constraint firstItem="20J-HI-gRP" firstAttribute="leading" secondItem="fFG-YX-2wi" secondAttribute="leading" id="mda-UR-C9B"/>
+                                    <constraint firstAttribute="trailing" secondItem="20J-HI-gRP" secondAttribute="trailing" id="w7G-0Z-6IW"/>
                                     <constraint firstItem="Sa1-Yd-UKS" firstAttribute="leading" secondItem="fFG-YX-2wi" secondAttribute="leading" constant="16" id="xrs-Pu-Rhx"/>
                                 </constraints>
                             </view>
@@ -261,7 +264,7 @@
             <objects>
                 <viewController storyboardIdentifier="MobileRechargeVC" id="7pU-AE-DM3" customClass="MobileRechargeVC" customModule="MSS_SDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8eJ-kD-4mX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tbw-Nh-4wR">
@@ -278,7 +281,7 @@
                                         <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                         <state key="normal" image="bac_btn"/>
                                         <connections>
-                                            <action selector="onBack:" destination="8LF-EO-FJI" eventType="touchUpInside" id="1s7-LC-0w0"/>
+                                            <action selector="onBack:" destination="7pU-AE-DM3" eventType="touchUpInside" id="5p6-EE-8Y1"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -300,6 +303,9 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
                                         <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u9B-Ml-xa1" customClass="CustomTF" customModule="MSS_SDK" customModuleProvider="target">
@@ -310,6 +316,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
                                         <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
@@ -322,6 +331,9 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
                                         <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rh2-ud-5Il" customClass="CustomTF" customModule="MSS_SDK" customModuleProvider="target">
@@ -332,6 +344,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
                                         <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
@@ -346,8 +361,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUa-cP-98W">
-                                <rect key="frame" x="336" y="242" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="334" y="242" width="48" height="30"/>
+                                <state key="normal" title="PLANS"/>
+                                <connections>
+                                    <action selector="onClickPlans:" destination="7pU-AE-DM3" eventType="touchUpInside" id="hLv-2H-2W0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -772,7 +790,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gift Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5U-ak-oiX">
-                                        <rect key="frame" x="174.66666666666666" y="15.333333333333334" width="65" height="19.333333333333329"/>
+                                        <rect key="frame" x="174.66666666666666" y="15.666666666666666" width="64.666666666666657" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -828,6 +846,7 @@
         <image name="bac_btn" width="16" height="16"/>
         <image name="gift_banner" width="720" height="201"/>
         <image name="menu_banner" width="383.66665649414062" height="121"/>
+        <image name="menu_bus" width="47.333332061767578" height="47.333332061767578"/>
         <namedColor name="color_bg">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

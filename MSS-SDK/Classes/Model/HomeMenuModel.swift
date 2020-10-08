@@ -11,7 +11,7 @@ import UIKit
 
 
 public struct MenuModel{
-    public var image: UIImage!
+    public var image: String!
     public var title: String!
     
 }

@@ -20,4 +20,11 @@ let ERR_MOBILE = "Invalid mobile number"
 
 //URLS
 
-let BASE_URL_LIVE = ""
+let URL_GET_ALL_OP_CR = "topUp/getCircleOperator"
+let URL_GET_PREPAID_OP_CIR = "topUp/getCircleOperator"
+let URL_AUTO_OPT = "topUp/getTelcoMobile"
+let URL_BROWSE_PLAN = "topUp/browsePlan"
+let URL_GET_PLANS = "topUp/browsePlan"
+let URL_GET_GIFT_CARDS_CAT = "giftCard/fetch/categoryList"
+let URL_GET_GIFT_CARDS_LIST = "giftCard/fetch/voucher/list"
+

@@ -21,6 +21,7 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tfMobile.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tfServiceProvider.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tfArea.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -32,6 +33,11 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate {
            dismiss(animated: false)
        
     }
+    
+    @IBAction func onClickPlans(_ sender: Any) {
+        
+    }
+    
     
     // This will notify us when something has changed on the textfield
        @objc func textFieldDidChange(_ textfield: UITextField) {

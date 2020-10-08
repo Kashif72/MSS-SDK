@@ -35,13 +35,13 @@ class APIHandler: NSObject {
         
         if Util.isNetworkAvailable() {
             
-            let urlString = ""
+            let urlString = "\(Merchant.merchantData.url!)\(URL_GET_GIFT_CARDS_CAT)"
             _ = JSONEncoder()
             let url = URL(string: urlString)!
+            print("URL", url)
             var request = URLRequest(url: url)
-            request.httpMethod = HTTPMethod.post.rawValue
-            request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-            request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+            request.httpMethod = HTTPMethod.get.rawValue
+         
             
             AF.request(request).responseData(completionHandler: { (response) in
                 
@@ -78,14 +78,14 @@ class APIHandler: NSObject {
             
             if Util.isNetworkAvailable() {
                 
-                let urlString = ""
+                let urlString = "\(Merchant.merchantData.url!)\(URL_GET_GIFT_CARDS_LIST)"
                 let encoder = JSONEncoder()
                 let reqValue = try! encoder.encode(loginReq)
                 let url = URL(string: urlString)!
                 var request = URLRequest(url: url)
                 request.httpMethod = HTTPMethod.post.rawValue
                 request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-                request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+      
                 
                 request.httpBody = reqValue
                 
@@ -127,14 +127,14 @@ class APIHandler: NSObject {
             
             if Util.isNetworkAvailable() {
                 
-                let urlString = ""
+                let urlString = "\(Merchant.merchantData.url!)\(URL_AUTO_OPT)"
                 let encoder = JSONEncoder()
                 let reqValue = try! encoder.encode(loginReq)
                 let url = URL(string: urlString)!
                 var request = URLRequest(url: url)
                 request.httpMethod = HTTPMethod.post.rawValue
                 request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-                request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+           
                 
                 request.httpBody = reqValue
                 
@@ -175,14 +175,14 @@ class APIHandler: NSObject {
         
         if Util.isNetworkAvailable() {
             
-            let urlString = ""
+            let urlString = "\(Merchant.merchantData.url!)\(URL_GET_PLANS)"
             let encoder = JSONEncoder()
             let reqValue = try! encoder.encode(loginReq)
             let url = URL(string: urlString)!
             var request = URLRequest(url: url)
             request.httpMethod = HTTPMethod.post.rawValue
             request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-            request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+      
             
             request.httpBody = reqValue
             
@@ -247,14 +247,14 @@ class APIHandler: NSObject {
                
                if Util.isNetworkAvailable() {
                    
-                   let urlString = ""
+                   let urlString = "\(Merchant.merchantData.url!)\(URL_GET_ALL_OP_CR)"
                    let encoder = JSONEncoder()
                    let reqValue = try! encoder.encode(loginReq)
                    let url = URL(string: urlString)!
                    var request = URLRequest(url: url)
                    request.httpMethod = HTTPMethod.post.rawValue
                    request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-                   request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+            
                    
                    request.httpBody = reqValue
                    

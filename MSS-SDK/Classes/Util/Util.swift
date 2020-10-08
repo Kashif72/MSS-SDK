@@ -39,7 +39,7 @@ class Util: NSObject {
     
     
     class func baseUrl() -> String {
-        return BASE_URL_LIVE
+        return ""
         
     }
     

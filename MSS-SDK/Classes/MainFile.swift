@@ -10,15 +10,16 @@ import Foundation
 import UIKit
 
 
-public class MainFile{
+public class InitSDK{
 
     public init() {
         
     }
 
     
-    public func open(caller: UIViewController) {
+    public func open(caller: UIViewController, merchant: Merchant) {
         print("OPEN CLICKED")
+        Merchant.merchantData = merchant
         
         let podBundle = Bundle(for: DashboardVC.self)
         let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")

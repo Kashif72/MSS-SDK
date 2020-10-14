@@ -930,21 +930,46 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gJz-Nn-Sv6">
-                                                <rect key="frame" x="16" y="359.33333333333331" width="382" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gJz-Nn-Sv6" customClass="CustomTF" customModule="MSS_SDK" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="375.33333333333331" width="382" height="34"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="O85-VW-uii">
-                                                <rect key="frame" x="16" y="409.33333333333331" width="382" height="30"/>
+                                                <rect key="frame" x="16" y="425.33333333333331" width="382" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAJ-xO-bff">
                                                         <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
                                                         <state key="normal" title="View TNC"/>
+                                                        <connections>
+                                                            <action selector="onCLickTNC:" destination="TWD-0X-Ojc" eventType="touchUpInside" id="VLG-AJ-TG8"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obL-Qo-CTR">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obL-Qo-CTR" customClass="CustomButton" customModule="MSS_SDK" customModuleProvider="target">
                                                         <rect key="frame" x="195" y="0.0" width="187" height="30"/>
                                                         <state key="normal" title="BUY NOW"/>
+                                                        <connections>
+                                                            <action selector="onClickBuyNow:" destination="TWD-0X-Ojc" eventType="touchUpInside" id="Hrk-R7-aBm"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -952,6 +977,9 @@
                                                     <constraint firstItem="kAJ-xO-bff" firstAttribute="width" secondItem="obL-Qo-CTR" secondAttribute="width" id="tI7-Lc-lFD"/>
                                                 </constraints>
                                             </stackView>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Utz-LL-ZQL">
+                                                <rect key="frame" x="197" y="65" width="20" height="20"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -967,6 +995,7 @@
                                             <constraint firstItem="OWX-Xh-2XL" firstAttribute="leading" secondItem="kZW-x8-cZp" secondAttribute="leading" constant="16" id="LEK-ap-diO"/>
                                             <constraint firstItem="O85-VW-uii" firstAttribute="top" secondItem="gJz-Nn-Sv6" secondAttribute="bottom" constant="16" id="Ma9-8d-3Oq"/>
                                             <constraint firstItem="xWD-i6-M98" firstAttribute="top" secondItem="zuu-Sn-zPA" secondAttribute="bottom" constant="8" id="OIw-5Z-Wkd"/>
+                                            <constraint firstItem="Utz-LL-ZQL" firstAttribute="centerY" secondItem="a7u-Hl-X1a" secondAttribute="centerY" id="P7W-JK-yqn"/>
                                             <constraint firstAttribute="trailing" secondItem="OWX-Xh-2XL" secondAttribute="trailing" constant="16" id="Pqn-PP-9n8"/>
                                             <constraint firstAttribute="trailing" secondItem="a7u-Hl-X1a" secondAttribute="trailing" id="UX1-KK-6Zp"/>
                                             <constraint firstAttribute="trailing" secondItem="zuu-Sn-zPA" secondAttribute="trailing" constant="16" id="V3L-CH-4s2"/>
@@ -979,7 +1008,8 @@
                                             <constraint firstItem="OWX-Xh-2XL" firstAttribute="top" secondItem="a7u-Hl-X1a" secondAttribute="bottom" constant="16" id="mfd-iD-gy0"/>
                                             <constraint firstItem="98V-V7-we3" firstAttribute="top" secondItem="OWX-Xh-2XL" secondAttribute="bottom" constant="8" id="o8g-gL-Ouj"/>
                                             <constraint firstItem="a7u-Hl-X1a" firstAttribute="top" secondItem="kZW-x8-cZp" secondAttribute="top" id="seh-mD-eiM"/>
-                                            <constraint firstItem="gJz-Nn-Sv6" firstAttribute="top" secondItem="G0J-xl-k1e" secondAttribute="bottom" constant="8" id="wSy-AE-bdd"/>
+                                            <constraint firstItem="Utz-LL-ZQL" firstAttribute="centerX" secondItem="a7u-Hl-X1a" secondAttribute="centerX" id="uFP-Zd-i71"/>
+                                            <constraint firstItem="gJz-Nn-Sv6" firstAttribute="top" secondItem="G0J-xl-k1e" secondAttribute="bottom" constant="24" id="wSy-AE-bdd"/>
                                             <constraint firstAttribute="trailing" secondItem="smE-ev-cRe" secondAttribute="trailing" constant="16" id="xCP-wQ-wSU"/>
                                             <constraint firstItem="zuu-Sn-zPA" firstAttribute="top" secondItem="smE-ev-cRe" secondAttribute="bottom" constant="8" id="zdR-XX-0rF"/>
                                         </constraints>
@@ -1008,8 +1038,7 @@
                                         <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                         <state key="normal" image="bac_btn"/>
                                         <connections>
-                                            <action selector="onBackPress:" destination="TWD-0X-Ojc" eventType="touchUpInside" id="wvQ-bH-nSn"/>
-                                            <action selector="onClickBack:" destination="TWD-0X-Ojc" eventType="touchUpInside" id="OBt-NM-vYd"/>
+                                            <action selector="onBackPress:" destination="TWD-0X-Ojc" eventType="touchUpInside" id="U9Y-wx-OOk"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1037,7 +1066,9 @@
                     </view>
                     <size key="freeformSize" width="414" height="900"/>
                     <connections>
+                        <outlet property="avImage" destination="Utz-LL-ZQL" id="Ybs-cd-ziD"/>
                         <outlet property="ivGift" destination="a7u-Hl-X1a" id="o1q-Wk-kVZ"/>
+                        <outlet property="tfAmount" destination="gJz-Nn-Sv6" id="llD-Y6-YvK"/>
                         <outlet property="tvDescription" destination="zuu-Sn-zPA" id="Id9-N4-ym0"/>
                         <outlet property="tvHowToUse" destination="G0J-xl-k1e" id="FjY-zJ-WuS"/>
                         <outlet property="tvPRice" destination="98V-V7-we3" id="cMs-C4-PeE"/>

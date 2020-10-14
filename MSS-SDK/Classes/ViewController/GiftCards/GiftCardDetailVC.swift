@@ -21,8 +21,22 @@ class GiftCardDetailVC: UIViewController {
     
     var obtModel : GiftCardModel?  = nil
     
+    @IBOutlet weak var tfAmount: CustomTF!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tvTitle.text = obtModel!.product_name!
+        tvPRice.text = "Min INR. \(obtModel!.min_price!) Max INR. \(obtModel!.max_price!)"
+        tvValidity.text = "Validity \(obtModel!.product_expiry_and_validity!)"
+        
+        if(obtModel!.product_how_to_use != nil){
+            tvHowToUse.attributedText = obtModel!.product_how_to_use.htmlToAttributedString
+        }
+        
+        if(obtModel!.product_description != nil){
+            tvDescription.attributedText = obtModel!.product_description.htmlToAttributedString
+        }
         
         if (obtModel!.product_image != nil && obtModel!.product_image.count > 0) {
             let finalImagePath =  obtModel!.product_image
@@ -50,11 +64,62 @@ class GiftCardDetailVC: UIViewController {
 
     }
     
+    @IBAction func onClickBuyNow(_ sender: Any) {
+        if(tfAmount.text!.count == 0){
+            tfAmount.errorMessage = ERR_THIS_FILED_IS_REQ
+        }else{
+            //Show the dialog
+            tfAmount.errorMessage = ""
+            
+            showConfirmDialog(message: "Voucher: \(obtModel!.product_name!)\nAmount:  \(tfAmount.text!)")
+        }
+        
+    }
+    
+    
+    @IBAction func onCLickTNC(_ sender: Any) {
+    
+    }
     
 
     @IBAction func onBackPress(_ sender: Any) {
         dismiss(animated: false)
         
+    }
+    
+    
+    func showConfirmDialog(message: String){
+        let alert = UIAlertController(title: "Please confirm", message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        let confirmAction = UIAlertAction(title: "Continue", style: UIAlertAction.Style.default)
+        {
+            (UIAlertAction) -> Void in
+            var req = PrepaidPayRequest()
+            req.amount = self.tfAmount.text!
+            req.serviceProvider = self.obtModel!.product_id
+            req.accountNumber = ""
+            req.transactionType = "giftcard"
+            req.amount = self.tfAmount.text!
+            //Send data back
+            
+            
+            
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            print("didPress cancel")
+        }
+        
+        
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        
+        
+        present(alert, animated: true)
+        {
+            () -> Void in
+        }
     }
     
 

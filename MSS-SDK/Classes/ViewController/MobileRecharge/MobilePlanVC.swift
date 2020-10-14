@@ -10,9 +10,10 @@ import UIKit
 
 class MobilePlanVC: UIViewController,SlidingContainerViewControllerDelegate {
 
-
+    @IBOutlet weak var mainView: UIView!
     var opCode: String = ""
     var circleCode: String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,7 @@ class MobilePlanVC: UIViewController,SlidingContainerViewControllerDelegate {
             contentViewControllers: [controller1!,controller2!,controller3!,controller4!,controller5!],
             titles: ["FULL TALKTIME", "SPECIAL", "2G","3G","TOPUP"])
         
-        view.addSubview(slidingContainerViewController.view)
+        mainView.addSubview(slidingContainerViewController.view)
         
         slidingContainerViewController.sliderView.appearance.outerPadding = 0
         slidingContainerViewController.sliderView.appearance.innerPadding = 50
@@ -57,6 +58,8 @@ class MobilePlanVC: UIViewController,SlidingContainerViewControllerDelegate {
     }
     
 
+    @IBAction func onClickBack(_ sender: Any) {
+    }
     
     // MARK: SlidingContainerViewControllerDelegate
     

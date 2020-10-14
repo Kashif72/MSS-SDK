@@ -33,7 +33,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zl8-mx-HRB">
-                                        <rect key="frame" x="8" y="6" width="32" height="38"/>
+                                        <rect key="frame" x="8" y="6" width="37.333333333333336" height="38"/>
                                         <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                         <state key="normal" image="bac_btn"/>
                                         <connections>
@@ -259,6 +259,67 @@
             </objects>
             <point key="canvasLocation" x="-23.188405797101453" y="491.51785714285711"/>
         </scene>
+        <!--Mobile PlanVC-->
+        <scene sceneID="MY4-zQ-KYb">
+            <objects>
+                <viewController storyboardIdentifier="MobilePlanVC" id="jdB-zc-8hX" customClass="MobilePlanVC" customModule="MSS_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ckf-rO-Bso">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ThT-uN-xY9">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Plans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bB-My-krZ">
+                                        <rect key="frame" x="161" y="15.666666666666664" width="92.333333333333314" height="19"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kuc-GV-Gdj">
+                                        <rect key="frame" x="8" y="6" width="37.333333333333336" height="38"/>
+                                        <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                        <state key="normal" image="bac_btn"/>
+                                        <connections>
+                                            <action selector="onClickBack:" destination="jdB-zc-8hX" eventType="touchUpInside" id="GPj-Np-AOQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Kuc-GV-Gdj" firstAttribute="leading" secondItem="ThT-uN-xY9" secondAttribute="leading" constant="8" id="20T-Rd-gag"/>
+                                    <constraint firstItem="0bB-My-krZ" firstAttribute="centerX" secondItem="ThT-uN-xY9" secondAttribute="centerX" id="ALT-BK-FEg"/>
+                                    <constraint firstItem="0bB-My-krZ" firstAttribute="centerY" secondItem="ThT-uN-xY9" secondAttribute="centerY" id="Ax2-cd-cbj"/>
+                                    <constraint firstAttribute="height" constant="50" id="WBb-XT-Dk1"/>
+                                    <constraint firstItem="Kuc-GV-Gdj" firstAttribute="top" secondItem="ThT-uN-xY9" secondAttribute="top" constant="6" id="XgA-v8-USj"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kuc-GV-Gdj" secondAttribute="bottom" constant="6" id="XxH-8i-TI8"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIK-rp-PIH">
+                                <rect key="frame" x="0.0" y="50" width="414" height="686"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qIK-rp-PIH" firstAttribute="top" secondItem="ThT-uN-xY9" secondAttribute="bottom" id="8Ed-iY-Z7F"/>
+                            <constraint firstItem="ThT-uN-xY9" firstAttribute="trailing" secondItem="CmP-VZ-7Id" secondAttribute="trailing" id="Dmh-Te-B8c"/>
+                            <constraint firstItem="ThT-uN-xY9" firstAttribute="leading" secondItem="CmP-VZ-7Id" secondAttribute="leading" id="EeK-Dg-PHY"/>
+                            <constraint firstItem="CmP-VZ-7Id" firstAttribute="bottom" secondItem="qIK-rp-PIH" secondAttribute="bottom" id="OKV-xW-gzj"/>
+                            <constraint firstItem="ThT-uN-xY9" firstAttribute="top" secondItem="CmP-VZ-7Id" secondAttribute="top" id="beL-R1-Eng"/>
+                            <constraint firstItem="CmP-VZ-7Id" firstAttribute="trailing" secondItem="qIK-rp-PIH" secondAttribute="trailing" id="huh-uA-EgL"/>
+                            <constraint firstItem="qIK-rp-PIH" firstAttribute="leading" secondItem="CmP-VZ-7Id" secondAttribute="leading" id="psc-V2-lQS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CmP-VZ-7Id"/>
+                    </view>
+                    <connections>
+                        <outlet property="mainView" destination="qIK-rp-PIH" id="Fy8-mS-R2j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oJG-sP-SVg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="491"/>
+        </scene>
         <!--Mobile RechargeVC-->
         <scene sceneID="2nL-RT-Ilc">
             <objects>
@@ -306,6 +367,9 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u9B-Ml-xa1" customClass="CustomTF" customModule="MSS_SDK" customModuleProvider="target">
@@ -319,6 +383,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
@@ -334,6 +401,9 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rh2-ud-5Il" customClass="CustomTF" customModule="MSS_SDK" customModuleProvider="target">
@@ -348,11 +418,17 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTouchCircle:" destination="7pU-AE-DM3" eventType="editingDidBegin" id="Ccv-cW-XcZ"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49U-1h-8qT" customClass="CustomButton" customModule="MSS_SDK" customModuleProvider="target">
                                 <rect key="frame" x="157" y="310" width="100" height="34"/>
-                                <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
+                                <inset key="contentEdgeInsets" minX="32" minY="12" maxX="32" maxY="12"/>
                                 <state key="normal" title="PAY NOW">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -421,7 +497,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2km-fG-QqA">
-                                        <rect key="frame" x="8" y="6" width="32" height="38"/>
+                                        <rect key="frame" x="8" y="6" width="37.333333333333336" height="38"/>
                                         <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                         <state key="normal" image="bac_btn"/>
                                         <connections>
@@ -549,7 +625,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1u-8T-jCl">
-                                        <rect key="frame" x="8" y="6" width="32" height="38"/>
+                                        <rect key="frame" x="8" y="6" width="37.333333333333336" height="38"/>
                                         <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                         <state key="normal" image="bac_btn"/>
                                         <connections>
@@ -796,7 +872,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zn3-mQ-tIv">
-                                        <rect key="frame" x="8" y="6" width="32" height="38"/>
+                                        <rect key="frame" x="8" y="6" width="37.333333333333336" height="38"/>
                                         <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                         <state key="normal" image="bac_btn"/>
                                         <connections>
@@ -843,7 +919,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bac_btn" width="16" height="16"/>
+        <image name="bac_btn" width="21.333333969116211" height="21.333333969116211"/>
         <image name="gift_banner" width="720" height="201"/>
         <image name="menu_banner" width="383.66665649414062" height="121"/>
         <image name="menu_bus" width="47.333332061767578" height="47.333332061767578"/>

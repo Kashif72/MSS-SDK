@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import MBProgressHUD
+import TTGSnackbar
 
-class MobileRechargeVC: UIViewController, UITextFieldDelegate {
+
+class MobileRechargeVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate   {
 
     
     @IBOutlet weak var tfMobile: CustomTF!
@@ -17,28 +20,42 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tfArea: CustomTF!
     @IBOutlet weak var tfAmount: CustomTF!
     
+    var isPlan : Bool = false
+    
+    var serviceCode = ""
+    var areaCode = ""
+    
+    
+    let areaPV = UIPickerView()
+    var areaArray = MCircleModel.preCircleModel
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tfMobile.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tfServiceProvider.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tfArea.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tfAmount.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
+        self.areaPV.delegate = self
+        self.tfArea.inputView = self.areaPV
+        
     }
     
     
     @IBAction func onBack(_ sender: Any) {
            dismiss(animated: false)
-       
-    }
-    
-    @IBAction func onClickPlans(_ sender: Any) {
         
     }
     
     
+    @IBAction func onClickPlans(_ sender: Any) {
+        isPlan = true
+        checkField()
+        
+    }
+   
     // This will notify us when something has changed on the textfield
        @objc func textFieldDidChange(_ textfield: UITextField) {
            if let text = textfield.text {
@@ -87,10 +104,156 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func onClickPay(_ sender: Any) {
+    @IBAction func onTouchCircle(_ sender: Any) {
+        if(areaArray.count != 0){
+        
+        }
+        else{
+            self.showLoading(view: self.view, text: "Please wait")
+            
+            var req = MOptCircRequest()
+            req.topUpType = "PRE"
+            
+            APIHandler.sharedInstance.getOptCircle(loginReq: req, success: { (sessionId) in
+                //Success
+                self.stopLoading(fromView: self.view)
+                self.areaArray = MCircleModel.preCircleModel
+                self.areaPV.reloadAllComponents()
+                
+            }, failure: { (message) in
+                self.stopLoading(fromView: self.view)
+                self.showError(message: message!)
+            })
+        }
+        
     }
     
     
+    @IBAction func onClickPay(_ sender: Any) {
+        isPlan = false
+        checkField()
+       
+    }
     
+    func checkField (){
+        if(!isPlan){
+            if(tfMobile.text!.count == 0){
+                tfMobile.errorMessage = ERR_THIS_FILED_IS_REQ
+            }else if (tfMobile.text!.count < 10){
+                tfMobile.errorMessage = ERR_MOBILE
+            }else if (tfServiceProvider.text!.isEmpty){
+                tfServiceProvider.errorMessage = ERR_THIS_FILED_IS_REQ
+            }else if (tfArea.text!.isEmpty){
+                tfArea.errorMessage = ERR_THIS_FILED_IS_REQ
+            }else if (tfAmount.text!.isEmpty){
+                tfAmount.errorMessage = ERR_THIS_FILED_IS_REQ
+            }else{
+                //Show the dialog
+                clearError()
+                showConfirmDialog(message: "Mobile: \(tfMobile.text!)\nService Provider: \(tfServiceProvider.text!)\n Area: \(tfArea.text!)\n Amount: \(tfAmount.text!)")
+            }
+        }else{
+            if (tfServiceProvider.text!.isEmpty){
+                tfServiceProvider.errorMessage = ERR_THIS_FILED_IS_REQ
+            }else if (tfArea.text!.isEmpty){
+                tfArea.errorMessage = ERR_THIS_FILED_IS_REQ
+            }else{
+                clearError()
+                
+                
+            }
+        }
+        
+    }
+    
+    func clearError(){
+           tfMobile.errorMessage = ""
+           tfServiceProvider.errorMessage = ""
+           tfArea.errorMessage = ""
+           tfAmount.errorMessage = ""
+    }
+    
+    
+    func showConfirmDialog(message: String){
+        let alert = UIAlertController(title: "Please confirm", message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        let confirmAction = UIAlertAction(title: "Continue", style: UIAlertAction.Style.default)
+        {
+            (UIAlertAction) -> Void in
+            var req = PrepaidPayRequest()
+            req.amount = self.tfAmount.text!
+            req.accountNumber = self.tfMobile.text!
+            req.serviceProvider = self.serviceCode
+            req.amount = self.tfAmount.text!
+            //Send data back
+            
+            
+            
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            print("didPress cancel")
+        }
+        
+        
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        
+        
+        present(alert, animated: true)
+        {
+            () -> Void in
+        }
+    }
+    
+    
+    func showError(message: String){
+          let snackbar = TTGSnackbar(message: message, duration: .short)
+          snackbar.animationType = .slideFromTopBackToTop
+          snackbar.backgroundColor = ColorConverter.hexStringToUIColor(hex: ColorCode.txtError)
+          snackbar.show()
+      }
+    
+    
+    private func showLoading(view:UIView, text:String){
+          let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+          loadingNotification.mode = MBProgressHUDMode.indeterminate
+      }
+      
+      
+      private func stopLoading(fromView:UIView){
+          MBProgressHUD.hide(for: fromView, animated: true)
+      }
+    
+    
+    //Picker
+        func numberOfComponents(in pickerView: UIPickerView) -> Int {
+            return 1
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return areaArray.count
+            
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            if(tfArea.text?.count == 0){
+                tfArea.text = areaArray[row].name
+                areaCode = areaArray[row].code
+                tfArea.errorMessage = ""
+            }
+                return areaArray[row].name
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            tfArea.errorMessage = ""
+            if(areaArray.count > 0){
+                tfArea.text = areaArray[row].name
+                areaCode = areaArray[row].code
+                tfArea.errorMessage = ""
+            }
+        }
+     
     
 }

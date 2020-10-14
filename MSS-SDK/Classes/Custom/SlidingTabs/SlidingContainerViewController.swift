@@ -33,7 +33,6 @@ class SlidingContainerViewController: UIViewController, UIScrollViewDelegate, Sl
         self.contentViewControllers = contentViewControllers
         self.titles = titles
         
-        
         // Move to parent
         
         willMove(toParentViewController: parent)
@@ -108,7 +107,6 @@ class SlidingContainerViewController: UIViewController, UIScrollViewDelegate, Sl
                 
                 delegate?.slidingContainerViewControllerDidMoveToViewController? (self, viewController: vc, atIndex: index)
             } else {
-                
                 vc.willMove(toParentViewController: self)
                 vc.removeFromParentViewController()
                 vc.didMove(toParentViewController: self)

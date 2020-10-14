@@ -22,6 +22,7 @@ class CustomTF: SkyFloatingLabelTextField {
         selectedTitleColor = ColorConverter.hexStringToUIColor(hex: ColorCode.accentColor)
         selectedLineColor = ColorConverter.hexStringToUIColor(hex: ColorCode.accentColor)
         
+        
         lineHeight = 1.0 // bottom line height in points
         selectedLineHeight = 1.0
         

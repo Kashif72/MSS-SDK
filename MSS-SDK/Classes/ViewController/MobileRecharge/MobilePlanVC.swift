@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import MBProgressHUD
+import TTGSnackbar
 
 class MobilePlanVC: UIViewController,SlidingContainerViewControllerDelegate {
+   
+    
 
     @IBOutlet weak var mainView: UIView!
     var opCode: String = ""
@@ -19,29 +23,45 @@ class MobilePlanVC: UIViewController,SlidingContainerViewControllerDelegate {
         super.viewDidLoad()
         self.view.backgroundColor = ColorConverter.hexStringToUIColor(hex: ColorCode.bgColor)
         
-        self.fillView()
+        self.showLoading(view: self.view, text: "Please wait")
+        
+        var req = PlanRequest()
+        req.circleCode = circleCode
+        req.serviceProvider = opCode
+        
+        APIHandler.sharedInstance.getMobilePlans(loginReq: req, success: { (sessionId) in
+            //Success
+            self.stopLoading(fromView: self.view)
+            self.fillView()
+            
+        }, failure: { (message) in
+            self.stopLoading(fromView: self.view)
+            self.showError(message: message!)
+        })
+        
+        
     }
     
     func fillView(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller1 = storyboard.instantiateViewController(withIdentifier: "browsePlanInnerVc") as? BrowsePlanInnerVC
-        controller1?.innerType = "FullTalkTime"
+        controller1?.innerType = "Full Talktime"
         controller1?.plansArray = PlanModel.fTUniqueI
         
         let controller2 = storyboard.instantiateViewController(withIdentifier: "browsePlanInnerVc") as? BrowsePlanInnerVC
-        controller2?.innerType = "SPECIAL"
+        controller2?.innerType = "Special Recharge"
         controller2?.plansArray = PlanModel.specialUniqueI
         
         let controller3 = storyboard.instantiateViewController(withIdentifier: "browsePlanInnerVc") as?BrowsePlanInnerVC
-        controller3?.innerType = "2G"
+        controller3?.innerType = "2G Data"
         controller3?.plansArray = PlanModel.TwoGUniqueI
         
         let controller4 = storyboard.instantiateViewController(withIdentifier: "browsePlanInnerVc") as? BrowsePlanInnerVC
-        controller4?.innerType = "3G"
+        controller4?.innerType = "3G Data"
         controller4?.plansArray = PlanModel.ThreeGUniqueI
         
         let controller5 = storyboard.instantiateViewController(withIdentifier: "browsePlanInnerVc") as? BrowsePlanInnerVC
-        controller5?.innerType = "TOPUP"
+        controller5?.innerType = "Top up"
         controller5?.plansArray = PlanModel.TopUpGUniqueI
         
         let slidingContainerViewController = SlidingContainerViewController (
@@ -59,6 +79,8 @@ class MobilePlanVC: UIViewController,SlidingContainerViewControllerDelegate {
     
 
     @IBAction func onClickBack(_ sender: Any) {
+        dismiss(animated: false)
+        
     }
     
     // MARK: SlidingContainerViewControllerDelegate
@@ -85,4 +107,25 @@ class MobilePlanVC: UIViewController,SlidingContainerViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    
+     private func showLoading(view:UIView, text:String){
+           let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+           loadingNotification.mode = MBProgressHUDMode.indeterminate
+       }
+       
+       
+       private func stopLoading(fromView:UIView){
+           MBProgressHUD.hide(for: fromView, animated: true)
+       }
+    
+    func showError(message: String){
+          let snackbar = TTGSnackbar(message: message, duration: .short)
+          snackbar.animationType = .slideFromTopBackToTop
+          snackbar.backgroundColor = ColorConverter.hexStringToUIColor(hex: ColorCode.txtError)
+          snackbar.show()
+      }
+    
+    
+    
 }
+

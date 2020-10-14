@@ -19,6 +19,18 @@ class BrowsePlanInnerVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
          super.viewDidLoad()
+        if(innerType == "Full Talktime"){
+            plansArray = PlanModel.fTUniqueI
+        }else if (innerType == "Special Recharge"){
+            plansArray = PlanModel.specialUniqueI
+        }else if (innerType == "2G Data"){
+            plansArray = PlanModel.TwoGUniqueI
+        }else if (innerType == "3G Data"){
+            plansArray = PlanModel.ThreeGUniqueI
+        }else if (innerType == "Top up"){
+            plansArray = PlanModel.TopUpGUniqueI
+        }
+        
          tvPlans.delegate = self
          tvPlans.dataSource = self
          tvPlans.backgroundColor = UIColor.white

@@ -174,7 +174,7 @@ class APIHandler: NSObject {
     func getMobilePlans(loginReq: PlanRequest, success: @escaping (_ response: String?) -> Void, failure: @escaping (_ error: String?) -> Void){
         
         if Util.isNetworkAvailable() {
-            
+            print("\(Merchant.merchantData.url!)\(URL_GET_PLANS)")
             let urlString = "\(Merchant.merchantData.url!)\(URL_GET_PLANS)"
             let encoder = JSONEncoder()
             let reqValue = try! encoder.encode(loginReq)
@@ -246,8 +246,9 @@ class APIHandler: NSObject {
     func getOptCircle(loginReq: MOptCircRequest, success: @escaping (_ response: String?) -> Void, failure: @escaping (_ error: String?) -> Void){
                
                if Util.isNetworkAvailable() {
-                   
+                    print("\(Merchant.merchantData.url!)\(URL_GET_ALL_OP_CR)")
                    let urlString = "\(Merchant.merchantData.url!)\(URL_GET_ALL_OP_CR)"
+                
                    let encoder = JSONEncoder()
                    let reqValue = try! encoder.encode(loginReq)
                    let url = URL(string: urlString)!

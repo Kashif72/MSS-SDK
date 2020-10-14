@@ -11,7 +11,7 @@ import MBProgressHUD
 import TTGSnackbar
 
 
-class MobileRechargeVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate   {
+class MobileRechargeVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, OperatorListener   {
 
     
     @IBOutlet weak var tfMobile: CustomTF!
@@ -103,6 +103,49 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate, UIPickerViewDataS
         }
     }
     
+    @IBAction func onTouchOperator(_ sender: Any) {
+          if(MOperatorModel.preOptModel.count != 0){
+          let podBundle = Bundle(for: GiftCardCatListVC.self)
+                         
+            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+            
+            let bundle = Bundle(url: bundleURL!)!
+            
+            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+            
+            let controller = storyboard.instantiateViewController(withIdentifier: "OperatorListVC")
+            as! OperatorListVC
+            controller.type = "Pre"
+            controller.operatorListener = self
+            controller.modalPresentationStyle = .fullScreen
+            self.present(controller, animated: true, completion: nil)
+          }
+          else{
+              self.showLoading(view: self.view, text: "Please wait")
+              
+              var req = MOptCircRequest()
+              req.topUpType = "PRE"
+              
+              APIHandler.sharedInstance.getOptCircle(loginReq: req, success: { (sessionId) in
+                  //Success
+                self.stopLoading(fromView: self.view)
+                let podBundle = Bundle(for: GiftCardCatListVC.self)
+                let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+                let bundle = Bundle(url: bundleURL!)!
+                let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+                let controller = storyboard.instantiateViewController(withIdentifier: "OperatorListVC") as! OperatorListVC
+                controller.type = "Pre"
+                controller.operatorListener = self
+                controller.modalPresentationStyle = .fullScreen
+                self.present(controller, animated: true, completion: nil)
+                  
+              }, failure: { (message) in
+                  self.stopLoading(fromView: self.view)
+                  self.showError(message: message!)
+              })
+          }
+          
+      }
     
     @IBAction func onTouchCircle(_ sender: Any) {
         if(areaArray.count != 0){
@@ -159,7 +202,17 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate, UIPickerViewDataS
                 tfArea.errorMessage = ERR_THIS_FILED_IS_REQ
             }else{
                 clearError()
-                
+                let podBundle = Bundle(for: GiftCardCatListVC.self)
+                let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+                let bundle = Bundle(url: bundleURL!)!
+                let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+                let controller =
+                    storyboard.instantiateViewController(withIdentifier: "MobilePlanVC")
+                         as! MobilePlanVC
+                controller.circleCode = areaCode
+                controller.opCode = serviceCode
+                controller.modalPresentationStyle = .fullScreen
+                self.present(controller, animated: true, completion: nil)
                 
             }
         }
@@ -254,6 +307,19 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate, UIPickerViewDataS
                 tfArea.errorMessage = ""
             }
         }
+    
+    func onOpSelected(position: Int) {
+        print("Selected: \(position)")
+        serviceCode = MOperatorModel.preOptModel[position].code
+        tfServiceProvider.text  = MOperatorModel.preOptModel[position].name
+        
+    }
      
     
+}
+
+
+
+protocol OperatorListener {
+    func onOpSelected(position: Int)
 }

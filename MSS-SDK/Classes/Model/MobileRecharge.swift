@@ -81,6 +81,7 @@ struct MOperatorModel:Codable {
     public var serviceLogo : String!
     
     static var preOptModel = Array<MOperatorModel>()
+    static var dthOptModel = Array<MOperatorModel>()
     
 }
 

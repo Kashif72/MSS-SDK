@@ -292,6 +292,53 @@ class APIHandler: NSObject {
                }
            }
     
+    func getDTHOpt(loginReq: MOptCircRequest, success: @escaping (_ response: String?) -> Void, failure: @escaping (_ error: String?) -> Void){
+                  
+                  if Util.isNetworkAvailable() {
+                       print("\(Merchant.merchantData.url!)\(URL_GET_ALL_OP_CR)")
+                      let urlString = "\(Merchant.merchantData.url!)\(URL_GET_ALL_OP_CR)"
+                   
+                      let encoder = JSONEncoder()
+                      let reqValue = try! encoder.encode(loginReq)
+                      let url = URL(string: urlString)!
+                      var request = URLRequest(url: url)
+                      request.httpMethod = HTTPMethod.post.rawValue
+                      request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+               
+                      
+                      request.httpBody = reqValue
+                      
+                      print("Request",loginReq)
+                      
+                      AF.request(request).responseData(completionHandler: { (response) in
+                          
+                          print("Response", response)
+                              if let status = response.response?.statusCode {
+                                  switch(status){
+                                  case 200:
+                                      let decoder = JSONDecoder()
+                                      let responseValue = try! decoder.decode(MOptCircResponse.self, from: response.data!)
+                                      
+                                      if(responseValue.code == SUCCESS){
+                                       MOperatorModel.dthOptModel = responseValue.details
+                                       success(responseValue.message);
+                                      }else{
+                                          failure(responseValue.message)
+                                      }
+                                      
+                                      print("Regsiter Response", responseValue)
+                                      
+                                  default:
+                                        failure("Error! \(String(status))")
+                                  }
+                              }
+                          
+                      })
+                  } else {
+                      failure(NETWORK_FAIL_MSG)
+                  }
+              }
+       
     
     
     //GET METHOD

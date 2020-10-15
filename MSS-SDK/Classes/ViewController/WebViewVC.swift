@@ -13,7 +13,12 @@ import WebKit
 class WebViewVC: UIViewController, WKNavigationDelegate {
 
     @IBOutlet weak var avLoader: UIActivityIndicatorView!
+    
+    
+    
     @IBOutlet weak var webView: WKWebView!
+    
+    
     var webUrl = ""
     @IBOutlet weak var lblTitle: UILabel!
     

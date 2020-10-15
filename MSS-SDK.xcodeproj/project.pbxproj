@@ -31,6 +31,8 @@
 		A85AB7ED2538072A00C7EE5D /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7EC2538072A00C7EE5D /* WebViewVC.swift */; };
 		A85AB7EF2538528A00C7EE5D /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7EE2538528A00C7EE5D /* NewsVC.swift */; };
 		A85AB7F12538534500C7EE5D /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7F02538534500C7EE5D /* NewsModel.swift */; };
+		A85AB7F52538622000C7EE5D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85AB7F42538622000C7EE5D /* WebKit.framework */; };
+		A85AB7F82538905000C7EE5D /* DTHVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7F72538905000C7EE5D /* DTHVC.swift */; };
 		A86B07C12527630F00386A84 /* MSS_SDK.h in Headers */ = {isa = PBXBuildFile; fileRef = A86B07BF2527630F00386A84 /* MSS_SDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8861F432527860F00590D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8861F422527860F00590D12 /* Assets.xcassets */; };
 		A8861F462527863B00590D12 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8861F452527863B00590D12 /* DashboardVC.swift */; platformFilter = ios; };
@@ -79,6 +81,8 @@
 		A85AB7EC2538072A00C7EE5D /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		A85AB7EE2538528A00C7EE5D /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		A85AB7F02538534500C7EE5D /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		A85AB7F42538622000C7EE5D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		A85AB7F72538905000C7EE5D /* DTHVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTHVC.swift; sourceTree = "<group>"; };
 		A86B07BC2527630F00386A84 /* MSS_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSS_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86B07BF2527630F00386A84 /* MSS_SDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSS_SDK.h; sourceTree = "<group>"; };
 		A86B07C02527630F00386A84 /* MssInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MssInfo.plist; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A85AB7F52538622000C7EE5D /* WebKit.framework in Frameworks */,
 				94939CC338DA52ADF613A8DA /* Pods_MSS_SDK.framework in Frameworks */,
 				508537C89796710E83D62EEF /* Pods_MSS_SDK.framework in Frameworks */,
 			);
@@ -118,6 +123,7 @@
 		8D240C1DB6E28B79FF16F78A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A85AB7F42538622000C7EE5D /* WebKit.framework */,
 				A836E404252AAB4700223811 /* Alamofire.framework */,
 				A836E405252AAB4700223811 /* IQKeyboardManagerSwift.framework */,
 				A836E406252AAB4700223811 /* MBProgressHUD.framework */,
@@ -225,6 +231,7 @@
 				A8861F452527863B00590D12 /* DashboardVC.swift */,
 				A85AB7EC2538072A00C7EE5D /* WebViewVC.swift */,
 				A85AB7EE2538528A00C7EE5D /* NewsVC.swift */,
+				A85AB7F72538905000C7EE5D /* DTHVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -439,6 +446,7 @@
 				A8C8215E252C8A6500B4728A /* StaticData.swift in Sources */,
 				A841CB70252DE54000DC65FF /* GiftCardListVC.swift in Sources */,
 				A8861F4D2527870300590D12 /* Extension.swift in Sources */,
+				A85AB7F82538905000C7EE5D /* DTHVC.swift in Sources */,
 				A841CB69252CF11D00DC65FF /* ApiHandler.swift in Sources */,
 				A8C8215B252C8A2200B4728A /* HomeMenuModel.swift in Sources */,
 				A8C82163252C8F0400B4728A /* ColorConverter.swift in Sources */,

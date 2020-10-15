@@ -57,15 +57,14 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
             self.present(controller, animated: true, completion: nil)
             
             
-//        case 1:
-//            break
-//            let podBundle = Bundle(for: GiftCardCatListVC.self)
-//            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
-//            let bundle = Bundle(url: bundleURL!)!
-//            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
-//            let controller = storyboard.instantiateViewController(withIdentifier: "MobileRechargeVC") as! MobileRechargeVC
-//            controller.modalPresentationStyle = .fullScreen
-//            self.present(controller, animated: true, completion: nil)
+        case 1:
+            let podBundle = Bundle(for: DTHVC.self)
+            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+            let bundle = Bundle(url: bundleURL!)!
+            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+            let controller = storyboard.instantiateViewController(withIdentifier: "DTHVC") as! DTHVC
+            controller.modalPresentationStyle = .fullScreen
+            self.present(controller, animated: true, completion: nil)
             
         case 3:
             let podBundle = Bundle(for: DashboardVC.self)

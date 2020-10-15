@@ -28,6 +28,7 @@
 		A841CB7C252E280B00DC65FF /* BrowsePlanInnerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB7B252E280B00DC65FF /* BrowsePlanInnerVC.swift */; };
 		A841CB7E252E283E00DC65FF /* MobileRecharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB7D252E283E00DC65FF /* MobileRecharge.swift */; };
 		A8523E8F252CDD56005F1FC3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8523E8E252CDD56005F1FC3 /* CustomButton.swift */; };
+		A85AB7ED2538072A00C7EE5D /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7EC2538072A00C7EE5D /* WebViewVC.swift */; };
 		A86B07C12527630F00386A84 /* MSS_SDK.h in Headers */ = {isa = PBXBuildFile; fileRef = A86B07BF2527630F00386A84 /* MSS_SDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8861F432527860F00590D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8861F422527860F00590D12 /* Assets.xcassets */; };
 		A8861F462527863B00590D12 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8861F452527863B00590D12 /* DashboardVC.swift */; platformFilter = ios; };
@@ -73,6 +74,7 @@
 		A841CB7B252E280B00DC65FF /* BrowsePlanInnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsePlanInnerVC.swift; sourceTree = "<group>"; };
 		A841CB7D252E283E00DC65FF /* MobileRecharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileRecharge.swift; sourceTree = "<group>"; };
 		A8523E8E252CDD56005F1FC3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		A85AB7EC2538072A00C7EE5D /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		A86B07BC2527630F00386A84 /* MSS_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSS_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86B07BF2527630F00386A84 /* MSS_SDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSS_SDK.h; sourceTree = "<group>"; };
 		A86B07C02527630F00386A84 /* MssInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MssInfo.plist; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				A841CB73252DEC4C00DC65FF /* MobileRecharge */,
 				A841CB6E252DE52700DC65FF /* GiftCards */,
 				A8861F452527863B00590D12 /* DashboardVC.swift */,
+				A85AB7EC2538072A00C7EE5D /* WebViewVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				A8FF7D3625373157005560CD /* OperatorListVC.swift in Sources */,
 				A8051A06252CD69A004BE7B9 /* MobileRechargeVC.swift in Sources */,
 				A841CB7C252E280B00DC65FF /* BrowsePlanInnerVC.swift in Sources */,
+				A85AB7ED2538072A00C7EE5D /* WebViewVC.swift in Sources */,
 				A8051A00252CD2AD004BE7B9 /* CustomTF.swift in Sources */,
 				A8051A08252CD9C8004BE7B9 /* Constant.swift in Sources */,
 				A841CB7A252E256700DC65FF /* SlidingContainerViewController.swift in Sources */,

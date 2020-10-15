@@ -48,7 +48,7 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
         switch indexPath.row {
         
         case 0:
-            let podBundle = Bundle(for: GiftCardCatListVC.self)
+            let podBundle = Bundle(for: MobileRechargeVC.self)
             let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
             let bundle = Bundle(url: bundleURL!)!
             let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
@@ -74,6 +74,16 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
             let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
             let controller = storyboard.instantiateViewController(withIdentifier: "GiftCardCatListVC") as! GiftCardCatListVC
             controller.modalPresentationStyle = .fullScreen
+            self.present(controller, animated: true, completion: nil)
+            
+        case 8:
+            let podBundle = Bundle(for: WebViewVC.self)
+            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+            let bundle = Bundle(url: bundleURL!)!
+            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+            let controller = storyboard.instantiateViewController(withIdentifier: "WebViewVC") as! WebViewVC
+            controller.modalPresentationStyle = .fullScreen
+            controller.webUrl = "http://bigbasket.go2cloud.org/aff_c?offer_id=271&aff_id=3683"
             self.present(controller, animated: true, completion: nil)
             
         default:

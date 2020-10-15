@@ -21,6 +21,8 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        lblTitle.text = ""
         webView.navigationDelegate = self
         avLoader.startAnimating()
         avLoader.isHidden = false

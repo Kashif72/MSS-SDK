@@ -291,6 +291,49 @@ class APIHandler: NSObject {
                    failure(NETWORK_FAIL_MSG)
                }
            }
+    
+    
+    
+    //GET METHOD
+    func getNewsList(success: @escaping (_ response: String?) -> Void, failure: @escaping (_ error: String?) -> Void){
+        
+        if Util.isNetworkAvailable() {
+            
+            let urlString = URL_GET_NEWS
+            _ = JSONEncoder()
+            let url = URL(string: urlString)!
+            print("URL", url)
+            var request = URLRequest(url: url)
+            request.httpMethod = HTTPMethod.get.rawValue
+         
+            
+            AF.request(request).responseData(completionHandler: { (response) in
+                
+                print("Response", response)
+                    if let status = response.response?.statusCode {
+                        switch(status){
+                        case 200:
+                            let decoder = JSONDecoder()
+                            let responseValue = try! decoder.decode(NewsResponse.self, from: response.data!)
+                            if(responseValue.status == "ok"){
+                                NewsModel.newsListInstance = responseValue.articles
+                                success("");
+                            }else{
+                                failure("Unable to fetch news")
+                            }
+                            
+                            print("Regsiter Response", responseValue)
+                            
+                        default:
+                              failure("Error! \(String(status))")
+                        }
+                    }
+                
+            })
+        } else {
+            failure(NETWORK_FAIL_MSG)
+        }
+    }
         
     
 }

@@ -29,6 +29,8 @@
 		A841CB7E252E283E00DC65FF /* MobileRecharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB7D252E283E00DC65FF /* MobileRecharge.swift */; };
 		A8523E8F252CDD56005F1FC3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8523E8E252CDD56005F1FC3 /* CustomButton.swift */; };
 		A85AB7ED2538072A00C7EE5D /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7EC2538072A00C7EE5D /* WebViewVC.swift */; };
+		A85AB7EF2538528A00C7EE5D /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7EE2538528A00C7EE5D /* NewsVC.swift */; };
+		A85AB7F12538534500C7EE5D /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7F02538534500C7EE5D /* NewsModel.swift */; };
 		A86B07C12527630F00386A84 /* MSS_SDK.h in Headers */ = {isa = PBXBuildFile; fileRef = A86B07BF2527630F00386A84 /* MSS_SDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8861F432527860F00590D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8861F422527860F00590D12 /* Assets.xcassets */; };
 		A8861F462527863B00590D12 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8861F452527863B00590D12 /* DashboardVC.swift */; platformFilter = ios; };
@@ -75,6 +77,8 @@
 		A841CB7D252E283E00DC65FF /* MobileRecharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileRecharge.swift; sourceTree = "<group>"; };
 		A8523E8E252CDD56005F1FC3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A85AB7EC2538072A00C7EE5D /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
+		A85AB7EE2538528A00C7EE5D /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
+		A85AB7F02538534500C7EE5D /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		A86B07BC2527630F00386A84 /* MSS_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSS_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86B07BF2527630F00386A84 /* MSS_SDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSS_SDK.h; sourceTree = "<group>"; };
 		A86B07C02527630F00386A84 /* MssInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MssInfo.plist; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 				A841CB6E252DE52700DC65FF /* GiftCards */,
 				A8861F452527863B00590D12 /* DashboardVC.swift */,
 				A85AB7EC2538072A00C7EE5D /* WebViewVC.swift */,
+				A85AB7EE2538528A00C7EE5D /* NewsVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				A841CB66252CE9BE00DC65FF /* GiftCardModel.swift */,
 				A841CB7D252E283E00DC65FF /* MobileRecharge.swift */,
 				A80EEA78252E4C8900619D1B /* Merchant.swift */,
+				A85AB7F02538534500C7EE5D /* NewsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -449,7 +455,9 @@
 				A8C82161252C8EBE00B4728A /* CardView.swift in Sources */,
 				A8861F462527863B00590D12 /* DashboardVC.swift in Sources */,
 				A8FF7D3625373157005560CD /* OperatorListVC.swift in Sources */,
+				A85AB7EF2538528A00C7EE5D /* NewsVC.swift in Sources */,
 				A8051A06252CD69A004BE7B9 /* MobileRechargeVC.swift in Sources */,
+				A85AB7F12538534500C7EE5D /* NewsModel.swift in Sources */,
 				A841CB7C252E280B00DC65FF /* BrowsePlanInnerVC.swift in Sources */,
 				A85AB7ED2538072A00C7EE5D /* WebViewVC.swift in Sources */,
 				A8051A00252CD2AD004BE7B9 /* CustomTF.swift in Sources */,

@@ -28,4 +28,9 @@ let URL_GET_PLANS = "topUp/browsePlan"
 let URL_GET_GIFT_CARDS_CAT = "giftCard/fetch/categoryList"
 let URL_GET_GIFT_CARDS_LIST = "giftCard/fetch/voucher/list"
 
+
 let URL_GET_NEWS = "https://newsapi.org/v2/top-headlines?country=in&apiKey=2c3d1a14d004414aa3f0f8e85a13206e"
+
+
+//**************Travel**************
+let URL_GET_BUS_CITY_LIST = "travel/bus/cityList"

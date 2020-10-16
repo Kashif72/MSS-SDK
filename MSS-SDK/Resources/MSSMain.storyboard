@@ -258,7 +258,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="219"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wf-Mg-Yrg">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wf-Mg-Yrg" customClass="CardView" customModule="MSS_SDK" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="398" height="203"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gJb-an-4A1">
@@ -761,6 +761,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
                                         <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onTouchCircle:" destination="7pU-AE-DM3" eventType="editingDidBegin" id="Ccv-cW-XcZ"/>
@@ -784,7 +785,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rh2-ud-5Il" firstAttribute="top" secondItem="u9B-Ml-xa1" secondAttribute="bottom" constant="24" id="3my-ZT-rlq"/>
                             <constraint firstItem="RVV-S9-TAg" firstAttribute="trailing" secondItem="tdf-iK-7cU" secondAttribute="trailing" constant="16" id="3wm-bt-ZqS"/>
@@ -1186,7 +1187,7 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="kAJ-xO-bff" firstAttribute="height" secondItem="obL-Qo-CTR" secondAttribute="height" id="bOK-77-nZg"/>
-                                                    <constraint firstItem="kAJ-xO-bff" firstAttribute="width" secondItem="obL-Qo-CTR" secondAttribute="width" id="tI7-Lc-lFD"/>
+                                                    <constraint firstItem="kAJ-xO-bff" firstAttribute="width" secondItem="obL-Qo-CTR" secondAttribute="width" multiplier="1:1" id="tI7-Lc-lFD"/>
                                                 </constraints>
                                             </stackView>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Utz-LL-ZQL">
@@ -1363,6 +1364,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
                                         <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onTouchOperator:" destination="n8D-ir-Xnq" eventType="editingDidBegin" id="Uq2-92-yhh"/>
@@ -1397,7 +1399,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xqj-tk-bDC" firstAttribute="leading" secondItem="Nij-Td-Ce1" secondAttribute="leading" id="3qd-MG-IOh"/>
                             <constraint firstItem="vCK-CR-WQ1" firstAttribute="top" secondItem="xqj-tk-bDC" secondAttribute="bottom" constant="16" id="5JG-M9-fPk"/>
@@ -1424,7 +1426,145 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ch6-KF-jMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1236" y="-232"/>
+            <point key="canvasLocation" x="-1084" y="-232"/>
+        </scene>
+        <!--Bus SearchVC-->
+        <scene sceneID="4c1-Rp-NXE">
+            <objects>
+                <viewController storyboardIdentifier="BusSearchVC" id="2Gs-2h-vnk" customClass="BusSearchVC" customModule="MSS_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zyM-SP-Fmb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yuv-yT-rzU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dg-91-Lgp">
+                                        <rect key="frame" x="190.66666666666666" y="15.666666666666664" width="33" height="19"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPe-2g-csL">
+                                        <rect key="frame" x="8" y="6" width="37.666666666666664" height="38"/>
+                                        <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                        <state key="normal" image="bac_btn"/>
+                                        <connections>
+                                            <action selector="onBack:" destination="2Gs-2h-vnk" eventType="touchUpInside" id="Z8F-AI-hBk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="4dg-91-Lgp" firstAttribute="centerY" secondItem="Yuv-yT-rzU" secondAttribute="centerY" id="0vd-xK-9V6"/>
+                                    <constraint firstItem="4dg-91-Lgp" firstAttribute="centerX" secondItem="Yuv-yT-rzU" secondAttribute="centerX" id="EtK-Na-jNo"/>
+                                    <constraint firstAttribute="height" constant="50" id="UtF-sb-hdi"/>
+                                    <constraint firstItem="tPe-2g-csL" firstAttribute="centerY" secondItem="Yuv-yT-rzU" secondAttribute="centerY" id="srV-WU-JrX"/>
+                                    <constraint firstItem="tPe-2g-csL" firstAttribute="leading" secondItem="Yuv-yT-rzU" secondAttribute="leading" constant="8" id="z8E-Lt-nDg"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Source" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="thN-Ql-UHr" customClass="CustomTF" customModule="MSS_SDK" customModuleProvider="target">
+                                <rect key="frame" x="16" y="66" width="382" height="34"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTouchCircle:" destination="2Gs-2h-vnk" eventType="editingDidBegin" id="Bep-fA-kS0"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iIz-AW-KgV" customClass="CustomTF" customModule="MSS_SDK" customModuleProvider="target">
+                                <rect key="frame" x="16" y="124" width="382" height="34"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTouchCircle:" destination="2Gs-2h-vnk" eventType="editingDidBegin" id="VWO-OJ-ye6"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GPt-Zz-Li6" customClass="CustomTF" customModule="MSS_SDK" customModuleProvider="target">
+                                <rect key="frame" x="16" y="182" width="382" height="34"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEh-cN-fcD" customClass="CustomButton" customModule="MSS_SDK" customModuleProvider="target">
+                                <rect key="frame" x="125.66666666666669" y="252" width="163" height="42"/>
+                                <inset key="contentEdgeInsets" minX="32" minY="12" maxX="32" maxY="12"/>
+                                <state key="normal" title="SEARCH NOW">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickSearch:" destination="2Gs-2h-vnk" eventType="touchUpInside" id="mfI-5J-3CT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Yuv-yT-rzU" firstAttribute="top" secondItem="BqZ-fx-O9w" secondAttribute="top" id="4jG-T7-CMb"/>
+                            <constraint firstItem="iIz-AW-KgV" firstAttribute="leading" secondItem="BqZ-fx-O9w" secondAttribute="leading" constant="16" id="70B-f6-q1y"/>
+                            <constraint firstItem="Yuv-yT-rzU" firstAttribute="trailing" secondItem="BqZ-fx-O9w" secondAttribute="trailing" id="7EE-uc-N1g"/>
+                            <constraint firstItem="Yuv-yT-rzU" firstAttribute="leading" secondItem="BqZ-fx-O9w" secondAttribute="leading" id="Bo2-ht-rmT"/>
+                            <constraint firstItem="iIz-AW-KgV" firstAttribute="top" secondItem="thN-Ql-UHr" secondAttribute="bottom" constant="24" id="Jr3-fh-h9i"/>
+                            <constraint firstItem="thN-Ql-UHr" firstAttribute="top" secondItem="Yuv-yT-rzU" secondAttribute="bottom" constant="16" id="XXf-hf-F14"/>
+                            <constraint firstItem="BqZ-fx-O9w" firstAttribute="trailing" secondItem="thN-Ql-UHr" secondAttribute="trailing" constant="16" id="Y18-vu-G0f"/>
+                            <constraint firstItem="fEh-cN-fcD" firstAttribute="top" secondItem="GPt-Zz-Li6" secondAttribute="bottom" constant="36" id="gVf-fi-EaJ"/>
+                            <constraint firstItem="fEh-cN-fcD" firstAttribute="centerX" secondItem="zyM-SP-Fmb" secondAttribute="centerX" id="kl2-XL-9Wi"/>
+                            <constraint firstItem="thN-Ql-UHr" firstAttribute="leading" secondItem="BqZ-fx-O9w" secondAttribute="leading" constant="16" id="pr8-Io-LA4"/>
+                            <constraint firstItem="BqZ-fx-O9w" firstAttribute="trailing" secondItem="GPt-Zz-Li6" secondAttribute="trailing" constant="16" id="qkV-dt-eFu"/>
+                            <constraint firstItem="GPt-Zz-Li6" firstAttribute="top" secondItem="iIz-AW-KgV" secondAttribute="bottom" constant="24" id="sf3-xP-5iM"/>
+                            <constraint firstItem="GPt-Zz-Li6" firstAttribute="leading" secondItem="BqZ-fx-O9w" secondAttribute="leading" constant="16" id="x0c-Uz-UEg"/>
+                            <constraint firstItem="BqZ-fx-O9w" firstAttribute="trailing" secondItem="iIz-AW-KgV" secondAttribute="trailing" constant="16" id="yGq-Lr-c71"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BqZ-fx-O9w"/>
+                    </view>
+                    <connections>
+                        <outlet property="tfDate" destination="GPt-Zz-Li6" id="pX7-Mf-Bcb"/>
+                        <outlet property="tfFrom" destination="thN-Ql-UHr" id="Nct-ai-quo"/>
+                        <outlet property="tfTo" destination="iIz-AW-KgV" id="dCL-Va-WnD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U0e-xT-Q3C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1084" y="615"/>
         </scene>
     </scenes>
     <resources>

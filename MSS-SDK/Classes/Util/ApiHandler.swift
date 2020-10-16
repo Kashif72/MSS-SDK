@@ -383,4 +383,47 @@ class APIHandler: NSObject {
     }
         
     
+    //******************Travel******************
+    func getBusCity(success: @escaping (_ response: String?) -> Void, failure: @escaping (_ error: String?) -> Void){
+           
+           if Util.isNetworkAvailable() {
+               
+               let urlString = "\(Merchant.merchantData.url!)\(URL_GET_BUS_CITY_LIST)"
+               _ = JSONEncoder()
+               let url = URL(string: urlString)!
+               print("URL", url)
+               var request = URLRequest(url: url)
+               request.httpMethod = HTTPMethod.get.rawValue
+            
+               
+               AF.request(request).responseData(completionHandler: { (response) in
+                   
+                   print("Response", response)
+                       if let status = response.response?.statusCode {
+                           switch(status){
+                           case 200:
+                               let decoder = JSONDecoder()
+                               let responseValue = try! decoder.decode(BusCityResponse.self, from: response.data!)
+                               
+                               if(responseValue.code == SUCCESS){
+                                    BusCityModel.busCityInstance = responseValue.details
+                                    success(responseValue.message);
+                               }else{
+                                   failure(responseValue.message)
+                               }
+                               
+                               print("Regsiter Response", responseValue)
+                               
+                           default:
+                                 failure("Error! \(String(status))")
+                           }
+                       }
+                   
+               })
+           } else {
+               failure(NETWORK_FAIL_MSG)
+           }
+       }
+           
+    
 }

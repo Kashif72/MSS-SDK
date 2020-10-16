@@ -75,8 +75,18 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
             controller.modalPresentationStyle = .fullScreen
             self.present(controller, animated: true, completion: nil)
             
+            
+        case 4:
+            let podBundle = Bundle(for: DashboardVC.self)
+            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+            let bundle = Bundle(url: bundleURL!)!
+            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+            let controller = storyboard.instantiateViewController(withIdentifier: "BusSearchVC") as! BusSearchVC
+            controller.modalPresentationStyle = .fullScreen
+            self.present(controller, animated: true, completion: nil)
+            
         case 2:
-            let podBundle = Bundle(for: GiftCardCatListVC.self)
+            let podBundle = Bundle(for: DashboardVC.self)
             let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
             let bundle = Bundle(url: bundleURL!)!
             let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
@@ -85,7 +95,7 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
             self.present(controller, animated: true, completion: nil)
             
         case 8:
-            let podBundle = Bundle(for: GiftCardCatListVC.self)
+            let podBundle = Bundle(for: DashboardVC.self)
             let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
             let bundle = Bundle(url: bundleURL!)!
             let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)

@@ -33,6 +33,8 @@
 		A85AB7F12538534500C7EE5D /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7F02538534500C7EE5D /* NewsModel.swift */; };
 		A85AB7F52538622000C7EE5D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85AB7F42538622000C7EE5D /* WebKit.framework */; };
 		A85AB7F82538905000C7EE5D /* DTHVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7F72538905000C7EE5D /* DTHVC.swift */; };
+		A85AB7FB25396ADC00C7EE5D /* BusSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7FA25396ADC00C7EE5D /* BusSearchVC.swift */; };
+		A85AB7FD253A1C2F00C7EE5D /* BusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7FC253A1C2F00C7EE5D /* BusModel.swift */; };
 		A86B07C12527630F00386A84 /* MSS_SDK.h in Headers */ = {isa = PBXBuildFile; fileRef = A86B07BF2527630F00386A84 /* MSS_SDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8861F432527860F00590D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8861F422527860F00590D12 /* Assets.xcassets */; };
 		A8861F462527863B00590D12 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8861F452527863B00590D12 /* DashboardVC.swift */; platformFilter = ios; };
@@ -83,6 +85,8 @@
 		A85AB7F02538534500C7EE5D /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		A85AB7F42538622000C7EE5D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A85AB7F72538905000C7EE5D /* DTHVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTHVC.swift; sourceTree = "<group>"; };
+		A85AB7FA25396ADC00C7EE5D /* BusSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchVC.swift; sourceTree = "<group>"; };
+		A85AB7FC253A1C2F00C7EE5D /* BusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusModel.swift; sourceTree = "<group>"; };
 		A86B07BC2527630F00386A84 /* MSS_SDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSS_SDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86B07BF2527630F00386A84 /* MSS_SDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSS_SDK.h; sourceTree = "<group>"; };
 		A86B07C02527630F00386A84 /* MssInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MssInfo.plist; sourceTree = "<group>"; };
@@ -193,6 +197,14 @@
 			path = SlidingTabs;
 			sourceTree = "<group>";
 		};
+		A85AB7F925396AC400C7EE5D /* Travel */ = {
+			isa = PBXGroup;
+			children = (
+				A85AB7FA25396ADC00C7EE5D /* BusSearchVC.swift */,
+			);
+			path = Travel;
+			sourceTree = "<group>";
+		};
 		A86B07B22527630F00386A84 = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +238,7 @@
 		A8861F442527862600590D12 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A85AB7F925396AC400C7EE5D /* Travel */,
 				A841CB73252DEC4C00DC65FF /* MobileRecharge */,
 				A841CB6E252DE52700DC65FF /* GiftCards */,
 				A8861F452527863B00590D12 /* DashboardVC.swift */,
@@ -269,6 +282,7 @@
 				A841CB7D252E283E00DC65FF /* MobileRecharge.swift */,
 				A80EEA78252E4C8900619D1B /* Merchant.swift */,
 				A85AB7F02538534500C7EE5D /* NewsModel.swift */,
+				A85AB7FC253A1C2F00C7EE5D /* BusModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -443,8 +457,10 @@
 				A8523E8F252CDD56005F1FC3 /* CustomButton.swift in Sources */,
 				A841CB6D252CF3E100DC65FF /* Util.swift in Sources */,
 				A841CB78252E254400DC65FF /* SlidingContainerSliderView.swift in Sources */,
+				A85AB7FD253A1C2F00C7EE5D /* BusModel.swift in Sources */,
 				A8C8215E252C8A6500B4728A /* StaticData.swift in Sources */,
 				A841CB70252DE54000DC65FF /* GiftCardListVC.swift in Sources */,
+				A85AB7FB25396ADC00C7EE5D /* BusSearchVC.swift in Sources */,
 				A8861F4D2527870300590D12 /* Extension.swift in Sources */,
 				A85AB7F82538905000C7EE5D /* DTHVC.swift in Sources */,
 				A841CB69252CF11D00DC65FF /* ApiHandler.swift in Sources */,

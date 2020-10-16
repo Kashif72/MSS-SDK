@@ -23,12 +23,14 @@ class BusSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSource
     var toCityCode = ""
     var fromCityName = ""
     var toCityName = ""
+    var dateofJourney = ""
     
     
     let fromPv = UIPickerView()
     let toPv = UIPickerView()
     var cityArray = BusCityModel.busCityInstance
     
+    let datePicker = UIDatePicker()
     
     
     override func viewDidLoad() {
@@ -42,8 +44,62 @@ class BusSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSource
         self.tfFrom.inputView = self.fromPv
         self.tfTo.inputView = self.toPv
         
-        
     }
+    
+    
+    @IBAction func onDateofTravel(_ sender: Any) {
+            showDatePicker()
+        }
+    
+    
+    func showDatePicker(){
+            //Formate Date
+            datePicker.datePickerMode = .date
+            
+            let currentDate = Date()
+            let dateComponents = DateComponents()
+            let calendar = Calendar.init(identifier: .gregorian)
+            
+            let minDate = calendar.date(byAdding: dateComponents, to: currentDate)
+            datePicker.minimumDate = minDate
+
+            //ToolBar
+            let toolbar = UIToolbar();
+            toolbar.sizeToFit()
+            
+            let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+            let doneButton = UIBarButtonItem()
+            doneButton.title = "Done"
+            doneButton.style = .plain
+            doneButton.target = self
+            
+            let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+            
+            doneButton.action = #selector(doneDate)
+            
+            toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
+            tfDate.inputAccessoryView = toolbar
+            tfDate.inputView = datePicker
+            
+        }
+    
+    
+    
+    @objc func doneDate(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        tfDate.text = formatter.string(from: datePicker.date)
+        dateofJourney = formatter.string(from: datePicker.date)
+        tfDate.errorMessage = ""
+        self.view.endEditing(true)
+          
+      }
+    
+    @objc func cancelDatePicker(){
+           self.view.endEditing(true)
+       }
+    
+    
     
     
     @IBAction func onBack(_ sender: Any) {

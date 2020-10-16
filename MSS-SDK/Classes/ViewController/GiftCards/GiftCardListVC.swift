@@ -60,7 +60,9 @@ class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
            let cell = tableView.dequeueReusableCell(withIdentifier: "GiftListCell", for: indexPath) as! GiftListCell
         
-           cell.lblTitle?.text = giftArray[indexPath.row].product_name
+            cell.lblTitle?.text = giftArray[indexPath.row].product_name
+            cell.lblPrice?.text = "Min INR. \(giftArray[indexPath.row].min_price!) Max INR. \(giftArray[indexPath.row].max_price!)"
+            cell.lblValidaity?.text = "Validity \(giftArray[indexPath.row].product_expiry_and_validity!)"
           
         
            if (giftArray[indexPath.row].product_image != nil && giftArray[indexPath.row].product_image.count > 0) {
@@ -90,7 +92,7 @@ class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
        {
-        return 220
+        return 260
        }
        
        

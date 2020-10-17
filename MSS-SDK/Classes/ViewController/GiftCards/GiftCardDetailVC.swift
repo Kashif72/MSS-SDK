@@ -94,7 +94,7 @@ class GiftCardDetailVC: UIViewController {
         let confirmAction = UIAlertAction(title: "Continue", style: UIAlertAction.Style.default)
         {
             (UIAlertAction) -> Void in
-            var req = PrepaidPayRequest()
+            var req = PayRequest()
             req.amount = self.tfAmount.text!
             req.serviceProvider = self.obtModel!.product_id
             req.accountNumber = ""

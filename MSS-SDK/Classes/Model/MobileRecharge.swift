@@ -101,10 +101,12 @@ struct MOptCircRequest: Codable {
     
 }
 
-struct PrepaidPayRequest: Codable {
+public struct PayRequest: Codable {
     public var serviceProvider : String!
     public var accountNumber : String!
     public var transactionType : String!
     public var amount : String!
+    public var bankRefNo: String!
+   
 }
 

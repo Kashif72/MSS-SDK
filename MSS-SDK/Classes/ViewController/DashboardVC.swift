@@ -21,8 +21,12 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
         self.cvMenu.dataSource = self
         self.cvMenu.delegate = self
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.closeVC(_:)), name: NSNotification.Name(rawValue: NOTIFACTION_REQUEST), object: nil)
     }
     
+    @objc func closeVC(_ notification: NSNotification) {
+        dismiss(animated: false)
+    }
     
     @IBAction func onBack(_ sender: Any) {
         dismiss(animated: false)

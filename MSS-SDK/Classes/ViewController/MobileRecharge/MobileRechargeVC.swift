@@ -233,15 +233,20 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate, UIPickerViewDataS
         let confirmAction = UIAlertAction(title: "Continue", style: UIAlertAction.Style.default)
         {
             (UIAlertAction) -> Void in
-            var req = PrepaidPayRequest()
+            
+            
+            var req = PayRequest()
             req.amount = self.tfAmount.text!
             req.accountNumber = self.tfMobile.text!
             req.serviceProvider = self.serviceCode
+            req.transactionType = "prepaid"
             req.amount = self.tfAmount.text!
             //Send data back
             
             
-            
+            let reqDataDict:[String: PayRequest] = [REQUEST_DATA: req]
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIFACTION_REQUEST), object: nil, userInfo: reqDataDict)
+            self.dismiss(animated: false)
             
         }
         

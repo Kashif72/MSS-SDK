@@ -154,11 +154,12 @@ class DTHVC: UIViewController, UITextFieldDelegate, OperatorListener   {
         let confirmAction = UIAlertAction(title: "Continue", style: UIAlertAction.Style.default)
         {
             (UIAlertAction) -> Void in
-            var req = PrepaidPayRequest()
+            var req = PayRequest()
             req.amount = self.tfAmount.text!
             req.accountNumber = self.tfDTHNumber.text!
             req.serviceProvider = self.serviceCode
             req.amount = self.tfAmount.text!
+            req.transactionType = "dth"
             //Send data back
             
             

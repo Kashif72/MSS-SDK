@@ -11,13 +11,14 @@ import MBProgressHUD
 import TTGSnackbar
 import AlamofireImage
 
-class GiftCardCatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class GiftCardCatListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestListener  {
 
     @IBOutlet weak var tvGiftCard: UITableView!
     @IBOutlet weak var sbGiftCard: UISearchBar!
     
     var giftCatArray = GiftCardCatModel.giftCardCatListInstance
     
+    var giftCatrequestListener : RequestListener? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +105,7 @@ class GiftCardCatListVC: UIViewController, UITableViewDelegate, UITableViewDataS
            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
            let controller = storyboard.instantiateViewController(withIdentifier: "GiftCardListVC") as! GiftCardListVC
             controller.voucherId = String(giftCatArray[indexPath.row].id)
+        controller.giftListrequestListener = self
            controller.modalPresentationStyle = .fullScreen
            self.present(controller, animated: true, completion: nil)
         
@@ -131,6 +133,13 @@ class GiftCardCatListVC: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBAction func onBack(_ sender: Any) {
            dismiss(animated: false)
        
+    }
+    
+    
+     
+    func onRequestMade(request: PayRequest) {
+          giftCatrequestListener?.onRequestMade(request: request)
+          dismiss(animated: false)
     }
     
 

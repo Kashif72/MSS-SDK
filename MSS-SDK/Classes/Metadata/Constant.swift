@@ -39,6 +39,7 @@ let URL_GET_BUS_CITY_LIST = "travel/bus/cityList"
 
 
 //NOTIFICATION
+//public let CLOSE_REQUEST = "closeSent"
 public let NOTIFACTION_REQUEST = "requestSent"
 public let REQUEST_TYPE = "requestType"
 public let REQUEST_DATA = "requestData"

@@ -23,6 +23,7 @@ class GiftCardDetailVC: UIViewController {
     
     @IBOutlet weak var tfAmount: CustomTF!
     
+    var requestListener : RequestListener? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +79,14 @@ class GiftCardDetailVC: UIViewController {
     
     
     @IBAction func onCLickTNC(_ sender: Any) {
-    
+        let podBundle = Bundle(for: GiftTNCVC.self)
+        let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+        let bundle = Bundle(url: bundleURL!)!
+        let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+        let controller = storyboard.instantiateViewController(withIdentifier: "GiftTNCVC") as! GiftTNCVC
+        controller.modalPresentationStyle = .fullScreen
+        controller.tnc = obtModel!.product_terms_conditions!
+        self.present(controller, animated: true, completion: nil)
     }
     
 
@@ -102,7 +110,8 @@ class GiftCardDetailVC: UIViewController {
             req.amount = self.tfAmount.text!
             //Send data back
             
-            
+            self.requestListener?.onRequestMade(request: req)
+            self.dismiss(animated: false)
             
             
         }

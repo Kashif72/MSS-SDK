@@ -9,26 +9,40 @@
 import UIKit
 
 
-class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
-
+class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RequestListener {
+    
     
     @IBOutlet weak var cvMenu: UICollectionView!
     
     let menuItems = StaticData.getHomeMenu()
+    
+    
+    var requestListener : RequestListener? = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cvMenu.dataSource = self
         self.cvMenu.delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.closeVC(_:)), name: NSNotification.Name(rawValue: NOTIFACTION_REQUEST), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onBack(_:)), name: Notification.Name(rawValue: NOTIFACTION_REQUEST), object: nil)
+        
+        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
+    
     @objc func closeVC(_ notification: NSNotification) {
-        dismiss(animated: false)
+        
+        self.dismiss(animated: false, completion: nil)
     }
     
     @IBAction func onBack(_ sender: Any) {
+        print("Close","Calledasasas")
         dismiss(animated: false)
     
     }
@@ -58,6 +72,7 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
             let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
             let controller = storyboard.instantiateViewController(withIdentifier: "MobileRechargeVC") as! MobileRechargeVC
             controller.modalPresentationStyle = .fullScreen
+            controller.requestListener = self
             self.present(controller, animated: true, completion: nil)
             
             
@@ -71,7 +86,7 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
             self.present(controller, animated: true, completion: nil)
             
         case 3:
-            let podBundle = Bundle(for: DashboardVC.self)
+            let podBundle = Bundle(for: NewsVC.self)
             let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
             let bundle = Bundle(url: bundleURL!)!
             let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
@@ -81,7 +96,7 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
             
             
         case 4:
-            let podBundle = Bundle(for: DashboardVC.self)
+            let podBundle = Bundle(for: BusSearchVC.self)
             let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
             let bundle = Bundle(url: bundleURL!)!
             let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
@@ -90,16 +105,17 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
             self.present(controller, animated: true, completion: nil)
             
         case 2:
-            let podBundle = Bundle(for: DashboardVC.self)
+            let podBundle = Bundle(for: GiftCardCatListVC.self)
             let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
             let bundle = Bundle(url: bundleURL!)!
             let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
             let controller = storyboard.instantiateViewController(withIdentifier: "GiftCardCatListVC") as! GiftCardCatListVC
             controller.modalPresentationStyle = .fullScreen
+            controller.giftCatrequestListener = self
             self.present(controller, animated: true, completion: nil)
             
         case 8:
-            let podBundle = Bundle(for: DashboardVC.self)
+            let podBundle = Bundle(for: WebViewVC.self)
             let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
             let bundle = Bundle(url: bundleURL!)!
             let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
@@ -115,18 +131,20 @@ class DashboardVC: UIViewController, UICollectionViewDelegate,UICollectionViewDa
             
         }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//           return CGSize(width: (collectionView.frame.width/3), height: (collectionView.frame.width/3))
-//       }
+    func onRequestMade(request: PayRequest) {
+//        requestListener?.onRequestMade(request: request)
+
+        let reqDataDict:[String: PayRequest] = [REQUEST_DATA: request]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIFACTION_REQUEST), object: nil, userInfo: reqDataDict)
+        dismiss(animated: false)
+    }
+    
 }
 
 
-
 class CellHomeMenu: UICollectionViewCell {
-    
     @IBOutlet weak var ivMenu: UIImageView!
     @IBOutlet weak var tvMenu: UILabel!
-    
     @IBOutlet weak var consWidth: NSLayoutConstraint!
     @IBOutlet weak var conHeight: NSLayoutConstraint!
     
@@ -144,4 +162,10 @@ class CellHomeMenu: UICollectionViewCell {
         tvMenu.text = items.title
         
     }
+}
+
+
+
+protocol RequestListener {
+    func onRequestMade(request: PayRequest)
 }

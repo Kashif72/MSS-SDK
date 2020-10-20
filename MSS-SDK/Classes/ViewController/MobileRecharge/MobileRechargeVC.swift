@@ -29,6 +29,7 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate, UIPickerViewDataS
     let areaPV = UIPickerView()
     var areaArray = MCircleModel.preCircleModel
     
+    var requestListener : RequestListener? = nil
     
     
     override func viewDidLoad() {
@@ -243,9 +244,8 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate, UIPickerViewDataS
             req.amount = self.tfAmount.text!
             //Send data back
             
+            self.requestListener?.onRequestMade(request: req)
             
-            let reqDataDict:[String: PayRequest] = [REQUEST_DATA: req]
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIFACTION_REQUEST), object: nil, userInfo: reqDataDict)
             self.dismiss(animated: false)
             
         }

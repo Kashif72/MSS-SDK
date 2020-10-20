@@ -11,13 +11,15 @@ import MBProgressHUD
 import TTGSnackbar
 import AlamofireImage
 
-class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestListener  {
 
     @IBOutlet weak var tvGiftCard: UITableView!
     
     var giftArray = GiftCardModel.giftCardListInstance
     
     var voucherId = ""
+    
+    var giftListrequestListener : RequestListener? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,6 +105,7 @@ class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
            let controller = storyboard.instantiateViewController(withIdentifier: "GiftCardDetailVC") as! GiftCardDetailVC
             controller.obtModel = giftArray[indexPath.row]
+            controller.requestListener = self
            controller.modalPresentationStyle = .fullScreen
            self.present(controller, animated: true, completion: nil)
         
@@ -131,6 +134,11 @@ class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func onBack(_ sender: Any) {
            dismiss(animated: false)
        
+    }
+    
+    func onRequestMade(request: PayRequest) {
+        giftListrequestListener?.onRequestMade(request: request)
+        dismiss(animated: false)
     }
 
 }

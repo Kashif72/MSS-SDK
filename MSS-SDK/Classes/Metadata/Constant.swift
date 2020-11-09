@@ -34,8 +34,7 @@ let URL_GET_NEWS = "https://newsapi.org/v2/top-headlines?country=in&apiKey=2c3d1
 
 //**************Travel**************
 let URL_GET_BUS_CITY_LIST = "travel/bus/cityList"
-
-
+let URL_GET_BUS_LIST = "/travel/bus/getAvailableTrips"
 
 
 //NOTIFICATION

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTGSnackbar
 
 
 class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RequestListener {
@@ -125,6 +126,7 @@ class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
             self.present(controller, animated: true, completion: nil)
             
         default:
+            self.showError(message: "Coming soon")
             break
         }
             
@@ -137,6 +139,13 @@ class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         let reqDataDict:[String: PayRequest] = [REQUEST_DATA: request]
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIFACTION_REQUEST), object: nil, userInfo: reqDataDict)
         dismiss(animated: false)
+    }
+    
+    func showError(message: String){
+             let snackbar = TTGSnackbar(message: message, duration: .short)
+             snackbar.animationType = .slideFromTopBackToTop
+             snackbar.backgroundColor = ColorConverter.hexStringToUIColor(hex: ColorCode.txtError)
+             snackbar.show()
     }
     
 }

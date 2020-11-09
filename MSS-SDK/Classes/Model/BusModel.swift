@@ -22,6 +22,25 @@ struct BusCityResponse : Codable{
 
 
 
+struct BusListRequest : Codable{
+    public var sourceId: String!
+    public var destinationId: String!
+    public var date: String!
+}
 
 
+struct BusListModel : Codable {
+    public var dpId: String!
+    public var dpName: String!
+    public var dpTime: String!
+    
+    static var busListInstance = Array<BusListModel>()
+}
+
+
+struct BusListResponse : Codable {
+    public var code: String!
+    public var message: String!
+    public var droppingPoints: Array<BusListModel>!
+}
 

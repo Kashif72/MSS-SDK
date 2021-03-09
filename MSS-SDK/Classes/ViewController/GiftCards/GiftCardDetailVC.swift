@@ -63,7 +63,7 @@ class GiftCardDetailVC: UIViewController {
             
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.onBack(_:)), name: Notification.Name(rawValue: NOTIFICATION_APP_CLOSE), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onBackPress(_:)), name: Notification.Name(rawValue: NOTIFICATION_APP_CLOSE), object: nil)
     }
     
     @IBAction func onClickBuyNow(_ sender: Any) {

@@ -34,10 +34,10 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate, UIPickerViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tfMobile.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        tfServiceProvider.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        tfArea.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        tfAmount.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        tfMobile.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged);
+        tfServiceProvider.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged);
+        tfArea.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged);
+        tfAmount.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged);
         
         self.areaPV.delegate = self
         self.tfArea.inputView = self.areaPV

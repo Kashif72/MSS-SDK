@@ -31,6 +31,8 @@ class OperatorListVC: UIViewController, UICollectionViewDelegate,UICollectionVie
         self.cvOperator.dataSource = self
         self.cvOperator.delegate = self
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onClickBack(_:)), name: Notification.Name(rawValue: NOTIFICATION_APP_CLOSE), object: nil)
+        
     }
  
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

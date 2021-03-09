@@ -38,7 +38,11 @@ let URL_GET_BUS_LIST = "/travel/bus/getAvailableTrips"
 
 
 //NOTIFICATION
-//public let CLOSE_REQUEST = "closeSent"
+
 public let NOTIFACTION_REQUEST = "requestSent"
 public let REQUEST_TYPE = "requestType"
 public let REQUEST_DATA = "requestData"
+
+
+public let NOTIFICATION_APP_LIFE = "app_life"
+public let NOTIFICATION_APP_CLOSE = "app_close"

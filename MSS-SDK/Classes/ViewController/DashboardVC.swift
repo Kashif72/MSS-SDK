@@ -28,8 +28,31 @@ class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.onBack(_:)), name: Notification.Name(rawValue: NOTIFACTION_REQUEST), object: nil)
         
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
+        
+        
+        notificationCenter.addObserver(self, selector: #selector(appMovedToForGround), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onBack(_:)), name: Notification.Name(rawValue: NOTIFICATION_APP_CLOSE), object: nil)
         
     }
+    
+    @objc func appMovedToBackground() {
+        let userInfo = [ "appLife" : 1]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIFICATION_APP_LIFE), object: nil, userInfo: userInfo)
+    }
+    
+    @objc func appMovedToForGround() {
+         let userInfo = [ "appLife" : 2]
+         NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIFICATION_APP_LIFE), object: nil, userInfo: userInfo)
+    }
+    
+    
+    
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -37,16 +60,20 @@ class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
     }
     
     
+    
     @objc func closeVC(_ notification: NSNotification) {
-        
         self.dismiss(animated: false, completion: nil)
     }
+    
+    
     
     @IBAction func onBack(_ sender: Any) {
         print("Close","Calledasasas")
         dismiss(animated: false)
     
     }
+    
+ 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
             return 0

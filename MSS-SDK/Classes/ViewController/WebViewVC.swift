@@ -35,7 +35,18 @@ class WebViewVC: UIViewController, WKNavigationDelegate {
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
     
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onBack(_:)), name: Notification.Name(rawValue: NOTIFICATION_APP_CLOSE), object: nil)
+        
+        
     }
+    
+    @IBAction func onBack(_ sender: Any) {
+        print("Close","Calledasasas")
+        dismiss(animated: false)
+    
+    }
+    
     
     
     @IBAction func onClickBack(_ sender: Any) {

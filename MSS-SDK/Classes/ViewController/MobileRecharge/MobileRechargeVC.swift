@@ -42,6 +42,8 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate, UIPickerViewDataS
         self.areaPV.delegate = self
         self.tfArea.inputView = self.areaPV
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onBack(_:)), name: Notification.Name(rawValue: NOTIFICATION_APP_CLOSE), object: nil)
+        
     }
     
     

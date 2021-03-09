@@ -12,12 +12,9 @@ import TTGSnackbar
 
 class MobilePlanVC: UIViewController,SlidingContainerViewControllerDelegate {
    
-    
-
     @IBOutlet weak var mainView: UIView!
     var opCode: String = ""
     var circleCode: String = ""
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +36,7 @@ class MobilePlanVC: UIViewController,SlidingContainerViewControllerDelegate {
             self.showError(message: message!)
         })
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onClickBack(_:)), name: Notification.Name(rawValue: NOTIFICATION_APP_CLOSE), object: nil)
     }
     
     func fillView(){

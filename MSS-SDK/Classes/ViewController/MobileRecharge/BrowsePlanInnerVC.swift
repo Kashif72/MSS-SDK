@@ -35,6 +35,7 @@ class BrowsePlanInnerVC: UIViewController, UITableViewDelegate, UITableViewDataS
          tvPlans.dataSource = self
          tvPlans.backgroundColor = UIColor.white
 
+    
      }
      
 

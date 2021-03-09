@@ -22,6 +22,8 @@ struct BusCityResponse : Codable{
 
 
 
+
+
 struct BusListRequest : Codable{
     public var sourceId: String!
     public var destinationId: String!

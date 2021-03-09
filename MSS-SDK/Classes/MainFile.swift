@@ -33,5 +33,14 @@ public class InitSDK{
         caller.present(controller, animated: true, completion: nil)
         
     }
+    
+    
+    public func close(){
+        //Broad Cast for stop
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIFICATION_APP_CLOSE), object: nil, userInfo: nil)
+    }
+   
+    
+    
 }
 

@@ -43,6 +43,8 @@ class GiftCardCatListVC: UIViewController, UITableViewDelegate, UITableViewDataS
             })
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onBack(_:)), name: Notification.Name(rawValue: NOTIFICATION_APP_CLOSE), object: nil)
+        
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -105,7 +107,7 @@ class GiftCardCatListVC: UIViewController, UITableViewDelegate, UITableViewDataS
            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
            let controller = storyboard.instantiateViewController(withIdentifier: "GiftCardListVC") as! GiftCardListVC
             controller.voucherId = String(giftCatArray[indexPath.row].id)
-        controller.giftListrequestListener = self
+            controller.giftListrequestListener = self
            controller.modalPresentationStyle = .fullScreen
            self.present(controller, animated: true, completion: nil)
         

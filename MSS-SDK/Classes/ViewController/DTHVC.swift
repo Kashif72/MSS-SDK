@@ -27,6 +27,7 @@ class DTHVC: UIViewController, UITextFieldDelegate, OperatorListener   {
         tfServiceProvider.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tfAmount.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onBack(_:)), name: Notification.Name(rawValue: NOTIFICATION_APP_CLOSE), object: nil)
         
         
     }
@@ -161,6 +162,7 @@ class DTHVC: UIViewController, UITextFieldDelegate, OperatorListener   {
             req.amount = self.tfAmount.text!
             req.transactionType = "dth"
             //Send data back
+            
             
             
             

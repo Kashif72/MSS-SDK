@@ -47,6 +47,8 @@ class GiftCardListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
            
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onBack(_:)), name: Notification.Name(rawValue: NOTIFICATION_APP_CLOSE), object: nil)
+        
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {

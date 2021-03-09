@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		508537C89796710E83D62EEF /* Pods_MSS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A836E407252AAB4700223811 /* Pods_MSS_SDK.framework */; };
 		94939CC338DA52ADF613A8DA /* Pods_MSS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA8AAF2CBE4D4B189213D18 /* Pods_MSS_SDK.framework */; };
 		A8051A00252CD2AD004BE7B9 /* CustomTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80519FF252CD2AD004BE7B9 /* CustomTF.swift */; };
 		A8051A02252CD2EC004BE7B9 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051A01252CD2EC004BE7B9 /* SkyFloatingLabelTextField.swift */; };
 		A8051A06252CD69A004BE7B9 /* MobileRechargeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051A05252CD69A004BE7B9 /* MobileRechargeVC.swift */; };
 		A8051A08252CD9C8004BE7B9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051A07252CD9C8004BE7B9 /* Constant.swift */; };
 		A80EEA79252E4C8900619D1B /* Merchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EEA78252E4C8900619D1B /* Merchant.swift */; };
+		A82788882566322500AA4101 /* BusListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82788872566322500AA4101 /* BusListVC.swift */; };
 		A836E41D252AAC3D00223811 /* MSSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836E41C252AAC3D00223811 /* MSSTest.swift */; };
 		A841CB65252CE90200DC65FF /* GiftCardCatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB64252CE90200DC65FF /* GiftCardCatListVC.swift */; };
 		A841CB67252CE9BE00DC65FF /* GiftCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB66252CE9BE00DC65FF /* GiftCardModel.swift */; };
@@ -59,6 +59,7 @@
 		A8051A05252CD69A004BE7B9 /* MobileRechargeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileRechargeVC.swift; sourceTree = "<group>"; };
 		A8051A07252CD9C8004BE7B9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A80EEA78252E4C8900619D1B /* Merchant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merchant.swift; sourceTree = "<group>"; };
+		A82788872566322500AA4101 /* BusListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListVC.swift; sourceTree = "<group>"; };
 		A836E404252AAB4700223811 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A836E405252AAB4700223811 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A836E406252AAB4700223811 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +120,6 @@
 			files = (
 				A85AB7F52538622000C7EE5D /* WebKit.framework in Frameworks */,
 				94939CC338DA52ADF613A8DA /* Pods_MSS_SDK.framework in Frameworks */,
-				508537C89796710E83D62EEF /* Pods_MSS_SDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +158,15 @@
 				A8861F422527860F00590D12 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A82788862566321100AA4101 /* Bus */ = {
+			isa = PBXGroup;
+			children = (
+				A85AB7FA25396ADC00C7EE5D /* BusSearchVC.swift */,
+				A82788872566322500AA4101 /* BusListVC.swift */,
+			);
+			path = Bus;
 			sourceTree = "<group>";
 		};
 		A836E41B252AAC3D00223811 /* MSSTest */ = {
@@ -203,7 +212,7 @@
 		A85AB7F925396AC400C7EE5D /* Travel */ = {
 			isa = PBXGroup;
 			children = (
-				A85AB7FA25396ADC00C7EE5D /* BusSearchVC.swift */,
+				A82788862566321100AA4101 /* Bus */,
 			);
 			path = Travel;
 			sourceTree = "<group>";
@@ -480,6 +489,7 @@
 				A841CB75252DEC6500DC65FF /* MobilePlanVC.swift in Sources */,
 				A841CB6B252CF19D00DC65FF /* NetworkManager.swift in Sources */,
 				A841CB67252CE9BE00DC65FF /* GiftCardModel.swift in Sources */,
+				A82788882566322500AA4101 /* BusListVC.swift in Sources */,
 				A8C82161252C8EBE00B4728A /* CardView.swift in Sources */,
 				A8861F462527863B00590D12 /* DashboardVC.swift in Sources */,
 				A8FF7D3625373157005560CD /* OperatorListVC.swift in Sources */,

@@ -106,7 +106,7 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
     
     @objc func doneDate(){
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "yyyy-MM-dd"
         tfDate.text = formatter.string(from: datePicker.date)
         dateofJourney = formatter.string(from: datePicker.date)
         tfDate.errorMessage = ""
@@ -224,7 +224,42 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
             //Show the dialog
             clearError()
             //Send to list
-            showError(message: "Send to flight list now")
+            var req = FlightListRequest()
+            req.origin = fromCityCode
+            req.destination = toCityCode
+            req.tripType = "OneWay"
+            req.cabin = tfClass.text!
+            req.adults = 1
+            req.childs = 0
+            req.infants = 0
+            req.traceId = "AYTM00011111111110002"
+            req.beginDate = tfDate.text!
+         
+            APIHandler.sharedInstance.getFlightJourneyList(loginReq: req, success: { (sessionId) in
+                          //Success
+                          self.stopLoading(fromView: self.view)
+                if(FlightListDetails.flightJourneyInstance[0].segments.count > 0){
+                    let podBundle = Bundle(for: GiftCardCatListVC.self)
+                                   let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+                                   let bundle = Bundle(url: bundleURL!)!
+                                   let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+                                   let controller =
+                                       storyboard.instantiateViewController(withIdentifier: "OnWayListVC")
+                                            as! OnWayListVC
+                                   controller.modalPresentationStyle = .fullScreen
+                                   self.present(controller, animated: true, completion: nil)
+                    
+                    
+                }else{
+                    self.showError(message: "Flight not found!")
+                }
+                          
+                      }, failure: { (message) in
+                          self.stopLoading(fromView: self.view)
+                          self.showError(message: message!)
+                      })
+          
+            
         }
         
         

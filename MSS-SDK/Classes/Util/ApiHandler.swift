@@ -526,7 +526,8 @@ class APIHandler: NSObject {
               var request = URLRequest(url: url)
               request.httpMethod = HTTPMethod.post.rawValue
               request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-            request.httpBody = reqValue
+                request.httpBody = reqValue
+                print("urlString",urlString)
               print("Request",loginReq)
               
               AF.request(request).responseData(completionHandler: { (response) in
@@ -536,13 +537,15 @@ class APIHandler: NSObject {
                           switch(status){
                           case 200:
                               let decoder = JSONDecoder()
+                              print("Response", response.response as Any)
+                              
                               let responseValue = try! decoder.decode(FlightListResponse.self, from: response.data!)
                               
                               if(responseValue.code == SUCCESS){
                                 FlightListDetails.flightJourneyInstance = responseValue.details.journeys
-                                  success(responseValue.message);
+                                success(responseValue.message);
                               }else{
-                                  failure(responseValue.message)
+                                failure(responseValue.message)
                               }
                               
                               print("Regsiter Response", responseValue)

@@ -472,4 +472,90 @@ class APIHandler: NSObject {
       }
            
     
+    
+    //************************FLIGHT****************************//
+    func getFlightCity(success: @escaping (_ response: String?) -> Void, failure: @escaping (_ error: String?) -> Void){
+        
+        if Util.isNetworkAvailable() {
+            
+            let urlString = "\(Merchant.merchantData.url!)\(URL_GET_FLIGHT_CITY)"
+            _ = JSONEncoder()
+            let url = URL(string: urlString)!
+            print("URL", url)
+            var request = URLRequest(url: url)
+            request.httpMethod = HTTPMethod.get.rawValue
+         
+            
+            AF.request(request).responseData(completionHandler: { (response) in
+                
+                print("Response", response)
+                    if let status = response.response?.statusCode {
+                        switch(status){
+                        case 200:
+                            let decoder = JSONDecoder()
+                            let responseValue = try! decoder.decode(FlightCityResponse.self, from: response.data!)
+                            
+                            if(responseValue.code == SUCCESS){
+                                 FlightCityModel.flightCityInstance = responseValue.details
+                                 success(responseValue.message);
+                            }else{
+                                failure(responseValue.message)
+                            }
+                            
+                            print("Regsiter Response", responseValue)
+                            
+                        default:
+                              failure("Error! \(String(status))")
+                        }
+                    }
+                
+            })
+        } else {
+            failure(NETWORK_FAIL_MSG)
+        }
+    }
+    
+    
+    
+    func getFlightJourneyList(loginReq: FlightListRequest, success: @escaping (_ response: String?) -> Void, failure: @escaping (_ error: String?) -> Void){
+          if Util.isNetworkAvailable() {
+              let urlString = "\(Merchant.merchantData.url!)\(URL_GET_FLIGHT_JOURNEY_LIST)"
+              let encoder = JSONEncoder()
+              let reqValue = try! encoder.encode(loginReq)
+              let url = URL(string: urlString)!
+              var request = URLRequest(url: url)
+              request.httpMethod = HTTPMethod.post.rawValue
+              request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+            request.httpBody = reqValue
+              print("Request",loginReq)
+              
+              AF.request(request).responseData(completionHandler: { (response) in
+                  
+                  print("Response", response)
+                      if let status = response.response?.statusCode {
+                          switch(status){
+                          case 200:
+                              let decoder = JSONDecoder()
+                              let responseValue = try! decoder.decode(FlightListResponse.self, from: response.data!)
+                              
+                              if(responseValue.code == SUCCESS){
+                                FlightListDetails.flightJourneyInstance = responseValue.details.journeys
+                                  success(responseValue.message);
+                              }else{
+                                  failure(responseValue.message)
+                              }
+                              
+                              print("Regsiter Response", responseValue)
+                              
+                          default:
+                                failure("Error! \(String(status))")
+                          }
+                      }
+                  
+              })
+          } else {
+              failure(NETWORK_FAIL_MSG)
+          }
+      }
+    
 }

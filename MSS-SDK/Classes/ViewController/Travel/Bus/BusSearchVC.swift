@@ -49,7 +49,7 @@ class BusSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSource
     
     @IBAction func onDateofTravel(_ sender: Any) {
             showDatePicker()
-        }
+    }
     
     
     func showDatePicker(){

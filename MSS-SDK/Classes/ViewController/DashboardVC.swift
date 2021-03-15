@@ -152,6 +152,15 @@ class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
             controller.webUrl = "http://bigbasket.go2cloud.org/aff_c?offer_id=271&aff_id=3683"
             self.present(controller, animated: true, completion: nil)
             
+        case 5:
+            let podBundle = Bundle(for: FlightSearchVC.self)
+            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+            let bundle = Bundle(url: bundleURL!)!
+            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+            let controller = storyboard.instantiateViewController(withIdentifier: "FlightSearchVC") as! FlightSearchVC
+            controller.modalPresentationStyle = .fullScreen
+            self.present(controller, animated: true, completion: nil)
+            
         default:
             self.showError(message: "Coming soon")
             break

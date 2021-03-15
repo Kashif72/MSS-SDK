@@ -13,6 +13,7 @@
 		A8051A06252CD69A004BE7B9 /* MobileRechargeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051A05252CD69A004BE7B9 /* MobileRechargeVC.swift */; };
 		A8051A08252CD9C8004BE7B9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8051A07252CD9C8004BE7B9 /* Constant.swift */; };
 		A80EEA79252E4C8900619D1B /* Merchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80EEA78252E4C8900619D1B /* Merchant.swift */; };
+		A8270BDA25FE1C0E002D5977 /* FlightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8270BD925FE1C0E002D5977 /* FlightModel.swift */; };
 		A82788882566322500AA4101 /* BusListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82788872566322500AA4101 /* BusListVC.swift */; };
 		A836E41D252AAC3D00223811 /* MSSTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A836E41C252AAC3D00223811 /* MSSTest.swift */; };
 		A841CB65252CE90200DC65FF /* GiftCardCatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB64252CE90200DC65FF /* GiftCardCatListVC.swift */; };
@@ -27,6 +28,9 @@
 		A841CB7A252E256700DC65FF /* SlidingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB79252E256700DC65FF /* SlidingContainerViewController.swift */; };
 		A841CB7C252E280B00DC65FF /* BrowsePlanInnerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB7B252E280B00DC65FF /* BrowsePlanInnerVC.swift */; };
 		A841CB7E252E283E00DC65FF /* MobileRecharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A841CB7D252E283E00DC65FF /* MobileRecharge.swift */; };
+		A84F781125FB8DC500D7AC7D /* FlightSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84F781025FB8DC500D7AC7D /* FlightSearchVC.swift */; };
+		A84F781325FB8DFA00D7AC7D /* OnWayListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84F781225FB8DFA00D7AC7D /* OnWayListVC.swift */; };
+		A84F781525FB8E0B00D7AC7D /* RoundWayListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84F781425FB8E0B00D7AC7D /* RoundWayListVC.swift */; };
 		A8523E8F252CDD56005F1FC3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8523E8E252CDD56005F1FC3 /* CustomButton.swift */; };
 		A85AB7ED2538072A00C7EE5D /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7EC2538072A00C7EE5D /* WebViewVC.swift */; };
 		A85AB7EF2538528A00C7EE5D /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7EE2538528A00C7EE5D /* NewsVC.swift */; };
@@ -59,6 +63,7 @@
 		A8051A05252CD69A004BE7B9 /* MobileRechargeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileRechargeVC.swift; sourceTree = "<group>"; };
 		A8051A07252CD9C8004BE7B9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A80EEA78252E4C8900619D1B /* Merchant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Merchant.swift; sourceTree = "<group>"; };
+		A8270BD925FE1C0E002D5977 /* FlightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightModel.swift; sourceTree = "<group>"; };
 		A82788872566322500AA4101 /* BusListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListVC.swift; sourceTree = "<group>"; };
 		A836E404252AAB4700223811 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A836E405252AAB4700223811 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +86,9 @@
 		A841CB79252E256700DC65FF /* SlidingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingContainerViewController.swift; sourceTree = "<group>"; };
 		A841CB7B252E280B00DC65FF /* BrowsePlanInnerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsePlanInnerVC.swift; sourceTree = "<group>"; };
 		A841CB7D252E283E00DC65FF /* MobileRecharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileRecharge.swift; sourceTree = "<group>"; };
+		A84F781025FB8DC500D7AC7D /* FlightSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearchVC.swift; sourceTree = "<group>"; };
+		A84F781225FB8DFA00D7AC7D /* OnWayListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnWayListVC.swift; sourceTree = "<group>"; };
+		A84F781425FB8E0B00D7AC7D /* RoundWayListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundWayListVC.swift; sourceTree = "<group>"; };
 		A8523E8E252CDD56005F1FC3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A85AB7EC2538072A00C7EE5D /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		A85AB7EE2538528A00C7EE5D /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
@@ -178,6 +186,16 @@
 			path = MSSTest;
 			sourceTree = "<group>";
 		};
+		A83B61A725F8C468007D1C47 /* Flight */ = {
+			isa = PBXGroup;
+			children = (
+				A84F781025FB8DC500D7AC7D /* FlightSearchVC.swift */,
+				A84F781225FB8DFA00D7AC7D /* OnWayListVC.swift */,
+				A84F781425FB8E0B00D7AC7D /* RoundWayListVC.swift */,
+			);
+			path = Flight;
+			sourceTree = "<group>";
+		};
 		A841CB6E252DE52700DC65FF /* GiftCards */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +230,7 @@
 		A85AB7F925396AC400C7EE5D /* Travel */ = {
 			isa = PBXGroup;
 			children = (
+				A83B61A725F8C468007D1C47 /* Flight */,
 				A82788862566321100AA4101 /* Bus */,
 			);
 			path = Travel;
@@ -295,6 +314,7 @@
 				A80EEA78252E4C8900619D1B /* Merchant.swift */,
 				A85AB7F02538534500C7EE5D /* NewsModel.swift */,
 				A85AB7FC253A1C2F00C7EE5D /* BusModel.swift */,
+				A8270BD925FE1C0E002D5977 /* FlightModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -467,6 +487,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8523E8F252CDD56005F1FC3 /* CustomButton.swift in Sources */,
+				A84F781525FB8E0B00D7AC7D /* RoundWayListVC.swift in Sources */,
 				A841CB6D252CF3E100DC65FF /* Util.swift in Sources */,
 				A841CB78252E254400DC65FF /* SlidingContainerSliderView.swift in Sources */,
 				A85AB7FD253A1C2F00C7EE5D /* BusModel.swift in Sources */,
@@ -477,7 +498,10 @@
 				A85AB7F82538905000C7EE5D /* DTHVC.swift in Sources */,
 				A841CB69252CF11D00DC65FF /* ApiHandler.swift in Sources */,
 				A8C8215B252C8A2200B4728A /* HomeMenuModel.swift in Sources */,
+				A8270BDA25FE1C0E002D5977 /* FlightModel.swift in Sources */,
 				A8C82163252C8F0400B4728A /* ColorConverter.swift in Sources */,
+				A84F781325FB8DFA00D7AC7D /* OnWayListVC.swift in Sources */,
+				A84F781125FB8DC500D7AC7D /* FlightSearchVC.swift in Sources */,
 				A80EEA79252E4C8900619D1B /* Merchant.swift in Sources */,
 				A841CB7E252E283E00DC65FF /* MobileRecharge.swift in Sources */,
 				A8051A02252CD2EC004BE7B9 /* SkyFloatingLabelTextField.swift in Sources */,

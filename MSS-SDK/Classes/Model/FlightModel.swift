@@ -1,0 +1,175 @@
+//
+//  FlightModel.swift
+//  MSS-SDK
+//
+//  Created by Kashif Imam on 14/03/21.
+//  Copyright © 2021 Kashif Imam. All rights reserved.
+//
+
+import Foundation
+
+//*********FOR CITY**********//
+struct FlightCityModel : Codable{
+    public var cityCode : String!
+    public var cityName : String!
+    public var airportName : String!
+    static var flightCityInstance = Array<FlightCityModel>()
+}
+
+
+struct FlightCityResponse : Codable{
+    public var code : String!
+    public var message : String!
+    public var details : Array<FlightCityModel>!
+}
+
+
+//*************FLIGHT LIST**************//
+//Request
+struct FlightListRequest : Codable{
+    public var origin: String!
+    public var destination: String!
+    public var tripType: String!
+    public var cabin: String!
+    public var adults: Int!
+    public var childs: Int!
+    public var infants: Int!
+    public var traceId: String!
+    public var beginDate: String!
+}
+
+
+
+struct FlightListResponse : Codable {
+    public var code: String!
+    public var message: String!
+    public var details : FlightListDetails!
+}
+
+struct FlightListDetails : Codable {
+    public var journeys : Array<JourneysModel>!
+    
+    static var flightJourneyInstance = Array<JourneysModel>()
+}
+
+//This is inside details
+struct JourneysModel : Codable {
+    public var segments : Array<SegmentModel>!
+    
+}
+
+//this is indside journey Array
+struct SegmentModel: Codable {
+    
+    public var bondType: String!
+    public var deeplink: String!
+    public var engineID: String!
+    public var fareRule: String!
+    public var itineraryKey: String!
+    public var journeyIndex: Int!
+    public var nearByAirport: Bool!
+    
+    public var remark: String!
+    public var searchId: String!
+    public var cache: Bool!
+    public var baggageFare: Bool!
+    public var holdBooking: Bool!
+    public var international: Bool!
+    public var roundTrip: Bool!
+    public var special: Bool!
+    public var specialId: Bool!
+    public var bonds : Array<BondModel>!
+    public var fares : Array<FareModel>!
+    
+   
+}
+
+//This is inside Segment
+struct FareModel : Codable{
+    public var basicFare: Double!
+    public var exchangeRate: Double!
+    public var totalFareWithOutMarkUp: Double!
+    public var totalTaxWithOutMarkUp: Double!
+    public var paxFares : Array<PaxFareModel>!
+ }
+
+//This is inside FareModel
+struct PaxFareModel : Codable{
+    public var baggageUnit: String!
+    public var baggageWeight: String!
+    public var baseTransactionAmount: Double!
+    public var basicFare: Double!
+    public var cancelPenalty: Double!
+    public var changePenalty: Double!
+    public var equivCurrencyCode: String!
+    public var bookFares : Array<BookFareModel>!
+    public var fareBasisCode: String!
+    public var fareInfoKey: String!
+    public var fareInfoValue: String!
+    public var markUP: Double!
+    public var paxType: String!
+    public var refundable: Bool!
+    public var totalFare: Double!
+    public var totalTax: Double!
+    public var transactionAmount: Double!
+
+
+}
+//This is inside PaxFareModel
+struct BookFareModel : Codable{
+    public var amount: Double!
+    public var chargeCode: String!
+    public var chargeType: String!
+}
+
+//This is inside SegmentModel
+struct BondModel : Codable{
+    public var boundType: String!
+    public var itineraryKey: String!
+    public var journeyTime: String!
+    public var legs : Array<LegsModel>!
+    public var baggageFare: Bool!
+    public var ssrFare: Bool!
+    
+}
+
+
+//This is inside BondModel
+struct LegsModel: Codable {
+    public var aircraftCode: String!
+    public var aircraftType: String!
+    public var airlineName: String!
+    public var amount: Int!
+    public var arrivalDate: String!
+    public var arrivalTerminal: String!
+    public var arrivalTime: String!
+    public var availableSeat: String!
+    public var baggageUnit: String!
+    public var baggageWeight: String!
+    public var boundTypes: String!
+    public var cabin: String!
+    public var capacity: String!
+    public var carrierCode: String!
+    public var currencyCode: String!
+    public var departureDate: String!
+    public var departureTerminal: String!
+    public var departureTime: String!
+    public var destination: String!
+    public var duration: String!
+    public var fareBasisCode: String!
+    public var fareClassOfService: String!
+    public var flightDesignator: String!
+    public var flightDetailRefKey: String!
+    public var flightNumber: String!
+    public var flightName: String!
+    public var group: String!
+    public var numberOfStops: String!
+    public var origin: String!
+    public var providerCode: String!
+    public var remarks: String!
+    public var sold: String!
+    public var status: String!
+    public var connecting: Bool!
+}
+
+

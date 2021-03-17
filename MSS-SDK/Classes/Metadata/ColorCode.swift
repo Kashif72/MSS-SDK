@@ -43,9 +43,9 @@ class ColorCode {
     
     //Button Color
     
-    static let btnOne = "#8C2ce2"
+    static let btnOne = "#D9251C"
     static let btnTwo = "#5a2e96"
-    static let btnThree = "#4A02e0"
+    static let btnThree = "#ae1e17"
     
      
     static let border_color = "#FFFFFF"

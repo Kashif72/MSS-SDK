@@ -246,6 +246,9 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
                                    let controller =
                                        storyboard.instantiateViewController(withIdentifier: "OnWayListVC")
                                             as! OnWayListVC
+                                controller.fromCity = self.fromCityCode
+                                controller.toCity = self.toCityCode
+                                controller.dateFlight = self.tfDate.text!
                                    controller.modalPresentationStyle = .fullScreen
                                    self.present(controller, animated: true, completion: nil)
                     

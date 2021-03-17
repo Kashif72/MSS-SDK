@@ -28,3 +28,15 @@ class CustomButton: UIButton {
 
     
 }
+
+@IBDesignable
+class CustomButtonRed: UIButton {
+    
+    override func awakeFromNib() {
+        self.layer.cornerRadius = 1.0
+        self.backgroundColor = ColorConverter.hexStringToUIColor(hex: ColorCode.btnOne)
+        self.setTitleColor(ColorConverter.hexStringToUIColor(hex: ColorCode.textWhiteColor), for: .normal)
+    }
+
+    
+}

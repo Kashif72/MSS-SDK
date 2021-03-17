@@ -31,6 +31,7 @@
 		A84F781125FB8DC500D7AC7D /* FlightSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84F781025FB8DC500D7AC7D /* FlightSearchVC.swift */; };
 		A84F781325FB8DFA00D7AC7D /* OnWayListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84F781225FB8DFA00D7AC7D /* OnWayListVC.swift */; };
 		A84F781525FB8E0B00D7AC7D /* RoundWayListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84F781425FB8E0B00D7AC7D /* RoundWayListVC.swift */; };
+		A84FF6922602425B00999B0F /* FlightDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FF6912602425B00999B0F /* FlightDetailVC.swift */; };
 		A8523E8F252CDD56005F1FC3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8523E8E252CDD56005F1FC3 /* CustomButton.swift */; };
 		A85AB7ED2538072A00C7EE5D /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7EC2538072A00C7EE5D /* WebViewVC.swift */; };
 		A85AB7EF2538528A00C7EE5D /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AB7EE2538528A00C7EE5D /* NewsVC.swift */; };
@@ -89,6 +90,7 @@
 		A84F781025FB8DC500D7AC7D /* FlightSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearchVC.swift; sourceTree = "<group>"; };
 		A84F781225FB8DFA00D7AC7D /* OnWayListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnWayListVC.swift; sourceTree = "<group>"; };
 		A84F781425FB8E0B00D7AC7D /* RoundWayListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundWayListVC.swift; sourceTree = "<group>"; };
+		A84FF6912602425B00999B0F /* FlightDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailVC.swift; sourceTree = "<group>"; };
 		A8523E8E252CDD56005F1FC3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A85AB7EC2538072A00C7EE5D /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		A85AB7EE2538528A00C7EE5D /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				A84F781025FB8DC500D7AC7D /* FlightSearchVC.swift */,
 				A84F781225FB8DFA00D7AC7D /* OnWayListVC.swift */,
 				A84F781425FB8E0B00D7AC7D /* RoundWayListVC.swift */,
+				A84FF6912602425B00999B0F /* FlightDetailVC.swift */,
 			);
 			path = Flight;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				A8FF7D3625373157005560CD /* OperatorListVC.swift in Sources */,
 				A85AB7EF2538528A00C7EE5D /* NewsVC.swift in Sources */,
 				A8051A06252CD69A004BE7B9 /* MobileRechargeVC.swift in Sources */,
+				A84FF6922602425B00999B0F /* FlightDetailVC.swift in Sources */,
 				A85AB7F12538534500C7EE5D /* NewsModel.swift in Sources */,
 				A841CB7C252E280B00DC65FF /* BrowsePlanInnerVC.swift in Sources */,
 				A85AB7ED2538072A00C7EE5D /* WebViewVC.swift in Sources */,

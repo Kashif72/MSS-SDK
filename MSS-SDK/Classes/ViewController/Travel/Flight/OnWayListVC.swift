@@ -26,9 +26,6 @@ class OnWayListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
 
         tblFlightList.delegate = self
         tblFlightList.dataSource = self
-//        tblFlightList.rowHeight = UITableViewAutomaticDimension
-//        tblFlightList.estimatedRowHeight = 100
-        
         lblFromTo.text = fromCity + " -> " + toCity
         lblDate.text = dateFlight
     }
@@ -95,7 +92,22 @@ class OnWayListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
        
        
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           
+        let podBundle = Bundle(for: OnWayListVC.self)
+        let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+        let bundle = Bundle(url: bundleURL!)!
+        let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+        let controller = storyboard.instantiateViewController(withIdentifier: "FlightDetailVC")as! FlightDetailVC
+        controller.selectedPosition = indexPath.row
+        controller.dateFlight = dateFlight
+        controller.fromCity = fromCity
+        controller.toCity = toCity
+        controller.totalPayable = "₹ " +  String(flightArray![indexPath.row].fares[0].totalFareWithOutMarkUp)
+        controller.numberPassanger = "To call"
+        
+        
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true, completion: nil)
+                             
     }
        
     
@@ -118,6 +130,4 @@ class FlightListCell: UITableViewCell{
     @IBOutlet weak var lblArriveTime: UILabel!
     
     @IBOutlet weak var ivFlight: UIImageView!
-    
-    @IBOutlet weak var avLoader: UIActivityIndicatorView!
 }

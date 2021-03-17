@@ -223,6 +223,8 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
         else{
             //Show the dialog
             clearError()
+            self.showLoading(view: self.view, text: "Please wait")
+            
             //Send to list
             var req = FlightListRequest()
             req.origin = fromCityCode
@@ -237,9 +239,9 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
          
             APIHandler.sharedInstance.getFlightJourneyList(loginReq: req, success: { (sessionId) in
                           //Success
-                          self.stopLoading(fromView: self.view)
+                self.stopLoading(fromView: self.view)
                 if(FlightListDetails.flightJourneyInstance[0].segments.count > 0){
-                    let podBundle = Bundle(for: GiftCardCatListVC.self)
+                    let podBundle = Bundle(for: FlightSearchVC.self)
                                    let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
                                    let bundle = Bundle(url: bundleURL!)!
                                    let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
@@ -254,6 +256,7 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
                     
                     
                 }else{
+                    self.stopLoading(fromView: self.view)
                     self.showError(message: "Flight not found!")
                 }
                           

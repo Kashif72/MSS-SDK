@@ -2381,6 +2381,9 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hGw-kb-eYF">
                                                 <rect key="frame" x="0.0" y="40" width="414" height="618.66666666666663"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="618.66666666666663" id="BOz-8c-PAb"/>
+                                                </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FlightDetailsListCell" rowHeight="171" id="4Oa-91-FfS" customClass="FlightDetailsListCell" customModule="MSS_SDK" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="414" height="171"/>
@@ -2412,7 +2415,7 @@
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoY-7K-65q">
                                                                             <rect key="frame" x="7.9999999999999929" y="40" width="121.33333333333331" height="40"/>
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -2466,7 +2469,7 @@
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hl-tp-xdc">
                                                                             <rect key="frame" x="7.9999999999999929" y="40" width="121.33333333333331" height="40"/>
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -2586,6 +2589,7 @@
                                             <constraint firstItem="j37-mm-haC" firstAttribute="top" secondItem="fIC-mi-6r3" secondAttribute="bottom" constant="8" id="VIn-hg-1j1"/>
                                             <constraint firstItem="hGw-kb-eYF" firstAttribute="top" secondItem="y4H-Ra-c0V" secondAttribute="bottom" constant="8" id="XyC-nh-lPB"/>
                                             <constraint firstItem="fbT-81-JBR" firstAttribute="centerX" secondItem="BKr-fy-4sz" secondAttribute="centerX" id="aob-D8-PKH"/>
+                                            <constraint firstAttribute="height" constant="841.33333333333337" id="bWq-Vc-22Q"/>
                                             <constraint firstItem="y4H-Ra-c0V" firstAttribute="leading" secondItem="BKr-fy-4sz" secondAttribute="leading" constant="16" id="ci3-we-xoE"/>
                                             <constraint firstAttribute="bottom" secondItem="fbT-81-JBR" secondAttribute="bottom" constant="24" id="gBc-Mj-NQ1"/>
                                             <constraint firstItem="K4n-A6-Lh8" firstAttribute="top" secondItem="j37-mm-haC" secondAttribute="bottom" constant="8" id="jmG-Ma-paS"/>
@@ -2649,6 +2653,7 @@
                         <outlet property="lblFromTo" destination="y4H-Ra-c0V" id="Bby-id-hOZ"/>
                         <outlet property="lblNoPassanger" destination="fIC-mi-6r3" id="H9u-LB-bdR"/>
                         <outlet property="tblFlightDetails" destination="hGw-kb-eYF" id="MxH-fc-MoP"/>
+                        <outlet property="tblHeight" destination="BOz-8c-PAb" id="EKa-zI-7CS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VhL-uN-k4l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

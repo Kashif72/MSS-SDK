@@ -27,6 +27,9 @@ class FlightDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var flightLegArray: Array<LegsModel>? = nil
     
+    @IBOutlet weak var tblHeight: NSLayoutConstraint!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         flightLegArray = FlightListDetails.flightJourneyInstance[0].segments[selectedPosition].bonds[0].legs
@@ -34,8 +37,11 @@ class FlightDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         tblFlightDetails.delegate = self
         tblFlightDetails.dataSource = self
         
+        lblNoPassanger.text = numberPassanger
+        lblAmount.text = totalPayable
+        lblFromTo.text = fromCity + " -> " + toCity
         
-        
+        tblHeight.constant = CGFloat(147 * flightLegArray!.count)
         
     }
     
@@ -57,15 +63,33 @@ class FlightDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.lblDuration.text = flightLegArray![indexPath.row].duration
         cell.lblFlightNumber.text = flightLegArray![indexPath.row].airlineName + " " + flightLegArray![indexPath.row].flightNumber
         
-        cell.lblFromCode.text = flightLegArray![indexPath.row].departureTerminal
-        cell.lblFromName.text = flightLegArray![indexPath.row].origin
+        cell.lblFromCode.text = flightLegArray![indexPath.row].origin
+        
+        //name
+        
+        
         cell.lblFromTime.text = flightLegArray![indexPath.row].departureTime
         cell.lblFromDate.text = flightLegArray![indexPath.row].departureDate
         cell.lblFromBaggae.text = "Bag: "+flightLegArray![indexPath.row].baggageWeight + flightLegArray![indexPath.row].baggageUnit
         
         
-        cell.lblToCode.text = flightLegArray![indexPath.row].arrivalTerminal
-        cell.lblToName.text = flightLegArray![indexPath.row].destination
+        cell.lblToCode.text = flightLegArray![indexPath.row].destination
+        
+        //name
+        for item in FlightCityModel.flightCityInstance{
+            if(item.cityCode == flightLegArray![indexPath.row].origin){
+                cell.lblFromName.text = item.cityName
+            }
+          
+        }
+        
+        for item in FlightCityModel.flightCityInstance{
+             if(item.cityCode == flightLegArray![indexPath.row].destination){
+                cell.lblToName.text = item.cityName
+            }
+          
+        }
+    
         cell.lblToTime.text = flightLegArray![indexPath.row].arrivalTime
         cell.lblToDate.text = flightLegArray![indexPath.row].arrivalDate
         cell.lblToBaggae.text = ""
@@ -83,7 +107,11 @@ class FlightDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBAction func onClickBook(_ sender: Any) {
-        dismiss(animated: false)
+        
+    }
+    
+    @IBAction func onClickBack(_ sender: Any) {
+              dismiss(animated: false)
     }
     
 }

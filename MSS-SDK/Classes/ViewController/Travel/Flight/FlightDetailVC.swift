@@ -92,7 +92,7 @@ class FlightDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
         cell.lblToTime.text = flightLegArray![indexPath.row].arrivalTime
         cell.lblToDate.text = flightLegArray![indexPath.row].arrivalDate
-        cell.lblToBaggae.text = ""
+        cell.lblToBaggae.text = " "
         
         
         

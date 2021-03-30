@@ -11,7 +11,11 @@ import MBProgressHUD
 import TTGSnackbar
 
 
-class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, PassangerSelecListner {
+    
+    
+    
+    
     
     @IBOutlet weak var tfFrom: CustomTF!
     @IBOutlet weak var tfTo: CustomTF!
@@ -38,6 +42,11 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
     let datePicker = UIDatePicker()
     
     
+    var numberOfAdult = 0
+    var numberOfChild = 0
+    var numberOfInfant = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tfFrom.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -45,6 +54,9 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
         tfDate.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tfTraveller.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tfClass.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
+        self.tfTraveller.inputView = UIView()
+        self.tfTraveller.inputAccessoryView = UIView()
         
         self.fromPv.delegate = self
         self.toPv.delegate = self
@@ -54,9 +66,25 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
         self.tfFrom.inputView = self.fromPv
         self.tfTo.inputView = self.toPv
         self.tfClass.inputView = self.classPv
+     
         
+        self.tfTraveller.addTarget(self, action: #selector(myTargetFunction), for: .touchDown)
     }
     
+    
+    @objc func myTargetFunction(textField: UITextField) {
+        let podBundle = Bundle(for: FlightSearchVC.self)
+        let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+        let bundle = Bundle(url: bundleURL!)!
+        let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+        let controller = storyboard.instantiateViewController(withIdentifier: "FlightPassangerVC") as! FlightPassangerVC
+        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalTransitionStyle = .crossDissolve
+        controller.passengerListner = self
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+
     
     
     @IBAction func onClickBack(_ sender: Any) {
@@ -70,6 +98,18 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
     }
     
     
+    @IBAction func onTravelBegin(_ sender: Any) {
+        let podBundle = Bundle(for: FlightSearchVC.self)
+        let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+        let bundle = Bundle(url: bundleURL!)!
+        let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+        let controller = storyboard.instantiateViewController(withIdentifier: "FlightPassangerVC") as! FlightPassangerVC
+        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalTransitionStyle = .crossDissolve
+        controller.passengerListner = self
+        self.present(controller, animated: true, completion: nil)
+        
+    }
     
     
     func showDatePicker(){
@@ -242,17 +282,15 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
                 self.stopLoading(fromView: self.view)
                 if(FlightListDetails.flightJourneyInstance[0].segments.count > 0){
                     let podBundle = Bundle(for: FlightSearchVC.self)
-                                   let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
-                                   let bundle = Bundle(url: bundleURL!)!
-                                   let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
-                                   let controller =
-                                       storyboard.instantiateViewController(withIdentifier: "OnWayListVC")
-                                            as! OnWayListVC
-                                controller.fromCity = self.fromCityCode
-                                controller.toCity = self.toCityCode
-                                controller.dateFlight = self.tfDate.text!
-                                   controller.modalPresentationStyle = .fullScreen
-                                   self.present(controller, animated: true, completion: nil)
+                    let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+                    let bundle = Bundle(url: bundleURL!)!
+                    let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+                    let controller = storyboard.instantiateViewController(withIdentifier: "OnWayListVC") as! OnWayListVC
+                    controller.fromCity = self.fromCityCode
+                    controller.toCity = self.toCityCode
+                    controller.dateFlight = self.tfDate.text!
+                    controller.modalPresentationStyle = .fullScreen
+                    self.present(controller, animated: true, completion: nil)
                     
                     
                 }else{
@@ -310,9 +348,6 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
         }else{
             return classArray.count
         }
-        
-        
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -368,4 +403,42 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
         }
         
     }
+    
+    func onPassSelected(adult: Int, child: Int, infant: Int) {
+        numberOfAdult = adult
+        numberOfChild = child
+        numberOfInfant = infant
+        
+        print("numberOfAdult", numberOfAdult)
+        print("numberOfChild", numberOfChild)
+        print("numberOfInfant", numberOfInfant)
+        
+        
+        
+        if(adult != 0 && child == 0 && infant == 0){
+            tfTraveller.text = String(adult) + "Adults, "
+        }else if(adult != 0 && child != 0 && infant == 0){
+            tfTraveller.text = String(adult) + "Adults, " + String(child) + "Children, "
+        }else if(adult != 0 && child != 0 && infant != 0){
+            tfTraveller.text = String(adult) + "Adults, " + String(child) + "Children, " + String(infant) + "Infants, "
+        }
+        else if(adult == 0 && child != 0 && infant == 0){
+            tfTraveller.text = String(child) + "Children, "
+        }else if(adult == 0 && child != 0 && infant != 0){
+            tfTraveller.text = String(child) + "Children, " + String(infant) + "Infants, "
+        }
+
+        else if(adult == 0 && child == 0 && infant != 0){
+            tfTraveller.text = String(infant) + "Infants, "
+        }else if(adult != 0 && child == 0 && infant != 0){
+            tfTraveller.text = String(adult) + "Adults, " + String(infant) + "Infants, "
+        }
+        
+        
+    }
+}
+
+
+protocol PassangerSelecListner {
+    func onPassSelected(adult: Int, child: Int, infant: Int)
 }

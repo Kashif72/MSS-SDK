@@ -13,10 +13,6 @@ import TTGSnackbar
 
 class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, PassangerSelecListner {
     
-    
-    
-    
-    
     @IBOutlet weak var tfFrom: CustomTF!
     @IBOutlet weak var tfTo: CustomTF!
     @IBOutlet weak var tfDate: CustomTF!
@@ -271,13 +267,13 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
             req.destination = toCityCode
             req.tripType = "OneWay"
             req.cabin = tfClass.text!
-            req.adults = 1
-            req.childs = 0
-            req.infants = 0
+            req.adults = numberOfAdult
+            req.childs = numberOfChild
+            req.infants = numberOfInfant
             req.traceId = "AYTM00011111111110002"
             req.beginDate = tfDate.text!
          
-            APIHandler.sharedInstance.getFlightJourneyList(loginReq: req, success: { (sessionId) in
+            APIHandler.sharedInstance.getFlightJourneyList(loginReq: req, success: { (sessionId, responseValue) in
                           //Success
                 self.stopLoading(fromView: self.view)
                 if(FlightListDetails.flightJourneyInstance[0].segments.count > 0){
@@ -289,6 +285,13 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
                     controller.fromCity = self.fromCityCode
                     controller.toCity = self.toCityCode
                     controller.dateFlight = self.tfDate.text!
+                    controller.flightPassanger = self.tfTraveller.text!
+                    controller.listReq = req
+                    controller.listResponse = responseValue
+                    controller.numberOfInfant = self.numberOfInfant
+                    controller.numberOfAdult = self.numberOfAdult
+                    controller.numberOfChild = self.numberOfChild
+                    
                     controller.modalPresentationStyle = .fullScreen
                     self.present(controller, animated: true, completion: nil)
                     
@@ -298,13 +301,11 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
                     self.showError(message: "Flight not found!")
                 }
                           
-                      }, failure: { (message) in
-                          self.stopLoading(fromView: self.view)
-                          self.showError(message: message!)
-                      })
-          
-            
-        }
+            }, failure: { (message) in
+                    self.stopLoading(fromView: self.view)
+                    self.showError(message: message!)
+        })
+    }
         
         
     }

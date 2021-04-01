@@ -2585,19 +2585,19 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="fbT-81-JBR" firstAttribute="top" secondItem="K4n-A6-Lh8" secondAttribute="bottom" constant="16" id="9ii-ce-Gva"/>
                                             <constraint firstItem="fIC-mi-6r3" firstAttribute="centerX" secondItem="BKr-fy-4sz" secondAttribute="centerX" id="COd-WV-vzn"/>
                                             <constraint firstAttribute="trailing" secondItem="hGw-kb-eYF" secondAttribute="trailing" id="Cu4-qa-8rp"/>
+                                            <constraint firstItem="fbT-81-JBR" firstAttribute="centerX" secondItem="BKr-fy-4sz" secondAttribute="centerX" id="DFo-Sw-yFw"/>
                                             <constraint firstItem="fIC-mi-6r3" firstAttribute="top" secondItem="hGw-kb-eYF" secondAttribute="bottom" constant="16" id="GuJ-bn-eCq"/>
                                             <constraint firstItem="K4n-A6-Lh8" firstAttribute="centerX" secondItem="BKr-fy-4sz" secondAttribute="centerX" id="Ot6-hw-81r"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fbT-81-JBR" secondAttribute="bottom" constant="24" id="PYP-yS-89P"/>
                                             <constraint firstAttribute="trailing" secondItem="y4H-Ra-c0V" secondAttribute="trailing" constant="16" id="Pc6-Eb-aoV"/>
                                             <constraint firstItem="hGw-kb-eYF" firstAttribute="leading" secondItem="BKr-fy-4sz" secondAttribute="leading" id="Ryl-qA-63J"/>
                                             <constraint firstItem="j37-mm-haC" firstAttribute="top" secondItem="fIC-mi-6r3" secondAttribute="bottom" constant="8" id="VIn-hg-1j1"/>
                                             <constraint firstItem="hGw-kb-eYF" firstAttribute="top" secondItem="y4H-Ra-c0V" secondAttribute="bottom" constant="8" id="XyC-nh-lPB"/>
-                                            <constraint firstItem="fbT-81-JBR" firstAttribute="centerX" secondItem="BKr-fy-4sz" secondAttribute="centerX" id="aob-D8-PKH"/>
+                                            <constraint firstItem="fbT-81-JBR" firstAttribute="top" secondItem="K4n-A6-Lh8" secondAttribute="bottom" constant="16" id="YhF-iV-pil"/>
                                             <constraint firstAttribute="height" constant="841.33333333333337" id="bWq-Vc-22Q"/>
                                             <constraint firstItem="y4H-Ra-c0V" firstAttribute="leading" secondItem="BKr-fy-4sz" secondAttribute="leading" constant="16" id="ci3-we-xoE"/>
-                                            <constraint firstAttribute="bottom" secondItem="fbT-81-JBR" secondAttribute="bottom" constant="24" id="gBc-Mj-NQ1"/>
                                             <constraint firstItem="K4n-A6-Lh8" firstAttribute="top" secondItem="j37-mm-haC" secondAttribute="bottom" constant="8" id="jmG-Ma-paS"/>
                                             <constraint firstItem="y4H-Ra-c0V" firstAttribute="top" secondItem="BKr-fy-4sz" secondAttribute="top" constant="8" id="uNA-9B-p1P"/>
                                             <constraint firstItem="j37-mm-haC" firstAttribute="centerX" secondItem="BKr-fy-4sz" secondAttribute="centerX" id="ygq-lQ-Bxz"/>
@@ -2867,7 +2867,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgI-Vl-dlp" customClass="CardView" customModule="MMudra" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgI-Vl-dlp" customClass="CardView" customModule="MSS_SDK" customModuleProvider="target">
                                 <rect key="frame" x="25" y="223" width="364" height="290"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3Un-vU-PdD">

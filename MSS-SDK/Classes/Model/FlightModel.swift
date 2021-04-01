@@ -49,6 +49,7 @@ struct FlightListResponse : Codable {
 
 struct FlightListDetails : Codable {
     public var journeys : Array<JourneysModel>!
+    public var traceId : String!
     
     static var flightJourneyInstance = Array<JourneysModel>()
 }
@@ -175,3 +176,54 @@ struct LegsModel: Codable {
 }
 
 
+
+struct CheckFinalPriceReq: Codable {
+    public var bonds : Array<BondModel>!
+       public var fares : Array<FareModel>!
+       public var baggageFare: String!
+       
+       public var cache: String!
+       public var holdBooking: String!
+       public var international: String!
+       public var roundTrip: String!
+       public var special: String!
+       public var specialId: String!
+       public var engineID: String!
+       public var fareRule: String!
+       public var itineraryKey: String!
+       public var journeyIndex: String!
+       public var nearByAirport: String!
+       
+       public var searchId: String!
+       public var origin: String!
+       public var destination: String!
+       public var tripType: String!
+       public var adults: Int!
+       public var childs: Int!
+       public var infants: Int!
+       
+       public var traceId: String!
+       public var beginDate: String!
+       public var endDate: String!
+}
+
+struct CheckFlightPriceRequest: Codable {
+   
+
+}
+
+
+struct CheckFlightPriceResponse : Codable{
+    public var code: String
+    public var message: String
+    
+    public var details : FlightPriceDetails!
+
+}
+
+
+struct FlightPriceDetails : Codable {
+    public var journeys : Array<JourneysModel>!
+    
+    static var flightJourneyInstance = Array<JourneysModel>()
+}

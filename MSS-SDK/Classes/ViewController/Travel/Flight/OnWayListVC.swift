@@ -19,6 +19,15 @@ class OnWayListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var dateFlight = ""
     
     var flightArray = FlightListDetails.flightJourneyInstance[0].segments
+    var flightPassanger = ""
+    
+    var listReq: FlightListRequest? = nil
+    var listResponse: FlightListResponse? = nil
+    
+    
+    var numberOfAdult = 0
+     var numberOfChild = 0
+     var numberOfInfant = 0
     
     
     override func viewDidLoad() {
@@ -29,6 +38,7 @@ class OnWayListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         lblFromTo.text = fromCity + " -> " + toCity
         lblDate.text = dateFlight
     }
+    
     
     
     @IBAction func onClickDeparture(_ sender: Any) {
@@ -102,8 +112,13 @@ class OnWayListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         controller.fromCity = fromCity
         controller.toCity = toCity
         controller.totalPayable = "₹ " +  String(flightArray![indexPath.row].fares[0].totalFareWithOutMarkUp)
-        controller.numberPassanger = "To call"
-        
+        controller.numberPassanger = flightPassanger
+        controller.listReq = listReq
+        controller.listResponse = listResponse
+        controller.numberOfInfant = self.numberOfInfant
+        controller.numberOfAdult = self.numberOfAdult
+        controller.numberOfChild = self.numberOfChild
+
         
         controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: true, completion: nil)

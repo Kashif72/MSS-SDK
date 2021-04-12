@@ -539,6 +539,8 @@ class APIHandler: NSObject {
                               let decoder = JSONDecoder()
                               print("Response", response.response as Any)
                               
+                              
+                              
                               let responseValue = try! decoder.decode(FlightListResponse.self, from: response.data!)
                               
                               if(responseValue.code == SUCCESS){
@@ -582,20 +584,20 @@ class APIHandler: NSObject {
                         switch(status){
                         case 200:
                             let decoder = JSONDecoder()
-                            print("Response", response.response as Any)
+                            print("Response", response)
                             
                             let responseValue = try! decoder.decode(CheckFlightPriceResponse.self, from: response.data!)
                             
                             if(responseValue.code == SUCCESS){
                                     
-                                let baseFare = responseValue.details.journeys[0].segments[0].fares[0].basicFare
+                                let baseFare =  responseValue.details.journeys[0].segments[0].fares[0].basicFare!
                                 
                                 let totalTax =
-                                    responseValue.details.journeys[0].segments[0].fares[0].paxFares[0].totalTax
+                                    responseValue.details.journeys[0].segments[0].fares[0].totalTaxWithOutMarkUp!
                                 
                                 let totalFare =
-                                    responseValue.details.journeys[0].segments[0].fares[0].paxFares[0].totalFare
-                                success(responseValue.message, String(baseFare), String(totalTax), String(totalTax));
+                                    responseValue.details.journeys[0].segments[0].fares[0].totalFareWithOutMarkUp!
+                                success(responseValue.message, +"INR: " String(baseFare), "INR: "String(totalTax), "INR: "String(totalFare));
                             }else{
                               failure(responseValue.message)
                             }

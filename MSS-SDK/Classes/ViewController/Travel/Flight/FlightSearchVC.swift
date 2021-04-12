@@ -11,7 +11,9 @@ import MBProgressHUD
 import TTGSnackbar
 
 
-class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, PassangerSelecListner {
+class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, PassangerSelecListner, CitySelecListner {
+    
+    
     
     @IBOutlet weak var tfFrom: CustomTF!
     @IBOutlet weak var tfTo: CustomTF!
@@ -19,6 +21,7 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
     @IBOutlet weak var tfTraveller: CustomTF!
     @IBOutlet weak var tfClass: CustomTF!
     
+    var cityArray = FlightCityModel.flightCityInstance
     
     var fromCityCode = ""
     var toCityCode = ""
@@ -27,12 +30,10 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
     var dateofJourney = ""
     
     
-    let fromPv = UIPickerView()
-    let toPv = UIPickerView()
     let classPv = UIPickerView()
     
     
-    var cityArray = FlightCityModel.flightCityInstance
+    
     var classArray = ["Economy","Business","Premium Economy"]
     
     let datePicker = UIDatePicker()
@@ -54,13 +55,10 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
         self.tfTraveller.inputView = UIView()
         self.tfTraveller.inputAccessoryView = UIView()
         
-        self.fromPv.delegate = self
-        self.toPv.delegate = self
+        
         self.classPv.delegate = self
         
         
-        self.tfFrom.inputView = self.fromPv
-        self.tfTo.inputView = self.toPv
         self.tfClass.inputView = self.classPv
      
         
@@ -77,6 +75,7 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
         controller.modalPresentationStyle = .overCurrentContext
         controller.modalTransitionStyle = .crossDissolve
         controller.passengerListner = self
+        
         self.present(controller, animated: true, completion: nil)
     }
     
@@ -217,23 +216,49 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
     }
     
     
-    @IBAction func onTouchCity(_ sender: Any) {
+    @IBAction func onTouchCity(_ sender: CustomTF) {
+        
+        var type = 0
+        if(sender == tfFrom){
+            type = 0
+        }else{
+            type = 1
+        }
+        
+        
         if(cityArray.count != 0){
+         
+            let podBundle = Bundle(for: FlightSearchVC.self)
+            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+            let bundle = Bundle(url: bundleURL!)!
+            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+            let controller = storyboard.instantiateViewController(withIdentifier: "CityListVC") as! CityListVC
+            controller.selectListner = self
+                           controller.selectType = type
+            controller.modalPresentationStyle = .fullScreen
+            self.present(controller, animated: true, completion: nil)
             
         }
         else{
             self.showLoading(view: self.view, text: "Please wait")
             
-            var req = MOptCircRequest()
-            req.topUpType = "PRE"
+         
             
             APIHandler.sharedInstance.getFlightCity(success: { (sessionId) in
                 //Success
                 self.stopLoading(fromView: self.view)
                 self.cityArray = FlightCityModel.flightCityInstance
-                self.fromPv.reloadAllComponents()
-                self.toPv.reloadAllComponents()
+                //Send to City List
                 
+                let podBundle = Bundle(for: FlightSearchVC.self)
+                let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+                let bundle = Bundle(url: bundleURL!)!
+                let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+                let controller = storyboard.instantiateViewController(withIdentifier: "CityListVC") as! CityListVC
+                controller.selectListner = self
+                controller.selectType = type
+                controller.modalPresentationStyle = .fullScreen
+                self.present(controller, animated: true, completion: nil)
                 
             }, failure: { (message) in
                 self.stopLoading(fromView: self.view)
@@ -344,64 +369,28 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if(pickerView == fromPv || pickerView == toPv){
-            return cityArray.count
-        }else{
-            return classArray.count
-        }
+                   return classArray.count
+       
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if (pickerView == fromPv){
-            if(tfFrom.text?.count == 0){
-                tfFrom.text = cityArray[row].cityName
-                fromCityCode = cityArray[row].cityCode
-                fromCityName = cityArray[row].cityName
-                tfFrom.errorMessage = ""
-            }
-            return cityArray[row].cityName
-        }else if (pickerView == toPv){
-            if(tfTo.text?.count == 0){
-                tfTo.text = cityArray[row].cityName
-                toCityCode = cityArray[row].cityCode
-                toCityName = cityArray[row].cityName
-                tfTo.errorMessage = ""
-            }
-            return cityArray[row].cityName
-        }else{
+        
             if(tfClass.text?.count == 0){
                 tfClass.text = classArray[row]
                 tfClass.errorMessage = ""
             }
             return classArray[row]
-        }
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if (pickerView == fromPv){
-            tfFrom.errorMessage = ""
-            if(cityArray.count > 0){
-                tfFrom.text = cityArray[row].cityName
-                fromCityCode = cityArray[row].cityCode
-                fromCityName = cityArray[row].cityName
-                tfFrom.errorMessage = ""
-            }
-        }
-        else if (pickerView == toPv){
-            tfTo.errorMessage = ""
-            if(cityArray.count > 0){
-                tfTo.text = cityArray[row].cityName
-                toCityCode = cityArray[row].cityCode
-                toCityName = cityArray[row].cityName
-                tfTo.errorMessage = ""
-            }
-        }else{
+       
             tfClass.errorMessage = ""
             if(classArray.count > 0){
                 tfClass.text = classArray[row]
                 tfClass.errorMessage = ""
             }
-        }
+        
         
     }
     
@@ -437,9 +426,26 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
         
         
     }
+    
+    
+    func onFromSelected(from: String) {
+        tfFrom.text = from
+        fromCityCode = from
+    }
+    
+    func onToSelected(to: String) {
+        tfTo.text = to
+        toCityCode = to
+    }
 }
 
 
 protocol PassangerSelecListner {
     func onPassSelected(adult: Int, child: Int, infant: Int)
+}
+
+
+protocol CitySelecListner {
+    func onFromSelected(from: String)
+    func onToSelected(to: String)
 }

@@ -26,8 +26,8 @@ class OnWayListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     
     var numberOfAdult = 0
-     var numberOfChild = 0
-     var numberOfInfant = 0
+    var numberOfChild = 0
+    var numberOfInfant = 0
     
     
     override func viewDidLoad() {
@@ -118,6 +118,7 @@ class OnWayListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         controller.numberOfInfant = self.numberOfInfant
         controller.numberOfAdult = self.numberOfAdult
         controller.numberOfChild = self.numberOfChild
+        
 
         
         controller.modalPresentationStyle = .fullScreen

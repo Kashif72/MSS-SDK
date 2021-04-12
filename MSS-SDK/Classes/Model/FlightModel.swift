@@ -69,7 +69,7 @@ struct SegmentModel: Codable {
     public var engineID: String
     public var fareRule: String
     public var itineraryKey: String
-    public var journeyIndex: Int
+    public var journeyIndex: Int!
     public var nearByAirport: Bool
     
     public var remark: String
@@ -173,6 +173,8 @@ struct LegsModel: Codable {
     public var sold: String
     public var status: String
     public var connecting: Bool
+    
+    
 }
 
 
@@ -195,6 +197,8 @@ struct CheckFinalPriceReq: Codable {
        public var nearByAirport: String!
        
        public var searchId: String!
+        
+        public var cabin: String!
        public var origin: String!
        public var destination: String!
        public var tripType: String!
@@ -213,6 +217,8 @@ struct CheckFlightPriceRequest: Codable {
 }
 
 
+
+
 struct CheckFlightPriceResponse : Codable{
     public var code: String
     public var message: String
@@ -222,8 +228,25 @@ struct CheckFlightPriceResponse : Codable{
 }
 
 
+
 struct FlightPriceDetails : Codable {
-    public var journeys : Array<JourneysModel>!
+    public var journeys : Array<FlightPriceJourneysModel>!
     
-    static var flightJourneyInstance = Array<JourneysModel>()
+}
+
+struct FlightPriceJourneysModel : Codable {
+    public var segments : Array<FlightPriceSegmentModel>!
+    
+}
+
+
+struct FlightPriceSegmentModel: Codable {
+    public var fares : Array<FlightPriceFareModel>
+}
+
+struct FlightPriceFareModel : Codable{
+    public var basicFare: Double
+    public var totalFareWithOutMarkUp: Double
+    public var totalTaxWithOutMarkUp: Double
+   
 }

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import TTGSnackbar
+
 
 class FlightPassangerVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -14,7 +16,7 @@ class FlightPassangerVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var pvChild: UIPickerView!
     @IBOutlet weak var pvInfant: UIPickerView!
     
-    var pickerData:[Int] = [1,2,3,4,5,6,7,8,9]
+    var pickerData:[Int] = [0,1,2,3,4,5,6,7,8,9]
     
     
     var numberOfAdult = 0
@@ -42,10 +44,21 @@ class FlightPassangerVC: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     
     @IBAction func onClickSelect(_ sender: Any) {
-        passengerListner?.onPassSelected(adult: numberOfAdult, child: numberOfChild, infant: numberOfInfant)
-        dismiss(animated: false)
+        if(numberOfAdult == 0 && numberOfChild == 0 && numberOfInfant == 0){
+            showError(message: "Please select passanger to continue")
+        }else{
+            passengerListner?.onPassSelected(adult: numberOfAdult, child: numberOfChild, infant: numberOfInfant)
+                dismiss(animated: false)
+        }
+    
     }
     
+    func showError(message: String){
+           let snackbar = TTGSnackbar(message: message, duration: .short)
+           snackbar.animationType = .slideFromTopBackToTop
+           snackbar.backgroundColor = ColorConverter.hexStringToUIColor(hex: ColorCode.txtError)
+           snackbar.show()
+       }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

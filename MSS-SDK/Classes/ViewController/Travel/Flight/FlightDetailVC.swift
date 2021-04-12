@@ -117,10 +117,12 @@ class FlightDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    
     @IBAction func onClickBook(_ sender: Any) {
         //Calculate price and send to form page
-        
+        calPrice()
     }
+    
     
     @IBAction func onClickBack(_ sender: Any) {
               dismiss(animated: false)
@@ -128,97 +130,104 @@ class FlightDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-    
-    func checkField (){
-      
+    func calPrice (){
             self.showLoading(view: self.view, text: "Please wait")
-            
             //Send to list
             var req = CheckFinalPriceReq()
-            req.bonds = listResponse?.details.journeys[0].segments[0].bonds
-            req.fares = listResponse?.details.journeys[0].segments[0].fares
+            req.bonds = listResponse?.details.journeys[0].segments[selectedPosition].bonds
+            req.fares = listResponse?.details.journeys[0].segments[selectedPosition].fares
             
-            if(listResponse?.details.journeys[0].segments[0].baggageFare == true){
+            if(listResponse?.details.journeys[0].segments[selectedPosition].baggageFare == true){
                 req.baggageFare = "true"
             }else{
                 req.baggageFare = "false"
             }
             
-            if(listResponse?.details.journeys[0].segments[0].cache == true){
+            if(listResponse?.details.journeys[0].segments[selectedPosition].cache == true){
                 req.cache = "true"
             }else{
                 req.cache = "false"
             }
         
-            if(listResponse?.details.journeys[0].segments[0].holdBooking == true){
+            if(listResponse?.details.journeys[0].segments[selectedPosition].holdBooking == true){
                 req.holdBooking = "true"
             }else{
                 req.holdBooking = "false"
             }
         
-        if(listResponse?.details.journeys[0].segments[0].international == true){
+        if(listResponse?.details.journeys[0].segments[selectedPosition].international == true){
             req.international = "true"
         }else{
             req.international = "false"
         }
         
-        if(listResponse?.details.journeys[0].segments[0].roundTrip == true){
+        if(listResponse?.details.journeys[0].segments[selectedPosition].roundTrip == true){
             req.roundTrip = "true"
         }else{
             req.roundTrip = "false"
         }
         
-        if(listResponse?.details.journeys[0].segments[0].special == true){
+        if(listResponse?.details.journeys[0].segments[selectedPosition].special == true){
                    req.special = "true"
                }else{
                    req.special = "false"
                }
         
-        if(listResponse?.details.journeys[0].segments[0].specialId == true){
+        if(listResponse?.details.journeys[0].segments[selectedPosition].specialId == true){
             req.specialId = "true"
         }else{
             req.specialId = "false"
         }
         
-        req.engineID = listResponse?.details.journeys[0].segments[0].engineID
+        req.engineID = listResponse?.details.journeys[0].segments[selectedPosition].engineID
         req.fareRule = listResponse?.details.journeys[0].segments[0].fareRule
         
-        req.itineraryKey = listResponse?.details.journeys[0].segments[0].itineraryKey
+        req.itineraryKey = listResponse?.details.journeys[0].segments[selectedPosition].itineraryKey
         
-        req.journeyIndex =
-            String(1)
+        req.journeyIndex = "0"
             
-        if(listResponse?.details.journeys[0].segments[0].nearByAirport == true){
+        if(listResponse?.details.journeys[0].segments[selectedPosition].nearByAirport == true){
                    req.nearByAirport = "true"
                }else{
                    req.nearByAirport = "false"
                }
         
         
-        req.searchId = listResponse?.details.journeys[0].segments[0].searchId
+        req.searchId = listResponse?.details.journeys[0].segments[selectedPosition].searchId
         
         req.origin = fromCity
         req.destination = toCity
         
         req.tripType = "OneWay"
-        req.searchId = listResponse?.details.journeys[0].segments[0].searchId
+        
+        
         req.adults = numberOfAdult
         req.infants = numberOfInfant
         req.childs = numberOfChild
         req.traceId = listResponse?.details.traceId
+        
+        req.cabin = listResponse?.details.journeys[0].segments[selectedPosition].bonds[0].legs[0].cabin
         req.beginDate = dateFlight
         req.endDate = dateFlight
+        req.traceId = "AYTM00011111111110002"
+        
+        
+        let jsonData = try! JSONEncoder().encode(req)
+        let jsonString = String(data: jsonData, encoding: .utf8)!
+        print(jsonString)
+        
+        
         
         APIHandler.sharedInstance.getFlightPriceDetail(loginReq: req, success: { (sessionId, baseFare, totalTax, totalFare) in
                               //Success
-                              self.stopLoading(fromView: self.view)
+            self.stopLoading(fromView: self.view)
+                //show dialog here
+            self.showConfirmDialog(message: "Base fare: \(String(describing: baseFare))\nTotal tax: \(String(describing: totalTax))\n Total fare: \(String(describing: totalFare))")
                               
-                              
-                              
-                          }, failure: { (message) in
-                              self.stopLoading(fromView: self.view)
-                              self.showError(message: message!)
-                          })
+            }, failure: { (message) in
+                self.stopLoading(fromView: self.view)
+                self.showError(message: message!)
+            })
         
 }
     
@@ -239,6 +248,37 @@ class FlightDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     private func stopLoading(fromView:UIView){
         MBProgressHUD.hide(for: fromView, animated: true)
     }
+
+   
+    func showConfirmDialog(message: String){
+        let alert = UIAlertController(title: "Please confirm", message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        let confirmAction = UIAlertAction(title: "Continue", style: UIAlertAction.Style.default)
+        {
+            (UIAlertAction) -> Void in
+            
+            self.dismiss(animated: false)
+            //CALL NEW PAGE
+            
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            print("didPress cancel")
+        }
+        
+        
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        
+        
+        present(alert, animated: true)
+        {
+            () -> Void in
+        }
+    }
+    
+
 }
 
 

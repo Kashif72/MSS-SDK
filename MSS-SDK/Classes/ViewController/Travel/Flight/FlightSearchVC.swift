@@ -13,8 +13,6 @@ import TTGSnackbar
 
 class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, PassangerSelecListner, CitySelecListner {
     
-    
-    
     @IBOutlet weak var tfFrom: CustomTF!
     @IBOutlet weak var tfTo: CustomTF!
     @IBOutlet weak var tfDate: CustomTF!

@@ -590,14 +590,14 @@ class APIHandler: NSObject {
                             
                             if(responseValue.code == SUCCESS){
                                     
-                                let baseFare =  responseValue.details.journeys[0].segments[0].fares[0].basicFare!
+                                let baseFare =  responseValue.details.journeys[0].segments[0].fares[0].basicFare
                                 
                                 let totalTax =
-                                    responseValue.details.journeys[0].segments[0].fares[0].totalTaxWithOutMarkUp!
+                                    responseValue.details.journeys[0].segments[0].fares[0].totalTaxWithOutMarkUp
                                 
                                 let totalFare =
-                                    responseValue.details.journeys[0].segments[0].fares[0].totalFareWithOutMarkUp!
-                                success(responseValue.message, +"INR: " String(baseFare), "INR: "String(totalTax), "INR: "String(totalFare));
+                                    responseValue.details.journeys[0].segments[0].fares[0].totalFareWithOutMarkUp
+                                success(responseValue.message, "INR: " + String(baseFare), "INR: " + String(totalTax), "INR: " + String(totalFare));
                             }else{
                               failure(responseValue.message)
                             }

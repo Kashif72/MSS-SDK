@@ -42,15 +42,34 @@ class OnWayListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     
     @IBAction func onClickDeparture(_ sender: Any) {
-    
+//        let df = DateFormatter()
+//        df.dateFormat = "hh:mm"
+//        df.locale = Locale(identifier: "en_US_POSIX")
+//        df.timeZone = TimeZone(identifier: "UTC")!
+//
+//        flightArray = flightArray!.sorted {df.date(from: $0.bonds[0].legs[0].departureTime)! > df.date(from: $1.bonds[0].legs[0].departureTime)!}
+//        tblFlightList.reloadData()
+        
+        
+        flightArray = flightArray!.sorted {
+            $0.bonds[0].legs[0].departureTime < $1.bonds[0].legs[0].departureTime
+        }
+        tblFlightList.reloadData()
     }
     
     @IBAction func onClickDuration(_ sender: Any) {
-    
+//        flightArray = flightArray!.sorted(by: { getMins(duration: $0.fares[0].journeyTime) < $1.fares[0].journeyTime })
+//
+//        flightArray = compactMap(TimePoint.init)
+//        .sorted()
+//        .map { $0.journeyTime }
+        
+       tblFlightList.reloadData()
     }
     
     @IBAction func onClickTime(_ sender: Any) {
-    
+    flightArray = flightArray!.sorted(by: { $0.fares[0].totalFareWithOutMarkUp < $1.fares[0].totalFareWithOutMarkUp })
+    tblFlightList.reloadData()
     }
     
     
@@ -125,6 +144,11 @@ class OnWayListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         self.present(controller, animated: true, completion: nil)
                              
     }
+    
+    func getMins(duration: String) -> Int{
+        
+        return 0
+    }
        
     
 }
@@ -146,4 +170,50 @@ class FlightListCell: UITableViewCell{
     @IBOutlet weak var lblArriveTime: UILabel!
     
     @IBOutlet weak var ivFlight: UIImageView!
+}
+
+
+enum TimePoint {
+
+    case hours(Int)
+    case days(Int)
+
+    init?(sentence: String) {
+        let tokens = sentence.split(separator: " ")
+        guard
+            tokens.count == 3,
+            let firstToken = tokens.first,
+            let value = Int(firstToken)
+            else { return nil }
+
+        let unitString = String(tokens[1])
+
+        switch unitString {
+        case "hours": self = .hours(value)
+        case "days": self = .days(value)
+        default: return nil
+        }
+
+    }
+
+    var description: String {
+        switch self {
+        case .days(let value): return "\(value) days ago"
+        case .hours(let value): return "\(value) hours ago"
+        }
+    }
+}
+
+extension TimePoint: Comparable {
+
+    private var hours: Int {
+        switch self {
+        case .hours(let value): return value
+        case .days(let value): return 24 * value
+        }
+    }
+
+    static func < (lhs: TimePoint, rhs: TimePoint) -> Bool {
+        return lhs.hours < rhs.hours
+    }
 }

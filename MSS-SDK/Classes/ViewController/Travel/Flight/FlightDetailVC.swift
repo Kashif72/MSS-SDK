@@ -257,9 +257,20 @@ class FlightDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         {
             (UIAlertAction) -> Void in
             
-            self.dismiss(animated: false)
             //CALL NEW PAGE
             
+            let podBundle = Bundle(for: FlightBookingPassengerVC.self)
+            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+            let bundle = Bundle(url: bundleURL!)!
+            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+            let controller = storyboard.instantiateViewController(withIdentifier: "FlightFinalBookingVC") as! FlightFinalBookingVC
+            
+//            let controller = FlightFinalBookingVC()
+            controller.modalPresentationStyle = .fullScreen
+            controller.numberOfAdult = self.numberOfAdult
+            controller.numberOfChild = self.numberOfChild
+            controller.numberOfInfant = self.numberOfInfant
+            self.present(controller, animated: true, completion: nil)
             
         }
         

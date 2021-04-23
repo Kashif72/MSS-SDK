@@ -34,12 +34,12 @@ let URL_GET_NEWS = "https://newsapi.org/v2/top-headlines?country=in&apiKey=2c3d1
 
 //**************Travel**************
 let URL_GET_BUS_CITY_LIST = "travel/bus/cityList"
-let URL_GET_BUS_LIST = "/travel/bus/getAvailableTrips"
+let URL_GET_BUS_LIST = "travel/bus/getAvailableTrips"
 
 //**********FLIGHT**************//
-let URL_GET_FLIGHT_CITY = "/travel/flight/cityList"
-let URL_GET_FLIGHT_JOURNEY_LIST = "/travel/flight/search"
-let URL_CHECK_FLIGHT_PRICE = "/travel/flight/price/check"
+let URL_GET_FLIGHT_CITY = "travel/flight/cityList"
+let URL_GET_FLIGHT_JOURNEY_LIST = "travel/flight/search"
+let URL_CHECK_FLIGHT_PRICE = "travel/flight/price/check"
 
 
 

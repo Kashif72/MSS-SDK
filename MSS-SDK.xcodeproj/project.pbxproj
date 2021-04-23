@@ -48,6 +48,7 @@
 		A8861F4D2527870300590D12 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8861F4C2527870300590D12 /* Extension.swift */; platformFilter = ios; };
 		A888842826121E210042D133 /* FlightBookingPassengerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A888842726121E210042D133 /* FlightBookingPassengerVC.swift */; };
 		A888842A2612F5F60042D133 /* FlightPassangerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88884292612F5F60042D133 /* FlightPassangerVC.swift */; };
+		A894E6472633239E005812F2 /* FlightFinalBookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A894E6462633239E005812F2 /* FlightFinalBookingVC.swift */; };
 		A89D525A253ED71B00441E9A /* GiftTNCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89D5259253ED71B00441E9A /* GiftTNCVC.swift */; };
 		A8B55482262451A5003AA67E /* CityListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B55481262451A5003AA67E /* CityListVC.swift */; };
 		A8C8215B252C8A2200B4728A /* HomeMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C8215A252C8A2200B4728A /* HomeMenuModel.swift */; };
@@ -112,6 +113,7 @@
 		A8861F4C2527870300590D12 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		A888842726121E210042D133 /* FlightBookingPassengerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightBookingPassengerVC.swift; sourceTree = "<group>"; };
 		A88884292612F5F60042D133 /* FlightPassangerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightPassangerVC.swift; sourceTree = "<group>"; };
+		A894E6462633239E005812F2 /* FlightFinalBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightFinalBookingVC.swift; sourceTree = "<group>"; };
 		A89D5259253ED71B00441E9A /* GiftTNCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftTNCVC.swift; sourceTree = "<group>"; };
 		A8B55481262451A5003AA67E /* CityListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListVC.swift; sourceTree = "<group>"; };
 		A8C8215A252C8A2200B4728A /* HomeMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuModel.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				A888842726121E210042D133 /* FlightBookingPassengerVC.swift */,
 				A88884292612F5F60042D133 /* FlightPassangerVC.swift */,
 				A8B55481262451A5003AA67E /* CityListVC.swift */,
+				A894E6462633239E005812F2 /* FlightFinalBookingVC.swift */,
 			);
 			path = Flight;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				A8051A00252CD2AD004BE7B9 /* CustomTF.swift in Sources */,
 				A8051A08252CD9C8004BE7B9 /* Constant.swift in Sources */,
 				A841CB7A252E256700DC65FF /* SlidingContainerViewController.swift in Sources */,
+				A894E6472633239E005812F2 /* FlightFinalBookingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

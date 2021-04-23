@@ -2681,6 +2681,66 @@
             </objects>
             <point key="canvasLocation" x="2325" y="1382"/>
         </scene>
+        <!--Flight Final BookingVC-->
+        <scene sceneID="Wlq-aa-Icz">
+            <objects>
+                <viewController storyboardIdentifier="FlightFinalBookingVC" id="yWd-bw-2cJ" customClass="FlightFinalBookingVC" customModule="MSS_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="laQ-WO-y8q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hb2-7S-EGe">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Booking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soD-dB-PVB">
+                                        <rect key="frame" x="155.33333333333334" y="15.666666666666666" width="103.33333333333334" height="18.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sV2-4O-BuC">
+                                        <rect key="frame" x="8" y="6" width="37.333333333333336" height="38"/>
+                                        <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                        <state key="normal" image="bac_btn"/>
+                                        <connections>
+                                            <action selector="onClickDismiss:" destination="yWd-bw-2cJ" eventType="touchUpInside" id="kM1-hf-BoP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="soD-dB-PVB" firstAttribute="centerY" secondItem="hb2-7S-EGe" secondAttribute="centerY" id="1cu-Q9-gbt"/>
+                                    <constraint firstAttribute="height" constant="50" id="VGx-0N-fIo"/>
+                                    <constraint firstItem="sV2-4O-BuC" firstAttribute="leading" secondItem="hb2-7S-EGe" secondAttribute="leading" constant="8" id="WqX-07-W1x"/>
+                                    <constraint firstItem="sV2-4O-BuC" firstAttribute="centerY" secondItem="hb2-7S-EGe" secondAttribute="centerY" id="hnt-1B-0z4"/>
+                                    <constraint firstItem="soD-dB-PVB" firstAttribute="centerX" secondItem="hb2-7S-EGe" secondAttribute="centerX" id="lx4-DD-fmA"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLq-qZ-l0q">
+                                <rect key="frame" x="24" y="50" width="366" height="686"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pVr-S3-qHF" firstAttribute="bottom" secondItem="yLq-qZ-l0q" secondAttribute="bottom" id="CdT-fq-wI8"/>
+                            <constraint firstItem="yLq-qZ-l0q" firstAttribute="top" secondItem="hb2-7S-EGe" secondAttribute="bottom" id="HQe-uI-jA0"/>
+                            <constraint firstItem="hb2-7S-EGe" firstAttribute="top" secondItem="pVr-S3-qHF" secondAttribute="top" id="Jph-8h-2Ru"/>
+                            <constraint firstItem="yLq-qZ-l0q" firstAttribute="leading" secondItem="pVr-S3-qHF" secondAttribute="leading" constant="24" id="dr7-We-ubz"/>
+                            <constraint firstItem="hb2-7S-EGe" firstAttribute="trailing" secondItem="pVr-S3-qHF" secondAttribute="trailing" id="hIJ-eM-LoA"/>
+                            <constraint firstItem="pVr-S3-qHF" firstAttribute="trailing" secondItem="yLq-qZ-l0q" secondAttribute="trailing" constant="24" id="hry-X8-PB6"/>
+                            <constraint firstItem="hb2-7S-EGe" firstAttribute="leading" secondItem="pVr-S3-qHF" secondAttribute="leading" id="sjF-Iv-NXZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pVr-S3-qHF"/>
+                    </view>
+                    <connections>
+                        <outlet property="viewMain" destination="yLq-qZ-l0q" id="fyv-Nu-p55"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q0E-yo-LK2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="2247"/>
+        </scene>
         <!--Flight Booking PassengerVC-->
         <scene sceneID="80a-9m-BxO">
             <objects>
@@ -2695,36 +2755,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VXv-Qh-18e">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="841.33333333333337"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5n-Vo-SMk" customClass="CustomButton" customModule="MSS_SDK" customModuleProvider="target">
-                                                <rect key="frame" x="126" y="560" width="162" height="42"/>
-                                                <inset key="contentEdgeInsets" minX="32" minY="12" maxX="32" maxY="12"/>
-                                                <state key="normal" title="BOOK FLIGHT">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="onClickSearch:" destination="ddR-BN-8vX" eventType="touchUpInside" id="H95-LC-7n2"/>
-                                                    <action selector="onClickSearch:" destination="2Gs-2h-vnk" eventType="touchUpInside" id="WNq-Ue-A5e"/>
-                                                </connections>
-                                            </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gg7-pu-BGY">
-                                                <rect key="frame" x="24" y="24" width="366" height="128"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="128" id="vBA-e8-o0z"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeY-r3-SOt">
-                                                <rect key="frame" x="24" y="168" width="366" height="128"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="128" id="3TY-Wg-kwt"/>
-                                                </constraints>
-                                            </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E2N-6x-5Ii" customClass="CustomTF" customModule="MSS_SDK">
-                                                <rect key="frame" x="24" y="452" width="366" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MQy-Z4-2aU" customClass="CustomTF" customModule="MSS_SDK">
+                                                <rect key="frame" x="24" y="667.33333333333337" width="366" height="34"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad" textContentType="name"/>
+                                                <textInputTraits key="textInputTraits" textContentType="name"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Mobile Number"/>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
@@ -2744,9 +2779,12 @@
                                                         <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onTravelBegin:" destination="EVH-n2-nxU" eventType="editingDidBegin" id="AP8-OL-nDX"/>
+                                                </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BQo-B6-XRS" customClass="CustomTF" customModule="MSS_SDK">
-                                                <rect key="frame" x="24" y="502" width="366" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DMu-2p-c9c" customClass="CustomTF" customModule="MSS_SDK">
+                                                <rect key="frame" x="24" y="717.33333333333337" width="366" height="34"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="namePhonePad" textContentType="name"/>
@@ -2770,33 +2808,28 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sxx-NY-eg9">
-                                                <rect key="frame" x="24" y="310" width="366" height="128"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="128" id="vlG-aA-gAv"/>
-                                                </constraints>
-                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIn-S8-RzO" customClass="CustomButton" customModule="MSS_SDK" customModuleProvider="target">
+                                                <rect key="frame" x="136.66666666666666" y="775.33333333333337" width="140.99999999999997" height="42"/>
+                                                <inset key="contentEdgeInsets" minX="32" minY="12" maxX="32" maxY="12"/>
+                                                <state key="normal" title="Book Flight">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onClickSearch:" destination="2Gs-2h-vnk" eventType="touchUpInside" id="C5F-B6-gtk"/>
+                                                    <action selector="onClickSearch:" destination="EVH-n2-nxU" eventType="touchUpInside" id="oB8-aW-gPy"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="aeY-r3-SOt" secondAttribute="trailing" constant="24" id="2JD-gL-kn6"/>
-                                            <constraint firstAttribute="trailing" secondItem="BQo-B6-XRS" secondAttribute="trailing" constant="24" id="8QA-Jr-5uy"/>
-                                            <constraint firstItem="Sxx-NY-eg9" firstAttribute="top" secondItem="aeY-r3-SOt" secondAttribute="bottom" constant="14" id="9aw-2g-qZc"/>
-                                            <constraint firstAttribute="trailing" secondItem="E2N-6x-5Ii" secondAttribute="trailing" constant="24" id="DJM-GR-Ls5"/>
-                                            <constraint firstItem="I5n-Vo-SMk" firstAttribute="top" secondItem="BQo-B6-XRS" secondAttribute="bottom" constant="24" id="Esz-BK-oXp"/>
-                                            <constraint firstAttribute="trailing" secondItem="Sxx-NY-eg9" secondAttribute="trailing" constant="24" id="KuA-9d-1s0"/>
-                                            <constraint firstItem="aeY-r3-SOt" firstAttribute="top" secondItem="Gg7-pu-BGY" secondAttribute="bottom" constant="16" id="PiB-Vv-v1w"/>
-                                            <constraint firstItem="E2N-6x-5Ii" firstAttribute="leading" secondItem="VXv-Qh-18e" secondAttribute="leading" constant="24" id="TDi-gf-dal"/>
-                                            <constraint firstItem="E2N-6x-5Ii" firstAttribute="top" secondItem="Sxx-NY-eg9" secondAttribute="bottom" constant="14" id="TQU-eR-nMm"/>
-                                            <constraint firstItem="BQo-B6-XRS" firstAttribute="leading" secondItem="VXv-Qh-18e" secondAttribute="leading" constant="24" id="UeG-Eg-9AI"/>
-                                            <constraint firstItem="BQo-B6-XRS" firstAttribute="top" secondItem="E2N-6x-5Ii" secondAttribute="bottom" constant="16" id="Zrb-UP-yvX"/>
-                                            <constraint firstItem="I5n-Vo-SMk" firstAttribute="centerX" secondItem="VXv-Qh-18e" secondAttribute="centerX" id="gA4-Hs-F9t"/>
-                                            <constraint firstItem="Gg7-pu-BGY" firstAttribute="leading" secondItem="VXv-Qh-18e" secondAttribute="leading" constant="24" id="izc-Za-Md1"/>
-                                            <constraint firstItem="Gg7-pu-BGY" firstAttribute="top" secondItem="VXv-Qh-18e" secondAttribute="top" constant="24" id="kis-UE-i6F"/>
-                                            <constraint firstItem="aeY-r3-SOt" firstAttribute="leading" secondItem="VXv-Qh-18e" secondAttribute="leading" constant="24" id="qaG-GX-QSj"/>
-                                            <constraint firstAttribute="trailing" secondItem="Gg7-pu-BGY" secondAttribute="trailing" constant="24" id="uit-Kq-O2n"/>
-                                            <constraint firstItem="Sxx-NY-eg9" firstAttribute="leading" secondItem="VXv-Qh-18e" secondAttribute="leading" constant="24" id="wjc-nc-dxk"/>
+                                            <constraint firstItem="UIn-S8-RzO" firstAttribute="centerX" secondItem="VXv-Qh-18e" secondAttribute="centerX" id="0Dc-i0-dn3"/>
+                                            <constraint firstItem="DMu-2p-c9c" firstAttribute="top" secondItem="MQy-Z4-2aU" secondAttribute="bottom" constant="16" id="8HE-PR-P4j"/>
+                                            <constraint firstItem="MQy-Z4-2aU" firstAttribute="leading" secondItem="VXv-Qh-18e" secondAttribute="leading" constant="24" id="Cvw-zc-Ye7"/>
+                                            <constraint firstAttribute="trailing" secondItem="MQy-Z4-2aU" secondAttribute="trailing" constant="24" id="Ocb-GJ-V3a"/>
+                                            <constraint firstAttribute="trailing" secondItem="DMu-2p-c9c" secondAttribute="trailing" constant="24" id="cs0-yv-W5V"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UIn-S8-RzO" secondAttribute="bottom" constant="24" id="d8z-et-66C"/>
+                                            <constraint firstItem="UIn-S8-RzO" firstAttribute="top" secondItem="DMu-2p-c9c" secondAttribute="bottom" constant="24" id="eG2-h7-Vgr"/>
+                                            <constraint firstItem="DMu-2p-c9c" firstAttribute="leading" secondItem="VXv-Qh-18e" secondAttribute="leading" constant="24" id="yk0-pJ-EYL"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2851,8 +2884,10 @@
                     </view>
                     <size key="freeformSize" width="414" height="900"/>
                     <connections>
-                        <outlet property="tfClass" destination="BQo-B6-XRS" id="saP-Bb-GcZ"/>
-                        <outlet property="tfTraveller" destination="E2N-6x-5Ii" id="bCe-wT-oal"/>
+                        <outlet property="btnBook" destination="UIn-S8-RzO" id="R8O-nQ-toB"/>
+                        <outlet property="mainView" destination="VXv-Qh-18e" id="iKn-r8-n6P"/>
+                        <outlet property="tfEmail" destination="DMu-2p-c9c" id="jwl-tY-aYJ"/>
+                        <outlet property="tfMobile" destination="MQy-Z4-2aU" id="czw-mE-zve"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qd4-EJ-KZD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -19,8 +19,11 @@ class FlightFinalBookingVC:  UIViewController {
     
     var tfPosition = 0
     
+    var currentDateTag = 0
+    
     @IBOutlet weak var viewMain: UIView!
     
+    let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +52,64 @@ class FlightFinalBookingVC:  UIViewController {
         registerNotifications()
         
     }
+    
+    
+    @objc func dateField(sender: CustomTF) {
+        currentDateTag = sender.tag
+         showDatePicker(sender: sender)
+    }
+    
+    func showDatePicker(sender: CustomTF){
+          //Formate Date
+          datePicker.datePickerMode = .date
+          
+          let currentDate = Date()
+          var dateComponents = DateComponents()
+          let calendar = Calendar.init(identifier: .gregorian)
+          
+            dateComponents.year = -90
+        
+          let minDate = calendar.date(byAdding: dateComponents, to: currentDate)
+          datePicker.minimumDate = minDate
+          
+          //ToolBar
+          let toolbar = UIToolbar();
+          toolbar.sizeToFit()
+          
+          let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+          let doneButton = UIBarButtonItem()
+          doneButton.title = "Done"
+          doneButton.style = .plain
+          doneButton.target = self
+          
+          let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+          
+          doneButton.action = #selector(doneDate(sender:))
+          
+          toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
+          sender.inputAccessoryView = toolbar
+          sender.inputView = datePicker
+        
+      }
+      
+      
+      @objc func doneDate(sender: CustomTF){
+          let formatter = DateFormatter()
+          formatter.dateFormat = "yyyy-MM-dd"
+          
+        
+            (view.viewWithTag(currentDateTag) as? CustomTF)?.text = formatter.string(from: datePicker.date)
+          (view.viewWithTag(currentDateTag) as? CustomTF)?.errorMessage = ""
+          
+            self.view.endEditing(true)
+
+      }
+      
+      @objc func cancelDatePicker(){
+          self.view.endEditing(true)
+      }
+    
+    
     
     
     @IBAction func onClickDismiss(_ sender: Any) {
@@ -95,11 +156,13 @@ class FlightFinalBookingVC:  UIViewController {
                     tf.placeholder = "Adult Gender"
                 case 4:
                     tf.placeholder = "Adult Date of Birth"
+                    tf.addTarget(self, action: #selector(dateField(sender:)), for: .editingDidBegin)
                 default:
                     break
                 }
                 
                 tf.tag = tfPosition
+                tf.addDoneButtonOnKeyboard()
                 scrollViewContainer.addArrangedSubview(tf)
             }
             
@@ -128,11 +191,13 @@ class FlightFinalBookingVC:  UIViewController {
                         tf.placeholder = "Child Gender"
                     case 4:
                         tf.placeholder = "Child Date of Birth"
+                    tf.addTarget(self, action: #selector(dateField(sender:)), for: .editingDidBegin)
                     default:
                         break
                     }
             
                tf.tag = tfPosition
+                tf.addDoneButtonOnKeyboard()
                scrollViewContainer.addArrangedSubview(tf)
             }
            }
@@ -161,10 +226,12 @@ class FlightFinalBookingVC:  UIViewController {
                 tf.placeholder = "Infant Gender"
             case 4:
                 tf.placeholder = "Infant Date of Birth"
+                tf.addTarget(self, action: #selector(dateField(sender:)), for: .editingDidBegin)
             default:
                 break
             }
             tf.tag = tfPosition
+                tf.addDoneButtonOnKeyboard()
             scrollViewContainer.addArrangedSubview(tf)
             }
         }
@@ -173,6 +240,7 @@ class FlightFinalBookingVC:  UIViewController {
     
     }
     
+    
     func addMobileTF(){
         tfPosition = tfPosition + 1
         let tf = CustomTF()
@@ -180,6 +248,7 @@ class FlightFinalBookingVC:  UIViewController {
         tf.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 48).isActive = true
         tf.placeholder = "Mobile Number"
         tf.tag = tfPosition
+        tf.addDoneButtonOnKeyboard()
         scrollViewContainer.addArrangedSubview(tf)
         
         addEmailTF()
@@ -193,6 +262,7 @@ class FlightFinalBookingVC:  UIViewController {
            tf.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 48).isActive = true
            tf.placeholder = "Email id"
            tf.tag = tfPosition
+            tf.addDoneButtonOnKeyboard()
            scrollViewContainer.addArrangedSubview(tf)
         
         addButtonProceed()
@@ -209,15 +279,21 @@ class FlightFinalBookingVC:  UIViewController {
             
             button.frame = CGRect(x:xPostion, y:yPostion, width:buttonWidth, height:buttonHeight)
             
-            button.backgroundColor = UIColor.lightGray
+            
             button.setTitle("Book flight", for: UIControl.State.normal)
             button.tintColor = UIColor.black
+            
+            button.layer.cornerRadius = 1.0
+            button.backgroundColor = ColorConverter.hexStringToUIColor(hex: ColorCode.btnOne)
         
+            button.setTitleColor(ColorConverter.hexStringToUIColor(hex: ColorCode.textWhiteColor), for: .normal)
         
             button.addTarget(self, action: #selector(didButtonClick), for: .touchUpInside)
-           scrollViewContainer.addArrangedSubview(button)
+            scrollViewContainer.addArrangedSubview(button)
         
     }
+    
+    
     
     
     func checkDynamicTF(){

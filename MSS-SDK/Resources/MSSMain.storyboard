@@ -2717,13 +2717,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLq-qZ-l0q">
-                                <rect key="frame" x="24" y="50" width="366" height="686"/>
+                                <rect key="frame" x="24" y="50" width="366" height="662"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="pVr-S3-qHF" firstAttribute="bottom" secondItem="yLq-qZ-l0q" secondAttribute="bottom" id="CdT-fq-wI8"/>
+                            <constraint firstItem="pVr-S3-qHF" firstAttribute="bottom" secondItem="yLq-qZ-l0q" secondAttribute="bottom" constant="24" id="CdT-fq-wI8"/>
                             <constraint firstItem="yLq-qZ-l0q" firstAttribute="top" secondItem="hb2-7S-EGe" secondAttribute="bottom" id="HQe-uI-jA0"/>
                             <constraint firstItem="hb2-7S-EGe" firstAttribute="top" secondItem="pVr-S3-qHF" secondAttribute="top" id="Jph-8h-2Ru"/>
                             <constraint firstItem="yLq-qZ-l0q" firstAttribute="leading" secondItem="pVr-S3-qHF" secondAttribute="leading" constant="24" id="dr7-We-ubz"/>

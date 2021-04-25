@@ -15,6 +15,8 @@ class FlightFinalBookingVC:  UIViewController {
     var numberOfChild = 0
     var numberOfInfant = 0
     
+    var totalParam = 0
+    
     var tfPosition = 0
     
     @IBOutlet weak var viewMain: UIView!
@@ -23,6 +25,9 @@ class FlightFinalBookingVC:  UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        totalParam = ((numberOfInfant + numberOfChild + numberOfAdult) * 4) + 2
+        
+        
         viewMain.addSubview(scrollView)
         scrollView.addSubview(scrollViewContainer)
         
@@ -195,19 +200,74 @@ class FlightFinalBookingVC:  UIViewController {
     
     func addButtonProceed(){
            tfPosition = tfPosition + 1
-           let button = CustomButton()
-           button.heightAnchor.constraint(equalToConstant: 44).isActive = true
-           button.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 48).isActive = true
-            button.setTitle("Book Flight", for: .normal)
-           button.tag = tfPosition
+            let button = UIButton(type: UIButton.ButtonType.system) as UIButton
+            
+            let xPostion:CGFloat = 50
+            let yPostion:CGFloat = 100
+            let buttonWidth:CGFloat = 150
+            let buttonHeight:CGFloat = 45
+            
+            button.frame = CGRect(x:xPostion, y:yPostion, width:buttonWidth, height:buttonHeight)
+            
+            button.backgroundColor = UIColor.lightGray
+            button.setTitle("Book flight", for: UIControl.State.normal)
+            button.tintColor = UIColor.black
+        
+        
             button.addTarget(self, action: #selector(didButtonClick), for: .touchUpInside)
            scrollViewContainer.addArrangedSubview(button)
         
     }
     
+    
+    func checkDynamicTF(){
+        
+        for index in 1...totalParam {
+            
+            if let foundView = view.viewWithTag(index) as? CustomTF  {
+                print("TAGS-Found", foundView.tag)
+                print("TAGS-Found-Value", foundView.text!)
+                
+                if(foundView.text!.count == 0){
+                    foundView.errorMessage = "This field is required"
+                }else{
+                    
+                    if(index == totalParam){
+                        clearError()
+                        print("Ready to pay now")
+                    }
+                    
+                }
+            }
+        }
+        
+     
+    }
+    
+    
+    func clearError(){
+        for index in 1...totalParam {
+            if let foundView = view.viewWithTag(index) as? CustomTF  {
+                if(foundView.text!.count == 0){
+                   foundView.errorMessage = ""
+                }
+                
+                
+            }
+        }
+        
+     
+    }
+    
+    
+    
+    
+    
+    
     @objc func didButtonClick(_ sender: UIButton) {
         //Check field and proceed
-        print("Button Click"," Check field and proceed")
+        clearError()
+        checkDynamicTF()
     }
     
     

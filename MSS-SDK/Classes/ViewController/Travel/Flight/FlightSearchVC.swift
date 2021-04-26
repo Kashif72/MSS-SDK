@@ -67,20 +67,10 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
         self.tfTraveller.addTarget(self, action: #selector(myTargetFunction), for: .touchDown)
         
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.getFlightReqData(_:)), name: Notification.Name(rawValue: NOTIFICATION_FLIGHT_APP_CLOSE), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onClickBack(_:)), name: Notification.Name(rawValue: NOTIFICATION_FLIGHT_APP_CLOSE), object: nil)
         
         
     }
-    
-    
-    @objc func getFlightReqData(_ notification: NSNotification) {
-        if let dict = notification.userInfo as NSDictionary? {
-            if let reqData = dict[REQUEST_DATA] as? FlightPayRequest{
-                flightReqListner?.onRequestMade(request: reqData)
-                dismiss(animated: false)
-            }
-        }
-      }
     
     
     @objc func myTargetFunction(textField: UITextField) {

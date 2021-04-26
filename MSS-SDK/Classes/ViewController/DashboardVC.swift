@@ -41,7 +41,26 @@ class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.onBack(_:)), name: Notification.Name(rawValue: NOTIFICATION_APP_CLOSE), object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getFlightReqData(_:)), name: Notification.Name(rawValue: NOTIFICATION_FLIGHT_APP_CLOSE), object: nil)
+        
     }
+    
+    @objc func getFlightReqData(_ notification: NSNotification) {
+          
+        
+        if let dict = notification.userInfo as NSDictionary? {
+        
+            if let reqData = dict[REQUEST_DATA] as? FlightPayRequest{
+                
+            let reqDataDict:[String: FlightPayRequest] = [REQUEST_DATA: reqData]
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIFACTION_FLIGHT_REQUEST), object: nil, userInfo: reqDataDict)
+                    dismiss(animated: false)
+              }
+          }
+          dismiss(animated: false)
+        }
+    
+    
     
     @objc func appMovedToBackground() {
         let userInfo = [ "appLife" : 1]
@@ -163,7 +182,7 @@ class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
             let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
             let controller = storyboard.instantiateViewController(withIdentifier: "FlightSearchVC") as! FlightSearchVC
             controller.modalPresentationStyle = .fullScreen
-            controller.flightReqListner = self
+//            controller.flightReqListner = self
             self.present(controller, animated: true, completion: nil)
             
         default:
@@ -195,9 +214,9 @@ class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         let reqDataDict:[String: FlightPayRequest] = [REQUEST_DATA: request]
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIFACTION_FLIGHT_REQUEST), object: nil, userInfo: reqDataDict)
         
-        print("Reseved" + request.emailAddress)
+//        print("Reseved" + request.emailAddress)
         
-        self.dismiss(animated: false, completion: nil)
+        dismiss(animated: false)
     }
     
     

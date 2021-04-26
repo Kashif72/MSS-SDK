@@ -8,8 +8,8 @@
 
 import UIKit
 
-class FlightFinalBookingVC:  UIViewController {
-
+class FlightFinalBookingVC:  UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+    
     
     var numberOfAdult = 0
     var numberOfChild = 0
@@ -20,10 +20,17 @@ class FlightFinalBookingVC:  UIViewController {
     var tfPosition = 0
     
     var currentDateTag = 0
+    var currentGenderTag = 0
     
     @IBOutlet weak var viewMain: UIView!
     
     let datePicker = UIDatePicker()
+    
+    
+    let genderPv = UIPickerView()
+    
+    var genderArray = ["Male","Female","Other"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +56,9 @@ class FlightFinalBookingVC:  UIViewController {
         // this is important for scrolling
         scrollViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         
+        self.genderPv.delegate = self
+           
+        
         registerNotifications()
         
     }
@@ -56,8 +66,16 @@ class FlightFinalBookingVC:  UIViewController {
     
     @objc func dateField(sender: CustomTF) {
         currentDateTag = sender.tag
-         showDatePicker(sender: sender)
+        showDatePicker(sender: sender)
     }
+    
+    @objc func genderField(sender: CustomTF) {
+        currentGenderTag = sender.tag
+        (view.viewWithTag(currentGenderTag) as? CustomTF)?.inputView = genderPv
+        
+    }
+    
+    
     
     func showDatePicker(sender: CustomTF){
           //Formate Date
@@ -154,6 +172,9 @@ class FlightFinalBookingVC:  UIViewController {
                     tf.placeholder = "Adult Last Name"
                 case 3:
                     tf.placeholder = "Adult Gender"
+//                    tf.inputView = self.genderPv
+                    tf.addTarget(self, action: #selector(genderField(sender:)), for: .editingDidBegin)
+                    
                 case 4:
                     tf.placeholder = "Adult Date of Birth"
                     tf.addTarget(self, action: #selector(dateField(sender:)), for: .editingDidBegin)
@@ -168,7 +189,14 @@ class FlightFinalBookingVC:  UIViewController {
             
            }
         
-        addChildTF()
+        if(numberOfChild != 0){
+            addChildTF()
+        }else if (numberOfInfant != 0){
+            addInfantTF()
+        }else{
+            addMobileTF()
+        }
+        
        
        }
     
@@ -189,6 +217,8 @@ class FlightFinalBookingVC:  UIViewController {
                         tf.placeholder = "Child Last Name"
                     case 3:
                         tf.placeholder = "Child Gender"
+//                        tf.inputView = self.genderPv
+                    tf.addTarget(self, action: #selector(genderField(sender:)), for: .editingDidBegin)
                     case 4:
                         tf.placeholder = "Child Date of Birth"
                     tf.addTarget(self, action: #selector(dateField(sender:)), for: .editingDidBegin)
@@ -201,9 +231,11 @@ class FlightFinalBookingVC:  UIViewController {
                scrollViewContainer.addArrangedSubview(tf)
             }
            }
-        
-        addInfantTF()
-       
+            if (numberOfInfant != 0){
+                addInfantTF()
+            }else{
+                 addMobileTF()
+            }
        }
     
     func addInfantTF(){
@@ -224,6 +256,8 @@ class FlightFinalBookingVC:  UIViewController {
                 tf.placeholder = "Infant Last Name"
             case 3:
                 tf.placeholder = "Infant Gender"
+//                tf.inputView = self.genderPv
+                tf.addTarget(self, action: #selector(genderField(sender:)), for: .editingDidBegin)
             case 4:
                 tf.placeholder = "Infant Date of Birth"
                 tf.addTarget(self, action: #selector(dateField(sender:)), for: .editingDidBegin)
@@ -249,6 +283,8 @@ class FlightFinalBookingVC:  UIViewController {
         tf.placeholder = "Mobile Number"
         tf.tag = tfPosition
         tf.addDoneButtonOnKeyboard()
+        tf.keyboardType = UIKeyboardType.numberPad
+        tf.maxLength = 10
         scrollViewContainer.addArrangedSubview(tf)
         
         addEmailTF()
@@ -263,6 +299,7 @@ class FlightFinalBookingVC:  UIViewController {
            tf.placeholder = "Email id"
            tf.tag = tfPosition
             tf.addDoneButtonOnKeyboard()
+            tf.keyboardType = UIKeyboardType.emailAddress
            scrollViewContainer.addArrangedSubview(tf)
         
         addButtonProceed()
@@ -316,28 +353,17 @@ class FlightFinalBookingVC:  UIViewController {
                 }
             }
         }
-        
-     
     }
     
     
     func clearError(){
         for index in 1...totalParam {
             if let foundView = view.viewWithTag(index) as? CustomTF  {
-                if(foundView.text!.count == 0){
                    foundView.errorMessage = ""
-                }
-                
                 
             }
         }
-        
-     
     }
-    
-    
-    
-    
     
     
     @objc func didButtonClick(_ sender: UIButton) {
@@ -345,8 +371,7 @@ class FlightFinalBookingVC:  UIViewController {
         clearError()
         checkDynamicTF()
     }
-    
-    
+   
     
         private func registerNotifications() {
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -375,5 +400,36 @@ class FlightFinalBookingVC:  UIViewController {
          unregisterNotifications()
      }
     
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return genderArray.count
+          
+       }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+       
+       func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+           
+               if((view.viewWithTag(currentGenderTag) as? CustomTF)?.text?.count == 0){
+                
+                (view.viewWithTag(currentGenderTag) as? CustomTF)?.text = genderArray[row]
+                (view.viewWithTag(currentGenderTag) as? CustomTF)?.errorMessage = ""
+               }
+               return genderArray[row]
+           
+       }
+       
+       func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+          
+               (view.viewWithTag(currentGenderTag) as? CustomTF)?.errorMessage = ""
+               if(genderArray.count > 0){
+                   (view.viewWithTag(currentGenderTag) as? CustomTF)?.text = genderArray[row]
+                   (view.viewWithTag(currentGenderTag) as? CustomTF)?.errorMessage = ""
+               }
+           
+           
+       }
     
 }

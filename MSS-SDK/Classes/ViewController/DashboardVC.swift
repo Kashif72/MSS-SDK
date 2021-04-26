@@ -113,7 +113,7 @@ class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
             controller.modalPresentationStyle = .fullScreen
             self.present(controller, animated: true, completion: nil)
             
-        case 3:
+        case 2:
             let podBundle = Bundle(for: NewsVC.self)
             let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
             let bundle = Bundle(url: bundleURL!)!
@@ -123,36 +123,36 @@ class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
             self.present(controller, animated: true, completion: nil)
             
             
-        case 4:
-            let podBundle = Bundle(for: BusSearchVC.self)
-            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
-            let bundle = Bundle(url: bundleURL!)!
-            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
-            let controller = storyboard.instantiateViewController(withIdentifier: "BusSearchVC") as! BusSearchVC
-            controller.modalPresentationStyle = .fullScreen
-            self.present(controller, animated: true, completion: nil)
+//        case 4:
+//            let podBundle = Bundle(for: BusSearchVC.self)
+//            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+//            let bundle = Bundle(url: bundleURL!)!
+//            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+//            let controller = storyboard.instantiateViewController(withIdentifier: "BusSearchVC") as! BusSearchVC
+//            controller.modalPresentationStyle = .fullScreen
+//            self.present(controller, animated: true, completion: nil)
             
-        case 2:
-            let podBundle = Bundle(for: GiftCardCatListVC.self)
-            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
-            let bundle = Bundle(url: bundleURL!)!
-            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
-            let controller = storyboard.instantiateViewController(withIdentifier: "GiftCardCatListVC") as! GiftCardCatListVC
-            controller.modalPresentationStyle = .fullScreen
-            controller.giftCatrequestListener = self
-            self.present(controller, animated: true, completion: nil)
+//        case 2:
+//            let podBundle = Bundle(for: GiftCardCatListVC.self)
+//            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+//            let bundle = Bundle(url: bundleURL!)!
+//            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+//            let controller = storyboard.instantiateViewController(withIdentifier: "GiftCardCatListVC") as! GiftCardCatListVC
+//            controller.modalPresentationStyle = .fullScreen
+//            controller.giftCatrequestListener = self
+//            self.present(controller, animated: true, completion: nil)
             
-        case 8:
-            let podBundle = Bundle(for: WebViewVC.self)
-            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
-            let bundle = Bundle(url: bundleURL!)!
-            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
-            let controller = storyboard.instantiateViewController(withIdentifier: "WebViewVC") as! WebViewVC
-            controller.modalPresentationStyle = .fullScreen
-            controller.webUrl = "http://bigbasket.go2cloud.org/aff_c?offer_id=271&aff_id=3683"
-            self.present(controller, animated: true, completion: nil)
+//        case 8:
+//            let podBundle = Bundle(for: WebViewVC.self)
+//            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+//            let bundle = Bundle(url: bundleURL!)!
+//            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+//            let controller = storyboard.instantiateViewController(withIdentifier: "WebViewVC") as! WebViewVC
+//            controller.modalPresentationStyle = .fullScreen
+//            controller.webUrl = "http://bigbasket.go2cloud.org/aff_c?offer_id=271&aff_id=3683"
+//            self.present(controller, animated: true, completion: nil)
             
-        case 5:
+        case 3:
             let podBundle = Bundle(for: FlightSearchVC.self)
             let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
             let bundle = Bundle(url: bundleURL!)!

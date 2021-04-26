@@ -74,7 +74,7 @@ class CityListVC: UIViewController,  UITableViewDelegate, UITableViewDataSource,
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText:String)
     {
         
-    cityArray = FlightCityModel.flightCityInstance.filter({$0.cityName.contains(searchText) || $0.cityCode.contains(searchText)})
+        cityArray = FlightCityModel.flightCityInstance.filter({$0.cityName.contains(searchText) || $0.cityCode.contains(searchText.uppercased())})
        tblCity.reloadData()
     }
 

@@ -539,19 +539,17 @@ class APIHandler: NSObject {
                               let decoder = JSONDecoder()
                               print("Response", response.response as Any)
                               
-                              
-                              
-                              let responseValue = try! decoder.decode(FlightListResponse.self, from: response.data!)
-                              
-                              if(responseValue.code == SUCCESS){
-                                FlightListDetails.flightJourneyInstance = responseValue.details.journeys
-                                success(responseValue.message, responseValue);
-                              }else{
-                                failure(responseValue.message)
+                              do {
+                                let responseValue = try decoder.decode(FlightListResponse.self, from: response.data!)
+                                if(responseValue.code == SUCCESS){
+                                    FlightListDetails.flightJourneyInstance = responseValue.details.journeys
+                                    success(responseValue.message, responseValue);
+                                }else{
+                                    failure(responseValue.message)
+                                }
+                              } catch {
+                                failure("Error! \(String(status))")
                               }
-                              
-                              print("Regsiter Response", responseValue)
-                              
                           default:
                                 failure("Error! \(String(status))")
                           }

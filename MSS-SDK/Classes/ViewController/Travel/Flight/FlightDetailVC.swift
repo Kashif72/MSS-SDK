@@ -14,6 +14,10 @@ import TTGSnackbar
 
 class FlightDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    
+    var flightReqListner :FlightRequestListener? = nil
+    
+    
     @IBOutlet weak var lblNoPassanger: UILabel!
     @IBOutlet weak var lblAmount: UILabel!
     @IBOutlet weak var lblFromTo: UILabel!
@@ -56,6 +60,9 @@ class FlightDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         lblFromTo.text = fromCity + " -> " + toCity
         
         tblHeight.constant = CGFloat(147 * flightLegArray!.count)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onClickBack(_:)), name: Notification.Name(rawValue: NOTIFICATION_FLIGHT_APP_CLOSE), object: nil)
         
     }
     
@@ -222,7 +229,7 @@ class FlightDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSour
                               //Success
             self.stopLoading(fromView: self.view)
                 //show dialog here
-            self.showConfirmDialog(message: "Base fare: \(String(describing: baseFare))\nTotal tax: \(String(describing: totalTax))\n Total fare: \(String(describing: totalFare))")
+            self.showConfirmDialog(message: "Base fare: \( baseFare!)\nTotal tax: \(totalTax!)\n Total fare: \(totalFare!)")
                               
             }, failure: { (message) in
                 self.stopLoading(fromView: self.view)
@@ -264,12 +271,20 @@ class FlightDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             let bundle = Bundle(url: bundleURL!)!
             let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
             let controller = storyboard.instantiateViewController(withIdentifier: "FlightFinalBookingVC") as! FlightFinalBookingVC
-            
-//            let controller = FlightFinalBookingVC()
+
             controller.modalPresentationStyle = .fullScreen
             controller.numberOfAdult = self.numberOfAdult
             controller.numberOfChild = self.numberOfChild
             controller.numberOfInfant = self.numberOfInfant
+            
+            controller.selectedPosition = self.selectedPosition
+            controller.beginDate = self.dateFlight
+            controller.origin = self.fromCity
+            controller.destination = self.toCity
+            controller.bookingAmount = self.totalPayable
+            controller.listReq = self.listReq
+            controller.listResponse = self.listResponse
+            
             self.present(controller, animated: true, completion: nil)
             
         }

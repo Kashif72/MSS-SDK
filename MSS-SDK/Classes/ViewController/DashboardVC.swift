@@ -10,7 +10,11 @@ import UIKit
 import TTGSnackbar
 
 
-class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RequestListener {
+class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RequestListener, FlightRequestListener {
+    
+    
+    
+    
     
     
     @IBOutlet weak var cvMenu: UICollectionView!
@@ -159,6 +163,7 @@ class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
             let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
             let controller = storyboard.instantiateViewController(withIdentifier: "FlightSearchVC") as! FlightSearchVC
             controller.modalPresentationStyle = .fullScreen
+            controller.flightReqListner = self
             self.present(controller, animated: true, completion: nil)
             
         default:
@@ -183,6 +188,18 @@ class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
              snackbar.backgroundColor = ColorConverter.hexStringToUIColor(hex: ColorCode.txtError)
              snackbar.show()
     }
+    
+    
+    func onRequestMade(request: FlightPayRequest) {
+        
+        let reqDataDict:[String: FlightPayRequest] = [REQUEST_DATA: request]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIFACTION_FLIGHT_REQUEST), object: nil, userInfo: reqDataDict)
+        
+        print("Reseved" + request.emailAddress)
+        
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     
 }
 
@@ -213,4 +230,10 @@ class CellHomeMenu: UICollectionViewCell {
 
 protocol RequestListener {
     func onRequestMade(request: PayRequest)
+}
+
+
+
+protocol FlightRequestListener {
+    func onRequestMade(request: FlightPayRequest)
 }

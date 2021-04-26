@@ -10,6 +10,8 @@ import UIKit
 
 class FlightFinalBookingVC:  UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    var flightReqListner :FlightRequestListener? = nil
+    
     
     var numberOfAdult = 0
     var numberOfChild = 0
@@ -363,8 +365,10 @@ class FlightFinalBookingVC:  UIViewController, UITextFieldDelegate, UIPickerView
                         //Prepare request param here
                         var req = FlightPayRequest()
                         req.bookSegments = listResponse?.details.journeys[0].segments[selectedPosition]
-                        req.emailAddress = (view.viewWithTag(((numberOfInfant + numberOfChild + numberOfAdult) * 4) + 1) as? CustomTF)?.text
-                        req.mobileNumber = (view.viewWithTag(((numberOfInfant + numberOfChild + numberOfAdult) * 4) + 2) as? CustomTF)?.text
+                        
+                        req.emailAddress = (view.viewWithTag(((numberOfInfant + numberOfChild + numberOfAdult) * 4) + 2) as? CustomTF)?.text
+                        
+                        req.mobileNumber = (view.viewWithTag(((numberOfInfant + numberOfChild + numberOfAdult) * 4) + 1) as? CustomTF)?.text
                         req.visatype = ""
                         req.traceId = "AYTM00011111111110002"
                         req.androidBooking = true
@@ -381,10 +385,11 @@ class FlightFinalBookingVC:  UIViewController, UITextFieldDelegate, UIPickerView
                         req.flightSearchDetails = getFlightSearchDetail()
                         req.travellerDetails = getTravellerDetail()
                         
+                        let reqDataDict:[String: FlightPayRequest] = [REQUEST_DATA: req]
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIFICATION_FLIGHT_APP_CLOSE), object: nil, userInfo: reqDataDict)
                         
                         
-                        
-                        
+                        self.dismiss(animated: false, completion: nil)
                     }
                     
                 }

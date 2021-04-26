@@ -13,6 +13,10 @@ import TTGSnackbar
 
 class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, PassangerSelecListner, CitySelecListner {
     
+    
+    
+    var flightReqListner :FlightRequestListener? = nil
+    
     @IBOutlet weak var tfFrom: CustomTF!
     @IBOutlet weak var tfTo: CustomTF!
     @IBOutlet weak var tfDate: CustomTF!
@@ -61,7 +65,22 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
      
         
         self.tfTraveller.addTarget(self, action: #selector(myTargetFunction), for: .touchDown)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getFlightReqData(_:)), name: Notification.Name(rawValue: NOTIFICATION_FLIGHT_APP_CLOSE), object: nil)
+        
+        
     }
+    
+    
+    @objc func getFlightReqData(_ notification: NSNotification) {
+        if let dict = notification.userInfo as NSDictionary? {
+            if let reqData = dict[REQUEST_DATA] as? FlightPayRequest{
+                flightReqListner?.onRequestMade(request: reqData)
+                dismiss(animated: false)
+            }
+        }
+      }
     
     
     @objc func myTargetFunction(textField: UITextField) {
@@ -314,7 +333,6 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
                     controller.numberOfInfant = self.numberOfInfant
                     controller.numberOfAdult = self.numberOfAdult
                     controller.numberOfChild = self.numberOfChild
-                    
                     controller.modalPresentationStyle = .fullScreen
                     self.present(controller, animated: true, completion: nil)
                     

@@ -10,6 +10,10 @@ import UIKit
 
 class OnWayListVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
+    
+    var flightReqListner :FlightRequestListener? = nil
+    
+    
     @IBOutlet weak var lblFromTo: UILabel!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var tblFlightList: UITableView!
@@ -37,6 +41,9 @@ class OnWayListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         tblFlightList.dataSource = self
         lblFromTo.text = fromCity + " -> " + toCity
         lblDate.text = dateFlight
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onClickBack(_:)), name: Notification.Name(rawValue: NOTIFICATION_FLIGHT_APP_CLOSE), object: nil)
     }
     
     
@@ -138,7 +145,7 @@ class OnWayListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         controller.numberOfAdult = self.numberOfAdult
         controller.numberOfChild = self.numberOfChild
         
-
+        controller.flightReqListner = self.flightReqListner
         
         controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: true, completion: nil)

@@ -51,4 +51,5 @@ public let REQUEST_DATA = "requestData"
 public let NOTIFACTION_FLIGHT_REQUEST = "requestSentFlight"
 
 public let NOTIFICATION_APP_LIFE = "app_life"
+public let NOTIFICATION_FLIGHT_APP_CLOSE = "app_close_flight"
 public let NOTIFICATION_APP_CLOSE = "app_close"

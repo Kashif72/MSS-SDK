@@ -9,7 +9,7 @@
 import Foundation
 
 //*********FOR CITY**********//
-struct FlightCityModel : Codable{
+public struct FlightCityModel : Codable{
     public var cityCode : String
     public var cityName : String
     public var airportName : String
@@ -17,7 +17,7 @@ struct FlightCityModel : Codable{
 }
 
 
-struct FlightCityResponse : Codable{
+public struct FlightCityResponse : Codable{
     public var code : String
     public var message : String
     public var details : Array<FlightCityModel>
@@ -26,7 +26,7 @@ struct FlightCityResponse : Codable{
 
 //*************FLIGHT LIST**************//
 //Request
-struct FlightListRequest : Codable{
+public struct FlightListRequest : Codable{
     public var origin: String!
     public var destination: String!
     public var tripType: String!
@@ -40,14 +40,14 @@ struct FlightListRequest : Codable{
 
 
 
-struct FlightListResponse : Codable {
+public struct FlightListResponse : Codable {
     public var code: String
     public var message: String
     
     public var details : FlightListDetails!
 }
 
-struct FlightListDetails : Codable {
+public struct FlightListDetails : Codable {
     public var journeys : Array<JourneysModel>!
     public var traceId : String!
     
@@ -55,7 +55,7 @@ struct FlightListDetails : Codable {
 }
 
 //This is inside details
-struct JourneysModel : Codable {
+public struct JourneysModel : Codable {
     public var segments : Array<SegmentModel>!
     
 }
@@ -88,7 +88,7 @@ public struct SegmentModel: Codable {
 }
 
 //This is inside Segment
-struct FareModel : Codable{
+public struct FareModel : Codable{
     public var basicFare: Double
     public var exchangeRate: Double
     public var totalFareWithOutMarkUp: Double
@@ -97,7 +97,7 @@ struct FareModel : Codable{
  }
 
 //This is inside FareModel
-struct PaxFareModel : Codable{
+public struct PaxFareModel : Codable{
     public var baggageUnit: String
     public var baggageWeight: String
     public var baseTransactionAmount: Double
@@ -119,14 +119,14 @@ struct PaxFareModel : Codable{
 
 }
 //This is inside PaxFareModel
-struct BookFareModel : Codable{
+public struct BookFareModel : Codable{
     public var amount: Double
     public var chargeCode: String
     public var chargeType: String
 }
 
 //This is inside SegmentModel
-struct BondModel : Codable{
+public struct BondModel : Codable{
     public var boundType: String
     public var itineraryKey: String
     public var journeyTime: String
@@ -138,7 +138,7 @@ struct BondModel : Codable{
 
 
 //This is inside BondModel
-struct LegsModel: Codable {
+public struct LegsModel: Codable {
     public var aircraftCode: String
     public var aircraftType: String
     public var airlineName: String
@@ -179,7 +179,7 @@ struct LegsModel: Codable {
 
 
 
-struct CheckFinalPriceReq: Codable {
+public struct CheckFinalPriceReq: Codable {
         public var bonds : Array<BondModel>!
        public var fares : Array<FareModel>!
        public var baggageFare: String!
@@ -211,7 +211,7 @@ struct CheckFinalPriceReq: Codable {
        public var endDate: String!
 }
 
-struct CheckFlightPriceRequest: Codable {
+public struct CheckFlightPriceRequest: Codable {
    
 
 }
@@ -219,7 +219,7 @@ struct CheckFlightPriceRequest: Codable {
 
 
 
-struct CheckFlightPriceResponse : Codable{
+public struct CheckFlightPriceResponse : Codable{
     public var code: String
     public var message: String
     
@@ -229,22 +229,22 @@ struct CheckFlightPriceResponse : Codable{
 
 
 
-struct FlightPriceDetails : Codable {
+public struct FlightPriceDetails : Codable {
     public var journeys : Array<FlightPriceJourneysModel>!
     
 }
 
-struct FlightPriceJourneysModel : Codable {
+public struct FlightPriceJourneysModel : Codable {
     public var segments : Array<FlightPriceSegmentModel>!
     
 }
 
 
-struct FlightPriceSegmentModel: Codable {
+public struct FlightPriceSegmentModel: Codable {
     public var fares : Array<FlightPriceFareModel>
 }
 
-struct FlightPriceFareModel : Codable{
+public struct FlightPriceFareModel : Codable{
     public var basicFare: Double
     public var totalFareWithOutMarkUp: Double
     public var totalTaxWithOutMarkUp: Double

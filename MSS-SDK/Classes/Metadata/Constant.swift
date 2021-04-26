@@ -48,7 +48,7 @@ let URL_CHECK_FLIGHT_PRICE = "travel/flight/price/check"
 public let NOTIFACTION_REQUEST = "requestSent"
 public let REQUEST_TYPE = "requestType"
 public let REQUEST_DATA = "requestData"
-
+public let NOTIFACTION_FLIGHT_REQUEST = "requestSentFlight"
 
 public let NOTIFICATION_APP_LIFE = "app_life"
 public let NOTIFICATION_APP_CLOSE = "app_close"

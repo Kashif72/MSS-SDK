@@ -32,6 +32,19 @@ class FlightFinalBookingVC:  UIViewController, UITextFieldDelegate, UIPickerView
     var genderArray = ["Male","Female","Other"]
     
     
+    var listReq: FlightListRequest? = nil
+    var listResponse: FlightListResponse? = nil
+    var selectedPosition = 0
+    var bookingAmount = ""
+    
+    
+    var beginDate = ""
+    var destination = ""
+    var origin = ""
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -347,13 +360,185 @@ class FlightFinalBookingVC:  UIViewController, UITextFieldDelegate, UIPickerView
                     
                     if(index == totalParam){
                         clearError()
-                        print("Ready to pay now")
+                        //Prepare request param here
+                        var req = FlightPayRequest()
+                        req.bookSegments = listResponse?.details.journeys[0].segments[selectedPosition]
+                        req.emailAddress = (view.viewWithTag(((numberOfInfant + numberOfChild + numberOfAdult) * 4) + 1) as? CustomTF)?.text
+                        req.mobileNumber = (view.viewWithTag(((numberOfInfant + numberOfChild + numberOfAdult) * 4) + 2) as? CustomTF)?.text
+                        req.visatype = ""
+                        req.traceId = "AYTM00011111111110002"
+                        req.androidBooking = true
+                        req.domestic = !(listResponse?.details.journeys[0].segments[selectedPosition].international)!
+                        req.ticketDetails = ""
+                        
+                        req.engineID = listResponse?.details.journeys[0].segments[selectedPosition].engineID
+                        
+                        req.engineIDList = getEngineIdList()
+                        
+                        req.bookingAmount = bookingAmount
+                        
+                        req.bookingCurrencyCode = "INR"
+                        req.flightSearchDetails = getFlightSearchDetail()
+                        req.travellerDetails = getTravellerDetail()
+                        
+                        
+                        
+                        
+                        
                     }
                     
                 }
             }
         }
     }
+    
+    
+    func getEngineIdList() -> Array<String>{
+        var englineArray = [String]()
+        englineArray.append((listResponse?.details.journeys[0].segments[selectedPosition].engineID)!)
+        return englineArray
+    }
+    
+    
+    func getFlightSearchDetail() -> Array<FlightBookingDetailsModel>{
+        var details = Array<FlightBookingDetailsModel>()
+        details.append(FlightBookingDetailsModel(beginDate: beginDate, destination : destination, origin: origin))
+        return details
+    }
+    
+    
+    
+    //Adding values to textfield
+    func getTravellerDetail() -> Array<TravellerDetailsModel>{
+        
+        var details = Array<TravellerDetailsModel>()
+        var fName = ""
+        var lName = ""
+        var title = ""
+        var gender = ""
+        var type = ""
+        var dob = ""
+        let passNo = ""
+        let passExpDate = ""
+        
+        var mainIndex = 1
+        
+             for _ in 1...numberOfAdult {
+                for index in 1...4{
+                    switch index {
+                    case 1:
+                        fName = (view.viewWithTag(mainIndex) as? CustomTF)!.text!
+                        mainIndex = mainIndex + 1
+                    case 2:
+                        lName = (view.viewWithTag(mainIndex) as? CustomTF)!.text!
+                        mainIndex = mainIndex + 1
+                    case 3:
+                        gender = (view.viewWithTag(mainIndex) as? CustomTF)!.text!
+                        
+                        if((view.viewWithTag(mainIndex) as? CustomTF)!.text! == "Male"){
+                            title = "Mr"
+                        }else{
+                            title = "Ms"
+                        }
+                        
+                        mainIndex = mainIndex + 1
+                    case 4:
+                        dob = (view.viewWithTag(mainIndex) as? CustomTF)!.text!
+                        mainIndex = mainIndex + 1
+                    default:
+                        break
+                    }
+                    
+                    
+                }
+            type = "adult"
+            details.append(TravellerDetailsModel(fName: fName,lName: lName, title: title, gender: gender, type:type, dob:dob, passNo:passNo, passExpDate:passExpDate))
+                
+            }
+                
+            if(numberOfChild != 0){
+                    for _ in 1...numberOfChild {
+                        for index in 1...4{
+                            switch index {
+                            case 1:
+                                fName = (view.viewWithTag(mainIndex) as? CustomTF)!.text!
+                                mainIndex = mainIndex + 1
+                            case 2:
+                                lName = (view.viewWithTag(mainIndex) as? CustomTF)!.text!
+                                mainIndex = mainIndex + 1
+                            case 3:
+                                gender = (view.viewWithTag(mainIndex) as? CustomTF)!.text!
+                                
+                                if((view.viewWithTag(mainIndex) as? CustomTF)!.text! == "Male"){
+                                    title = "Mr"
+                                }else{
+                                    title = "Ms"
+                                }
+                                
+                                mainIndex = mainIndex + 1
+                            case 4:
+                                dob = (view.viewWithTag(mainIndex) as? CustomTF)!.text!
+                                mainIndex = mainIndex + 1
+                            default:
+                                break
+                            }
+                            
+                            
+                        }
+                    type = "Child"
+                    details.append(TravellerDetailsModel(fName: fName,lName: lName, title: title, gender: gender, type:type, dob:dob, passNo:passNo, passExpDate:passExpDate))
+                        
+                    }
+            }
+            
+            if (numberOfInfant != 0){
+                  for _ in 1...numberOfInfant {
+                      for index in 1...4{
+                          switch index {
+                          case 1:
+                              fName = (view.viewWithTag(mainIndex) as? CustomTF)!.text!
+                              mainIndex = mainIndex + 1
+                          case 2:
+                              lName = (view.viewWithTag(mainIndex) as? CustomTF)!.text!
+                              mainIndex = mainIndex + 1
+                          case 3:
+                              gender = (view.viewWithTag(mainIndex) as? CustomTF)!.text!
+                              
+                              if((view.viewWithTag(mainIndex) as? CustomTF)!.text! == "Male"){
+                                  title = "Mr"
+                              }else{
+                                  title = "Ms"
+                              }
+                              
+                              mainIndex = mainIndex + 1
+                          case 4:
+                              dob = (view.viewWithTag(mainIndex) as? CustomTF)!.text!
+                              mainIndex = mainIndex + 1
+                          default:
+                              break
+                          }
+                          
+                          
+                      }
+                  type = "Infant"
+                  details.append(TravellerDetailsModel(fName: fName,lName: lName, title: title, gender: gender, type:type, dob:dob, passNo:passNo, passExpDate:passExpDate))
+                      
+                  }
+            }
+        
+        return details
+    }
+    
+//    public var fName : String!
+//    public var lName : String!
+//    public var title : String!
+//
+//    public var gender : String!
+//    public var type : String!
+//    public var dob : String!
+//
+//    public var passNo : String!
+//    public var passExpDate : String!
     
     
     func clearError(){

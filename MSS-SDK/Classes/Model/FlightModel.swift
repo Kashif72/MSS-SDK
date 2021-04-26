@@ -61,7 +61,7 @@ struct JourneysModel : Codable {
 }
 
 //this is indside journey Array
-struct SegmentModel: Codable {
+public struct SegmentModel: Codable {
     
     public var bondType: String
     public var journeyTime : String!
@@ -180,7 +180,7 @@ struct LegsModel: Codable {
 
 
 struct CheckFinalPriceReq: Codable {
-    public var bonds : Array<BondModel>!
+        public var bonds : Array<BondModel>!
        public var fares : Array<FareModel>!
        public var baggageFare: String!
        
@@ -249,4 +249,50 @@ struct FlightPriceFareModel : Codable{
     public var totalFareWithOutMarkUp: Double
     public var totalTaxWithOutMarkUp: Double
    
+}
+
+
+public struct FlightPayRequest: Codable {
+    public var bookSegments : SegmentModel!
+    public var emailAddress : String!
+    public var mobileNumber : String!
+    public var visatype : String!
+    public var traceId : String!
+    public var androidBooking : Bool!
+    public var domestic : Bool!
+    public var engineID : String!
+    public var engineIDList : [String]!
+    public var bookingAmount : String!
+    public var bookingCurrencyCode : String!
+    public var ticketDetails : String!
+    public var flightSearchDetails : Array<FlightBookingDetailsModel>!
+    public var travellerDetails : Array<TravellerDetailsModel>!
+    public var bankRefNo: String!
+    
+   
+}
+
+
+public struct FlightBookingDetailsModel: Codable{
+    
+    public var beginDate : String!
+    public var destination : String!
+    public var origin : String!
+    
+}
+
+public struct TravellerDetailsModel: Codable{
+    
+    public var fName : String!
+    public var lName : String!
+    public var title : String!
+    
+    public var gender : String!
+    public var type : String!
+    public var dob : String!
+    
+    public var passNo : String!
+    public var passExpDate : String!
+    
+    
 }

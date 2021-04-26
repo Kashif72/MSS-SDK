@@ -62,10 +62,6 @@ struct AutoNumberResponse: Codable {
 
 
 
-
-
-
-
 struct MCircleModel:Codable {
     public var id : Int64!
     public var name : String!
@@ -98,8 +94,9 @@ struct MOptCircResponse: Codable {
 struct MOptCircRequest: Codable {
     public var topUpType : String!
     
-    
 }
+
+
 
 public struct PayRequest: Codable {
     public var serviceProvider : String!

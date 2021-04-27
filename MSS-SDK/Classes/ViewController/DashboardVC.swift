@@ -12,16 +12,9 @@ import TTGSnackbar
 
 class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RequestListener, FlightRequestListener {
     
-    
-    
-    
-    
-    
     @IBOutlet weak var cvMenu: UICollectionView!
     
     let menuItems = StaticData.getHomeMenu()
-    
-    
     var requestListener : RequestListener? = nil
     
     

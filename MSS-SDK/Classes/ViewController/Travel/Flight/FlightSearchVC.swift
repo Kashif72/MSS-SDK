@@ -114,6 +114,7 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
     }
     
     
+    
     func showDatePicker(){
         //Formate Date
         datePicker.datePickerMode = .date
@@ -168,9 +169,18 @@ class FlightSearchVC: UIViewController, UITextFieldDelegate, UIPickerViewDataSou
     
     
     @IBAction func onClickCancel(_ sender: Any) {
-        
+        let podBundle = Bundle(for: FlightCancelVC.self)
+        let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+        let bundle = Bundle(url: bundleURL!)!
+        let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+        let controller = storyboard.instantiateViewController(withIdentifier: "FlightCancelVC") as! FlightCancelVC
+        controller.modalPresentationStyle = .overCurrentContext
+        controller.modalTransitionStyle = .crossDissolve
+        self.present(controller, animated: true, completion: nil)
         
     }
+    
+    
     
     // This will notify us when something has changed on the textfield
     @objc func textFieldDidChange(_ textfield: UITextField) {

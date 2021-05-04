@@ -127,6 +127,7 @@ class DashboardVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
             let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
             let controller = storyboard.instantiateViewController(withIdentifier: "DTHVC") as! DTHVC
             controller.modalPresentationStyle = .fullScreen
+            controller.requestListener = self
             self.present(controller, animated: true, completion: nil)
             
         case 2:

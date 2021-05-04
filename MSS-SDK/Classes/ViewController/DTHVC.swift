@@ -20,6 +20,7 @@ class DTHVC: UIViewController, UITextFieldDelegate, OperatorListener   {
     
     var serviceCode = ""
     
+    var requestListener : RequestListener? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,6 +163,10 @@ class DTHVC: UIViewController, UITextFieldDelegate, OperatorListener   {
             req.amount = self.tfAmount.text!
             req.transactionType = "dth"
             //Send data back
+            
+            self.requestListener?.onRequestMade(request: req)
+                    
+            self.dismiss(animated: false)
             
             
             

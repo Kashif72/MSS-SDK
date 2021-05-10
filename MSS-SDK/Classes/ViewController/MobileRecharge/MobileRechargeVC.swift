@@ -106,7 +106,7 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate, UIPickerViewDataS
         }
     }
     
-    @IBAction func onTouchOperator(_ sender: Any) throws {
+    @IBAction func onTouchOperator(_ sender: Any) {
           if(MOperatorModel.preOptModel.count != 0){
           let podBundle = Bundle(for: GiftCardCatListVC.self)
                          

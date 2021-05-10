@@ -168,10 +168,6 @@ class DTHVC: UIViewController, UITextFieldDelegate, OperatorListener   {
                     
             self.dismiss(animated: false)
             
-            
-            
-            
-            
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in

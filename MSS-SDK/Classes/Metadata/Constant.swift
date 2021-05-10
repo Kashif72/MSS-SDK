@@ -12,6 +12,7 @@ import Foundation
 let SUCCESS = "S00"
 
 let NETWORK_FAIL_MSG  = "Network is not available now"
+let EXCEPTION_CAUSED  = "Exception caused while calling server request"
 
 
 let ERR_THIS_FILED_IS_REQ = "This field is required"

@@ -45,10 +45,11 @@ class APIHandler: NSObject {
             
             AF.request(request).responseData(completionHandler: { (response) in
                 
-                print("Response", response)
+                    
                     if let status = response.response?.statusCode {
                         switch(status){
                         case 200:
+                            
                             let decoder = JSONDecoder()
                             let responseValue = try! decoder.decode(GiftCardCatRespnse.self, from: response.data!)
                             if(responseValue.code == SUCCESS){
@@ -142,12 +143,14 @@ class APIHandler: NSObject {
                 
                 AF.request(request).responseData(completionHandler: { (response) in
                     
-                    print("Response", response)
+                    
                         if let status = response.response?.statusCode {
                             switch(status){
                             case 200:
                                 let decoder = JSONDecoder()
-                                let responseValue = try! decoder.decode(AutoNumberResponse.self, from: response.data!)
+                                
+                                do{
+                                let responseValue = try decoder.decode(AutoNumberResponse.self, from: response.data!)
                                 
                                 if(responseValue.code == SUCCESS){
                                     success(responseValue.details);
@@ -155,7 +158,9 @@ class APIHandler: NSObject {
                                     failure(responseValue.message)
                                 }
                                 
-                                print("Regsiter Response", responseValue)
+                            } catch {
+                              failure("Error! \(String(status))")
+                            }
                                 
                             default:
                                   failure("Error! \(String(status))")
@@ -195,7 +200,9 @@ class APIHandler: NSObject {
                         switch(status){
                         case 200:
                             let decoder = JSONDecoder()
-                            let responseValue = try! decoder.decode(PlanResponse.self, from: response.data!)
+                            
+                            do{
+                            let responseValue = try decoder.decode(PlanResponse.self, from: response.data!)
                             
                             if(responseValue.code == SUCCESS){
                                 
@@ -229,7 +236,9 @@ class APIHandler: NSObject {
                                 failure(responseValue.message)
                             }
                             
-                            print("Regsiter Response", responseValue)
+                            } catch {
+                              failure("Error! \(String(status))")
+                            }
                             
                         default:
                               failure("Error! \(String(status))")
@@ -268,7 +277,9 @@ class APIHandler: NSObject {
                                switch(status){
                                case 200:
                                    let decoder = JSONDecoder()
-                                   let responseValue = try! decoder.decode(MOptCircResponse.self, from: response.data!)
+                                
+                                do{
+                                   let responseValue = try decoder.decode(MOptCircResponse.self, from: response.data!)
                                    
                                    if(responseValue.code == SUCCESS){
                                     MOperatorModel.preOptModel = responseValue.details
@@ -279,7 +290,9 @@ class APIHandler: NSObject {
                                        failure(responseValue.message)
                                    }
                                    
-                                   print("Regsiter Response", responseValue)
+                               } catch {
+                                 failure("Error! \(String(status))")
+                               }
                                    
                                default:
                                      failure("Error! \(String(status))")
@@ -317,7 +330,9 @@ class APIHandler: NSObject {
                                   switch(status){
                                   case 200:
                                       let decoder = JSONDecoder()
-                                      let responseValue = try! decoder.decode(MOptCircResponse.self, from: response.data!)
+                                    
+                                    do{
+                                      let responseValue = try decoder.decode(MOptCircResponse.self, from: response.data!)
                                       
                                       if(responseValue.code == SUCCESS){
                                        MOperatorModel.dthOptModel = responseValue.details
@@ -326,7 +341,9 @@ class APIHandler: NSObject {
                                           failure(responseValue.message)
                                       }
                                       
-                                      print("Regsiter Response", responseValue)
+                                  } catch {
+                                    failure("Error! \(String(status))")
+                                  }
                                       
                                   default:
                                         failure("Error! \(String(status))")
@@ -361,7 +378,11 @@ class APIHandler: NSObject {
                         switch(status){
                         case 200:
                             let decoder = JSONDecoder()
-                            let responseValue = try! decoder.decode(NewsResponse.self, from: response.data!)
+                            
+                            do {
+                                
+                                
+                            let responseValue = try decoder.decode(NewsResponse.self, from: response.data!)
                             if(responseValue.status == "ok"){
                                 NewsModel.newsListInstance = responseValue.articles
                                 success("");
@@ -369,8 +390,9 @@ class APIHandler: NSObject {
                                 failure("Unable to fetch news")
                             }
                             
-                            print("Regsiter Response", responseValue)
-                            
+                            } catch {
+                              failure("Error! \(String(status))")
+                            }
                         default:
                               failure("Error! \(String(status))")
                         }
@@ -493,7 +515,9 @@ class APIHandler: NSObject {
                         switch(status){
                         case 200:
                             let decoder = JSONDecoder()
-                            let responseValue = try! decoder.decode(FlightCityResponse.self, from: response.data!)
+                            
+                            do {
+                            let responseValue = try decoder.decode(FlightCityResponse.self, from: response.data!)
                             
                             if(responseValue.code == SUCCESS){
                                  FlightCityModel.flightCityInstance = responseValue.details
@@ -502,7 +526,9 @@ class APIHandler: NSObject {
                                 failure(responseValue.message)
                             }
                             
-                            print("Regsiter Response", responseValue)
+                            } catch {
+                              failure("Error! \(String(status))")
+                            }
                             
                         default:
                               failure("Error! \(String(status))")
@@ -528,7 +554,7 @@ class APIHandler: NSObject {
               request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
                 request.httpBody = reqValue
                 print("urlString",urlString)
-              print("Request",loginReq)
+                print("Request",loginReq)
               
               AF.request(request).responseData(completionHandler: { (response) in
                   
@@ -582,25 +608,23 @@ class APIHandler: NSObject {
                         switch(status){
                         case 200:
                             let decoder = JSONDecoder()
-                            print("Response", response)
                             
-                            let responseValue = try! decoder.decode(CheckFlightPriceResponse.self, from: response.data!)
+                        do {
+                            let responseValue = try decoder.decode(CheckFlightPriceResponse.self, from: response.data!)
                             
                             if(responseValue.code == SUCCESS){
-                                    
                                 let baseFare =  responseValue.details.journeys[0].segments[0].fares[0].basicFare
-                                
                                 let totalTax =
                                     responseValue.details.journeys[0].segments[0].fares[0].totalTaxWithOutMarkUp
-                                
                                 let totalFare =
                                     responseValue.details.journeys[0].segments[0].fares[0].totalFareWithOutMarkUp
                                 success(responseValue.message, "INR: " + String(baseFare), "INR: " + String(totalTax), "INR: " + String(totalFare));
                             }else{
                               failure(responseValue.message)
                             }
-                            
-                            print("Regsiter Response", responseValue)
+                        } catch {
+                          failure("Error! \(String(status))")
+                        }
                             
                         default:
                               failure("Error! \(String(status))")

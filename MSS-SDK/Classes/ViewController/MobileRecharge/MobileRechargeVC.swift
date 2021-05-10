@@ -106,7 +106,7 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate, UIPickerViewDataS
         }
     }
     
-    @IBAction func onTouchOperator(_ sender: Any) {
+    @IBAction func onTouchOperator(_ sender: Any) throws {
           if(MOperatorModel.preOptModel.count != 0){
           let podBundle = Bundle(for: GiftCardCatListVC.self)
                          
@@ -128,24 +128,24 @@ class MobileRechargeVC: UIViewController, UITextFieldDelegate, UIPickerViewDataS
               
               var req = MOptCircRequest()
               req.topUpType = "PRE"
-              
-              APIHandler.sharedInstance.getOptCircle(loginReq: req, success: { (sessionId) in
-                  //Success
-                self.stopLoading(fromView: self.view)
-                let podBundle = Bundle(for: GiftCardCatListVC.self)
-                let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
-                let bundle = Bundle(url: bundleURL!)!
-                let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
-                let controller = storyboard.instantiateViewController(withIdentifier: "OperatorListVC") as! OperatorListVC
-                controller.type = "Pre"
-                controller.operatorListener = self
-                controller.modalPresentationStyle = .fullScreen
-                self.present(controller, animated: true, completion: nil)
-                  
-              }, failure: { (message) in
-                  self.stopLoading(fromView: self.view)
-                  self.showError(message: message!)
-              })
+            APIHandler.sharedInstance.getOptCircle(loginReq: req, success: { (sessionId) in
+                    //Success
+            self.stopLoading(fromView: self.view)
+            let podBundle = Bundle(for: GiftCardCatListVC.self)
+            let bundleURL = podBundle.url(forResource: "MSS-SDK", withExtension: "bundle")
+            let bundle = Bundle(url: bundleURL!)!
+            let storyboard = UIStoryboard(name: "MSSMain", bundle: bundle)
+            let controller = storyboard.instantiateViewController(withIdentifier: "OperatorListVC") as! OperatorListVC
+            controller.type = "Pre"
+            controller.operatorListener = self
+            controller.modalPresentationStyle = .fullScreen
+            self.present(controller, animated: true, completion: nil)
+                    
+                }, failure: { (message) in
+                    self.stopLoading(fromView: self.view)
+                    self.showError(message: message!)
+                })
+            
           }
           
       }

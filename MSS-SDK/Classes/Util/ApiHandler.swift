@@ -7,16 +7,11 @@
 //
 
 import Foundation
-
-
-import Foundation
-
 import Alamofire
 import SwiftyJSON
 
 
 private let instance = APIHandler()
-
 
 class APIHandler: NSObject {
     
@@ -44,8 +39,6 @@ class APIHandler: NSObject {
          
             
             AF.request(request).responseData(completionHandler: { (response) in
-                
-                    
                     if let status = response.response?.statusCode {
                         switch(status){
                         case 200:

@@ -71,6 +71,9 @@ class OnWayListVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
 //        .sorted()
 //        .map { $0.journeyTime }
         
+        flightArray = flightArray!.sorted {
+            $0.bonds[0].legs[0].duration < $1.bonds[0].legs[0].duration
+        }
        tblFlightList.reloadData()
     }
     
